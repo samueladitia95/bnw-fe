@@ -37,7 +37,7 @@
 			: 'translate-x-0'}"
 	>
 		<div
-			class="h-full w-full px-6 pb-8 pt-11 bg-bwi-chamoisee text-bwi-Alabaster flex flex-col justify-between"
+			class="h-full w-full px-6 pb-8 pt-11 bg-bwi-chamoisee text-bwi-alabaster flex flex-col justify-between"
 		>
 			<div>
 				<!-- main logo -->
@@ -65,21 +65,21 @@
 					{/each}
 
 					<div
-						class="font-normal text-2xl text-bwi-Alabaster border-2 border-bwi-Alabaster p-5 rounded-full"
+						class="font-normal text-2xl text-bwi-alabaster border-2 border-bwi-alabaster p-5 rounded-full"
 					>
 						Get In Touch
 					</div>
 				</div>
 			</div>
 
-			<div class="font-oakes text-sm text-70%-white">
+			<div class="font-oakes text-sm text-white-70%">
 				© 2023 B&W International. , All Rights Reserved
 			</div>
 		</div>
 	</div>
 
 	<!-- Topbar -->
-	<div class="px-8 pb-8 pt-11 sticky top-0">
+	<div class="px-8 pb-8 pt-11 sticky top-0 bg-bwi-eerie-black-23%">
 		<!-- main logo -->
 		<div class="flex justify-between">
 			<div class="w-28 text-black">
