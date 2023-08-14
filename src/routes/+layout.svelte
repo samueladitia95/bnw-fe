@@ -2,6 +2,7 @@
 	import '../app.css';
 	import MainIcon from '$lib/assets/svg/main_icon.svelte';
 	import CloseIcon from '$lib/assets/svg/close_icon.svelte';
+	import MenuICon from '$lib/assets/svg/menu_icon.svelte';
 
 	const navbars = [
 		{
@@ -74,6 +75,25 @@
 			<div class="font-oakes text-sm text-70%-white">
 				© 2023 B&W International. , All Rights Reserved
 			</div>
+		</div>
+	</div>
+
+	<!-- Topbar -->
+	<div class="px-8 pb-8 pt-11">
+		<!-- main logo -->
+		<div class="flex justify-between">
+			<div class="w-28 text-black">
+				<MainIcon width="100%" height="100%" />
+			</div>
+
+			<button
+				class="w-8 h-8 text-black"
+				on:click={() => {
+					sideBarIsOpen = !sideBarIsOpen;
+				}}
+			>
+				<MenuICon width="100%" height="100%" />
+			</button>
 		</div>
 	</div>
 
