@@ -33,8 +33,8 @@
 	<!-- Sidebar -->
 	<div
 		class="z-10 h-screen w-screen fixed top-0 right-0 duration-500 transition-transform {sideBarIsOpen
-			? 'translate-x-full'
-			: 'translate-x-0'}"
+			? 'translate-x-0'
+			: 'translate-x-full'}"
 	>
 		<div
 			class="h-full w-full px-6 pb-8 pt-11 bg-bwi-chamoisee text-bwi-alabaster flex flex-col justify-between"
@@ -79,7 +79,8 @@
 	</div>
 
 	<!-- Topbar -->
-	<div class="px-8 pb-8 pt-11 sticky top-0 bg-bwi-eerie-black-23%">
+  <!-- bg color disabled for now -->
+	<div class="px-8 pb-8 pt-11 sticky top-0 bg-bwi-eerie-black-23%-">
 		<!-- main logo -->
 		<div class="flex justify-between">
 			<div class="w-28 text-black">
