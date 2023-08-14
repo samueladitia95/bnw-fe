@@ -1,3 +1,86 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: 'Oakes Grotesk';
+		src: local('Oakes Grotesk'), local('Oakes-Grotesk'), local('oakes grotesk'),
+			local('oakes grotesk'), url('/fonts/Oakes/Oakes Grotesk Light.ttf');
+		font-weight: 300;
+		font-display: swap;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Oakes Grotesk';
+		src: local('Oakes Grotesk'), local('Oakes-Grotesk'), local('oakes grotesk'),
+			local('oakes grotesk'), url('/fonts/Oakes/Oakes Grotesk Light Italic.ttf');
+		font-weight: 300;
+		font-display: swap;
+		font-style: italic;
+	}
+	@font-face {
+		font-family: 'Oakes Grotesk';
+		src: local('Oakes Grotesk'), local('Oakes-Grotesk'), local('oakes grotesk'),
+			local('oakes grotesk'), url('/fonts/Oakes/Oakes Grotesk Regular.ttf');
+		font-weight: 400;
+		font-display: swap;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Oakes Grotesk';
+		src: local('Oakes Grotesk'), local('Oakes-Grotesk'), local('oakes grotesk'),
+			local('oakes grotesk'), url('/fonts/Oakes/Oakes Grotesk Regular Italic.ttf');
+		font-weight: 400;
+		font-display: swap;
+		font-style: italic;
+	}
+	@font-face {
+		font-family: 'Oakes Grotesk';
+		src: local('Oakes Grotesk'), local('Oakes-Grotesk'), local('oakes grotesk'),
+			local('oakes grotesk'), url('/fonts/Oakes/Oakes Grotesk Medium.ttf');
+		font-weight: 500;
+		font-display: swap;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Oakes Grotesk';
+		src: local('Oakes Grotesk'), local('Oakes-Grotesk'), local('oakes grotesk'),
+			local('oakes grotesk'), url('/fonts/Oakes/Oakes Grotesk Medium Italic.ttf');
+		font-weight: 500;
+		font-display: swap;
+		font-style: italic;
+	}
+	@font-face {
+		font-family: 'Oakes Grotesk';
+		src: local('Oakes Grotesk'), local('Oakes-Grotesk'), local('oakes grotesk'),
+			local('oakes grotesk'), url('/fonts/Oakes/Oakes Grotesk SemiBold.ttf');
+		font-weight: 600;
+		font-display: swap;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Oakes Grotesk';
+		src: local('Oakes Grotesk'), local('Oakes-Grotesk'), local('oakes grotesk'),
+			local('oakes grotesk'), url('/fonts/Oakes/Oakes Grotesk SemiBold Italic.ttf');
+		font-weight: 600;
+		font-display: swap;
+		font-style: italic;
+	}
+	@font-face {
+		font-family: 'Oakes Grotesk';
+		src: local('Oakes Grotesk'), local('Oakes-Grotesk'), local('oakes grotesk'),
+			local('oakes grotesk'), url('/fonts/Oakes/Oakes Grotesk Bold.ttf');
+		font-weight: 700;
+		font-display: swap;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Oakes Grotesk';
+		src: local('Oakes Grotesk'), local('Oakes-Grotesk'), local('oakes grotesk'),
+			local('oakes grotesk'), url('/fonts/Oakes/Oakes Grotesk Bold Italic.ttf');
+		font-weight: 700;
+		font-display: swap;
+		font-style: italic;
+	}
+}
