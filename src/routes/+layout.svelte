@@ -32,7 +32,7 @@
 <div>
 	<!-- Sidebar -->
 	<div
-		class="z-10 h-screen w-screen fixed top-0 right-0 duration-500 transition-transform {sideBarIsOpen
+		class="z-30 h-screen w-screen fixed top-0 right-0 duration-500 transition-transform {sideBarIsOpen
 			? 'translate-x-0'
 			: 'translate-x-full'}"
 	>
@@ -79,16 +79,16 @@
 	</div>
 
 	<!-- Topbar -->
-  <!-- bg color disabled for now -->
-	<div class="px-8 pb-8 pt-11 sticky top-0 bg-bwi-eerie-black-23%-">
+	<!-- bg color disabled for now -->
+	<div class="z-20 px-8 pb-8 pt-11 fixed w-full top-0 bg-bwi-eerie-black-23%-">
 		<!-- main logo -->
 		<div class="flex justify-between">
-			<div class="w-28 text-black">
+			<div class="w-28 text-white">
 				<MainIcon width="100%" height="100%" />
 			</div>
 
 			<button
-				class="w-8 h-8 text-black"
+				class="w-8 h-8 text-bwi-alabaster"
 				on:click={() => {
 					sideBarIsOpen = !sideBarIsOpen;
 				}}
@@ -98,5 +98,7 @@
 		</div>
 	</div>
 
-	<slot />
+	<div class="">
+		<slot />
+	</div>
 </div>

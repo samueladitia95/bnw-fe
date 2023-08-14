@@ -1,4 +1,16 @@
-<div class="px-8">
+<script lang="ts">
+	import BannerContainer from '$lib/containers/BannerContainer.svelte';
+</script>
+
+<div>
+	<BannerContainer />
+	<h1>Hello World</h1>
+	<h1>Hello World</h1>
+	<h1>Hello World</h1>
+	<h1>Hello World</h1>
+	<h1>Hello World</h1>
+	<h1>Hello World</h1>
+	<h1>Hello World</h1>
 	<h1>Hello World</h1>
 	<h1>Hello World</h1>
 	<h1>Hello World</h1>
