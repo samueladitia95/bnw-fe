@@ -12,7 +12,8 @@ export default {
 				'white-70%': 'rgba(255, 255, 255, 0.7)'
 			},
 			fontFamily: {
-				oakes: ['Oakes Grotesk', ...defaultTheme.fontFamily.sans]
+				oakes: ['Oakes Grotesk', ...defaultTheme.fontFamily.sans],
+				optima: ['Optima', ...defaultTheme.fontFamily.sans]
 			}
 		}
 	},

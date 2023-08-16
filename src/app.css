@@ -83,4 +83,39 @@
 		font-display: swap;
 		font-style: italic;
 	}
+	@font-face {
+		font-family: 'Optima';
+		src: local('Optima'), local('optima'), url('/fonts/Optima/Optima-Regular-01.ttf');
+		font-weight: 400;
+		font-display: swap;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Optima';
+		src: local('Optima'), local('optima'), url('/fonts/Optima/Optima-Italic-02.ttf');
+		font-weight: 400;
+		font-display: swap;
+		font-style: italic;
+	}
+	@font-face {
+		font-family: 'Optima';
+		src: local('Optima'), local('optima'), url('/fonts/Optima/Optima-Bold-03.ttf');
+		font-weight: 700;
+		font-display: swap;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Optima';
+		src: local('Optima'), local('optima'), url('/fonts/Optima/Optima-BoldItalic-04.ttf');
+		font-weight: 700;
+		font-display: swap;
+		font-style: italic;
+	}
+	@font-face {
+		font-family: 'Optima';
+		src: local('Optima'), local('optima'), url('/fonts/Optima/Optima-ExtraBlack-05.ttf');
+		font-weight: 900;
+		font-display: swap;
+		font-style: normal;
+	}
 }
