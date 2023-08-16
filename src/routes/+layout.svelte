@@ -37,7 +37,7 @@
 			: 'translate-x-full'}"
 	>
 		<div
-			class="h-full w-full px-6 md:px-12 pb-8 md:pb-12 pt-11 bg-bwi-chamoisee text-bwi-alabaster flex flex-col justify-between"
+			class="h-full w-full px-6 md:px-12 pb-8 md:pb-12 pt-11 bg-bwi-chamoisee text-bwi-alabaster flex flex-col justify-between overflow-auto"
 		>
 			<div>
 				<!-- main logo -->
@@ -66,11 +66,11 @@
 						</a>
 					{/each}
 
-					<div
-						class="font-normal text-2xl md:text-3xl text-bwi-alabaster border-2 border-bwi-alabaster p-5 md:p-7 rounded-full"
+					<button
+						class="font-normal text-2xl md:text-3xl text-bwi-alabaster border-2 border-bwi-alabaster p-5 md:p-7 rounded-full hover:bg-white hover:text-bwi-chamoisee"
 					>
 						Get In Touch
-					</div>
+					</button>
 				</div>
 			</div>
 
