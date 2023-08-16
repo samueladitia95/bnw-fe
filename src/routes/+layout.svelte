@@ -37,17 +37,17 @@
 			: 'translate-x-full'}"
 	>
 		<div
-			class="h-full w-full px-6 pb-8 pt-11 bg-bwi-chamoisee text-bwi-alabaster flex flex-col justify-between"
+			class="h-full w-full px-6 md:px-12 pb-8 md:pb-12 pt-11 bg-bwi-chamoisee text-bwi-alabaster flex flex-col justify-between"
 		>
 			<div>
 				<!-- main logo -->
 				<div class="flex justify-between">
-					<div class="w-28 text-white">
+					<div class="w-28 md:w-44 text-white">
 						<MainIcon width="100%" height="100%" />
 					</div>
 
 					<button
-						class="w-8 h-8"
+						class="w-8 h-8 md:w-11 md:h-11"
 						on:click={() => {
 							sideBarIsOpen = !sideBarIsOpen;
 						}}
@@ -57,15 +57,17 @@
 				</div>
 
 				<!-- Navbar Items -->
-				<div class="flex flex-col gap-9 font-oakes text-white mt-32 justify-start items-start">
+				<div
+					class="flex flex-col gap-9 md:gap-14 font-oakes text-white mt-32 justify-start items-start"
+				>
 					{#each navbars as navItem}
-						<a class="font-normal text-2xl" href={navItem.link}>
+						<a class="font-normal text-2xl md:text-4xl" href={navItem.link}>
 							{navItem.label}
 						</a>
 					{/each}
 
 					<div
-						class="font-normal text-2xl text-bwi-alabaster border-2 border-bwi-alabaster p-5 rounded-full"
+						class="font-normal text-2xl md:text-3xl text-bwi-alabaster border-2 border-bwi-alabaster p-5 md:p-7 rounded-full"
 					>
 						Get In Touch
 					</div>
@@ -83,12 +85,12 @@
 	<div class="z-20 px-8 pb-8 pt-11 fixed w-full top-0 bg-bwi-eerie-black-23%-">
 		<!-- main logo -->
 		<div class="flex justify-between">
-			<div class="w-28 text-white">
+			<div class="w-28 md:w-44 text-white">
 				<MainIcon width="100%" height="100%" />
 			</div>
 
 			<button
-				class="w-8 h-8 text-bwi-alabaster"
+				class="w-8 h-8 md:w-11 md:h-11 text-bwi-alabaster"
 				on:click={() => {
 					sideBarIsOpen = !sideBarIsOpen;
 				}}
