@@ -17,6 +17,10 @@ export default {
 				oakes: ['Oakes Grotesk', ...defaultTheme.fontFamily.sans],
 				optima: ['Optima', ...defaultTheme.fontFamily.sans]
 			}
+		},
+		container: {
+			center: true,
+			padding: '2rem'
 		}
 	},
 	plugins: []
