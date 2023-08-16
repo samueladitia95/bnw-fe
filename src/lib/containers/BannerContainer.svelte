@@ -12,7 +12,7 @@
 			class="w-screen h-screen object-cover"
 		/>
 	</div>
-	<div class="absolute bottom-10 flex gap-3 z-30 left-1/2 -translate-x-1/2 -translate-y-1/2">
+	<div class="absolute bottom-10 flex gap-3 z-20 left-1/2 -translate-x-1/2 -translate-y-1/2">
 		<div class="bg-bwi-alabaster w-3 h-3 rounded-full" />
 		<div class="bg-bwi-alabaster w-3 h-3 rounded-full opacity-50" />
 		<div class="bg-bwi-alabaster w-3 h-3 rounded-full opacity-50" />
