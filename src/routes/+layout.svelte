@@ -37,7 +37,7 @@
 			: 'translate-x-full'}"
 	>
 		<div
-			class="h-full w-full px-6 md:px-12 pb-8 md:pb-12 pt-11 bg-bwi-chamoisee text-bwi-alabaster flex flex-col justify-between overflow-auto"
+			class="h-full w-full px-6 md:px-12 pb-8 md:pb-12 pt-11 bg-base01 text-bwi-alabaster flex flex-col gap-10 justify-between overflow-auto"
 		>
 			<div>
 				<!-- main logo -->
