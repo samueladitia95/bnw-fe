@@ -8,6 +8,7 @@ export default {
 			colors: {
 				'bwi-chamoisee': '#7E6E5C',
 				'bwi-alabaster': '#EAE9DF',
+				'bwi-eerie-black': '#181817',
 				'bwi-eerie-black-23%': 'rgba(24, 24, 23, 0.23)',
 				'white-70%': 'rgba(255, 255, 255, 0.7)',
 				base01: '#8E8B7B'

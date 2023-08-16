@@ -1,70 +1,9 @@
 <script lang="ts">
 	import BannerContainer from '$lib/containers/BannerContainer.svelte';
+	import WhoWeAreContainer from '$lib/containers/WhoWeAreContainer.svelte';
 </script>
 
 <div>
 	<BannerContainer />
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
-	<h1>Hello World</h1>
+	<WhoWeAreContainer />
 </div>
