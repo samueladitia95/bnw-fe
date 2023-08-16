@@ -7,5 +7,5 @@
 		significantly, specializing in product acquisition, marketing, training, and distribution. Our
 		creative marketing sets us apart as a dynamic industry powerhouse.
 	</div>
-	<img src="https://placehold.co/1296x689" alt="who we are" class="rounded-xl" />
+	<img src="https://placehold.co/1296x689" alt="who we are" class="rounded-xl w-full" />
 </div>
