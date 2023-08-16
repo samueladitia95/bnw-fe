@@ -2,7 +2,7 @@
 	<div class="bg-black opacity-50 h-full w-full z-10 absolute" />
 	<div class="relative">
 		<div
-			class="z-20 text-bwi-alabaster font-optima text-5xl text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+			class="z-20 text-bwi-alabaster font-optima text-5xl leading-normal text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 		>
 			We are in the business of building relationships.
 		</div>

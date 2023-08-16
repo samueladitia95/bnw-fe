@@ -56,7 +56,7 @@
 					</button>
 				</div>
 
-				<!-- Navbar Items -->
+				<!-- Navbar Items In Sidebar -->
 				<div
 					class="flex flex-col gap-9 md:gap-14 font-oakes text-white mt-32 justify-start items-start"
 				>
@@ -90,13 +90,28 @@
 			</div>
 
 			<button
-				class="w-8 h-8 md:w-11 md:h-11 text-bwi-alabaster"
+				class="w-8 h-8 md:w-11 md:h-11 text-bwi-alabaster lg:hidden"
 				on:click={() => {
 					sideBarIsOpen = !sideBarIsOpen;
 				}}
 			>
 				<MenuICon width="100%" height="100%" />
 			</button>
+
+			<!-- Navbar Items In Topbar -->
+			<div class="hidden lg:flex gap-8 font-oakes text-white items-center">
+				{#each navbars as navItem}
+					<a class="font-normal" href={navItem.link}>
+						{navItem.label}
+					</a>
+				{/each}
+
+				<button
+					class="font-normal font-oakes leading-tight text-bwi-alabaster border-2 border-bwi-alabaster px-5 py-4 rounded-full hover:bg-white hover:text-bwi-chamoisee"
+				>
+					Get In Touch
+				</button>
+			</div>
 		</div>
 	</div>
 
