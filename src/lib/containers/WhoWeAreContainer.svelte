@@ -5,7 +5,7 @@
 <div class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32">
 	<TopbarPad />
 	<div class="container flex flex-col justify-start items-start">
-		<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-4 px-6">Who We are</div>
+		<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">Who We are</div>
 		<div
 			class="text-2xl font-normal mb-8 md:text-4xl leading-normal md:leading-loose lg:text-5xl lg:leading-loose"
 		>
