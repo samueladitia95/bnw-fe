@@ -1,9 +1,10 @@
-<script>
+<script lang="ts">
 	import ChevronIcon from '$lib/assets/svg/chevron_icon.svelte';
 	import VisionIcon from '$lib/assets/svg/vision_icon.svelte';
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
+	import { afterUpdate } from 'svelte';
 
-	const visions = [
+	let visions = [
 		{
 			title: 'Valuable Business Partnership',
 			subTitle: 'Establish long-term, effective, and valuable business partnerships.',
@@ -28,6 +29,24 @@
 				'https://s3-alpha-sig.figma.com/img/2a1f/8e4d/509fcaa48ae29269e186f444c7effe14?Expires=1693180800&Signature=LEso82keGslgq03MMQyvrpWY8RXEp7j7CAjH1ddrKwdZrDa6oUhkMJ5ym5PB5Mv9RPL-QJIveuqo-nLj92zfrv5EEH0FoJJzmQ9pvgcX85H0gmVSglC5jluDYVWijrpWDDigukcTepN6yNwBrwMsatcUu7wjtpU~Q3jPEYD6ntWT3DfclUMWMoOYSVpkE6gLgd-t1FDAXa7dfcwCoSh~ho9-OzlQuXU-Kq0XVtPtLNvJP-7Rk8J00uEN5PpcgfvCRnElqBOBdP~OnZMg2CYr-xErAVtumSGmM5UUMxJ80rBuqb-3G04UvoZ-6ziMqehg4i8UA4VeRzl-auBKg-Ykfw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
 		}
 	];
+
+	let displayedImage = '';
+	afterUpdate(() => {
+		if (!displayedImage && visions.length) {
+			displayedImage = visions[0].imgUrl;
+		}
+	});
+
+	const openAccordion = (selectedIndex: number = 0) => {
+		visions = visions.map((vision, visionIndex) => {
+			const isSelected = visionIndex === selectedIndex;
+			if (isSelected) {
+				displayedImage = vision.imgUrl;
+			}
+			vision.isOpen = isSelected;
+			return vision;
+		});
+	};
 </script>
 
 <div class="min-h-screen w-full bg-bwi-bone text-bwi-eerie-black font-optima pb-32">
@@ -44,13 +63,11 @@
 		</div>
 		<div class="flex flex-col lg:flex-row lg:items-center lg:gap-20">
 			<div class="flex flex-col w-full gap-10">
-				{#each visions as vision}
+				{#each visions as vision, index}
 					<div>
 						<button
 							class="flex justify-between items-center gap-3.5 w-full text-left"
-							on:click={() => {
-								vision.isOpen = !vision.isOpen;
-							}}
+							on:click={() => openAccordion(index)}
 						>
 							<div
 								class="flex gap-3.5 items-center transition-all duration-500 ease-in-out {vision.isOpen
@@ -88,9 +105,9 @@
 				{/each}
 			</div>
 			<img
-				src="https://s3-alpha-sig.figma.com/img/be00/6d5b/14031bc64d4a9639beff43f25fbadf19?Expires=1693180800&Signature=FFRnsQwlKApWXIoA3Sjc5i5UbpZ4NPPK6-qAKRL-AhnqUqqUNLd674WP8sXwo-iWmdAveBKVmNHeBCMwG8OIz4~ZfrNkaAdWbbjLuUvunh2nYfNT8BXFAtyvQr1uU0zDHZDzIMcl8VnFt9qCStZgJp6JXz5~stnwFFkgeCFKowCC~jxnvaLJr542r2sVQMwWvYRFP4u7QKc-yaR~DgtBYHOPveSDHGVSTsDSBYw3nfizEkjNe4WM4oIrnGjowyPljdFvJris3TqBr5GdTQCnEKTG8XGomRC8nqiUnjziLcH5I5C8rr-cmW86hcjagnt0Z9Gc~YkZtBKdXXNbgw0u0Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+				src={displayedImage}
 				alt="visions"
-				class="rounded-2xl mt-16 max-h-[255px] md:max-h-[554px] w-full object-cover"
+				class="rounded-2xl mt-16 max-h-[255px] md:max-h-[554px] lg:max-w-[719px] w-full object-cover transition-all duration-500 ease-in-out"
 			/>
 		</div>
 	</div>
