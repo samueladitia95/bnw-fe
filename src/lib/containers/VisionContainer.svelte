@@ -30,14 +30,21 @@
 		<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">
 			Our Vision & Mission
 		</div>
-		<div class="font-oakes font-normal mb-8 leading-loose text-justify">
+		<div
+			class="font-oakes font-normal mb-8 leading-loose text-justify md:text-2xl md:leading-loose"
+		>
 			To become the number one high quality baby products distributions company that provides
 			locally fitted marketing and branding strategy to suit Indonesian diverse culture.
 		</div>
 		<div class="flex flex-col w-full gap-10">
 			{#each visions as vision}
 				<div>
-					<div class="flex justify-between items-center gap-3.5">
+					<button
+						class="flex justify-between items-center gap-3.5 w-full text-left"
+						on:click={() => {
+							vision.isOpen = !vision.isOpen;
+						}}
+					>
 						<div
 							class="flex gap-3.5 items-center transition-all duration-500 ease-in-out {vision.isOpen
 								? 'text-bwi-lion'
@@ -46,27 +53,26 @@
 							<div class="w-8 h-8">
 								<VisionIcon width="100%" height="100%" />
 							</div>
-							<div class="font-optima leading-relaxed text-xl">
+							<div class="font-optima leading-relaxed text-xl md:text-2xl md:leading-relaxed">
 								{vision.title}
 							</div>
 						</div>
-						<button
+						<div
 							class="w-6 h-6 transition-all duration-500 ease-in-out {vision.isOpen
 								? 'rotate-180'
 								: 'rotate-0'}"
-							on:click={() => {
-								vision.isOpen = !vision.isOpen;
-							}}
 						>
 							<ChevronIcon width="100%" height="100%" />
-						</button>
-					</div>
+						</div>
+					</button>
 					<div
-						class="text-xl leading-relaxed font-oakes font-normal overflow-hidden transition-max-height duration-500 ease-in-out {vision.isOpen
+						class="overflow-hidden transition-max-height duration-500 ease-in-out {vision.isOpen
 							? 'max-h-96'
 							: 'max-h-0'}"
 					>
-						<div class="mt-8">
+						<div
+							class="mt-8 font-oakes font-normal text-xl leading-relaxed md:text-2xl md:leading-relaxed"
+						>
 							{vision.subTitle}
 						</div>
 					</div>
@@ -77,7 +83,7 @@
 		<img
 			src="https://s3-alpha-sig.figma.com/img/be00/6d5b/14031bc64d4a9639beff43f25fbadf19?Expires=1693180800&Signature=FFRnsQwlKApWXIoA3Sjc5i5UbpZ4NPPK6-qAKRL-AhnqUqqUNLd674WP8sXwo-iWmdAveBKVmNHeBCMwG8OIz4~ZfrNkaAdWbbjLuUvunh2nYfNT8BXFAtyvQr1uU0zDHZDzIMcl8VnFt9qCStZgJp6JXz5~stnwFFkgeCFKowCC~jxnvaLJr542r2sVQMwWvYRFP4u7QKc-yaR~DgtBYHOPveSDHGVSTsDSBYw3nfizEkjNe4WM4oIrnGjowyPljdFvJris3TqBr5GdTQCnEKTG8XGomRC8nqiUnjziLcH5I5C8rr-cmW86hcjagnt0Z9Gc~YkZtBKdXXNbgw0u0Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
 			alt="visions"
-			class="rounded-2xl mt-16 max-h-[255px] w-full object-cover"
+			class="rounded-2xl mt-16 max-h-[255px] md:max-h-[554px] w-full object-cover"
 		/>
 	</div>
 </div>
