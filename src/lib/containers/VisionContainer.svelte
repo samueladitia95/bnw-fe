@@ -6,16 +6,20 @@
 	const visions = [
 		{
 			title: 'Valuable Business Partnership',
-			subTitle: 'Establish long-term, effective, and valuable business partnerships.'
+			subTitle: 'Establish long-term, effective, and valuable business partnerships.',
+			isOpen: false
 		},
 		{
 			title: 'Creating a unique marketing strategies',
 			subTitle:
-				'We want to implement a unique marketing strategies to strengthen our business partners’ brand awareness in Indonesia'
+				'We want to implement a unique marketing strategies to strengthen our business partners’ brand awareness in Indonesia',
+			isOpen: false
 		},
 		{
 			title: 'Provide the inventive solutions',
-			subTitle: 'Support with a consistent, professional, and efficient solutions to our retailers.'
+			subTitle:
+				'Support with a consistent, professional, and efficient solutions to our retailers.',
+			isOpen: false
 		}
 	];
 </script>
@@ -34,14 +38,36 @@
 			{#each visions as vision}
 				<div>
 					<div class="flex justify-between items-center gap-3.5">
-						<div class="w-8 h-8">
-							<VisionIcon width="100%" height="100%" />
+						<div
+							class="flex gap-3.5 items-center transition-all duration-500 ease-in-out {vision.isOpen
+								? 'text-bwi-lion'
+								: ''}"
+						>
+							<div class="w-8 h-8">
+								<VisionIcon width="100%" height="100%" />
+							</div>
+							<div class="font-optima leading-relaxed text-xl">
+								{vision.title}
+							</div>
 						</div>
-						<div class="font-optima leading-relaxed text-xl">
-							{vision.title}
-						</div>
-						<div class="w-6 h-6">
+						<button
+							class="w-6 h-6 transition-all duration-500 ease-in-out {vision.isOpen
+								? 'rotate-180'
+								: 'rotate-0'}"
+							on:click={() => {
+								vision.isOpen = !vision.isOpen;
+							}}
+						>
 							<ChevronIcon width="100%" height="100%" />
+						</button>
+					</div>
+					<div
+						class="text-xl leading-relaxed font-oakes font-normal overflow-hidden transition-max-height duration-500 ease-in-out {vision.isOpen
+							? 'max-h-96'
+							: 'max-h-0'}"
+					>
+						<div class="mt-8">
+							{vision.subTitle}
 						</div>
 					</div>
 					<hr class="border border-bwi-eerie-black-23% mt-8" />
