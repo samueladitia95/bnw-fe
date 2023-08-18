@@ -31,19 +31,27 @@
 	<TopbarPad />
 	<div class="container">
 		<div class="flex flex-col">
-			{#each products as product}
-				<div class="flex flex-col bg-bwi-lion text-bwi-alabaster">
+			{#each products as product, index}
+				<div
+					class="flex flex-col bg-bwi-lion text-bwi-alabaster {index % 2 === 0
+						? 'lg:flex-row'
+						: 'lg:flex-row-reverse'}"
+				>
 					<img
 						src={product.imgUrl}
 						alt="product"
-						class="min-w-full max-h-[302px] md:max-h-[664px]"
+						class="min-w-full max-h-[302px] md:max-h-[664px] lg:max-w-[50%] lg:min-w-[50%]"
 					/>
-					<div class="flex flex-col gap-5 p-5 items-start">
-						<div class="font-optima text-3xl md:text-5xl">{product.name}</div>
-						<div
-							class="font-oakes text-sm md:text-xl md:leading-loose leading-loose min-h-[131px] md:min-h-[471px] md:max-w-[500px]"
-						>
-							{product.description}
+					<div
+						class="flex flex-col gap-5 p-5 items-start lg:max-w-[50%] lg:min-w-[50%] lg:justify-between"
+					>
+						<div class="flex flex-col gap-5">
+							<div class="font-optima text-3xl md:text-5xl">{product.name}</div>
+							<div
+								class="font-oakes text-sm md:text-xl md:leading-loose leading-loose min-h-[131px] md:min-h-[471px] md:max-w-[500px] lg:min-h-0"
+							>
+								{product.description}
+							</div>
 						</div>
 						<a
 							class="font-oakes text-center border border-bwi-alabaster rounded-full px-5 py-3 flex gap-4"
