@@ -79,10 +79,16 @@
 			</div>
 
 			<div class="flex gap-3 mt-5">
-				<button class="w-8 h-8 rotate-180" on:click|preventDefault={() => scrollIntoView('minus')}>
+				<button
+					class="w-8 h-8 rotate-180 {benefitView === 0 ? 'text-bwi-eerie-black-23%' : ''}"
+					on:click|preventDefault={() => scrollIntoView('minus')}
+				>
 					<ArrorIcon height="100%" width="100%" />
 				</button>
-				<button class="w-8 h-8" on:click|preventDefault={() => scrollIntoView('plus')}>
+				<button
+					class="w-8 h-8 {benefitView === 2 ? 'text-bwi-eerie-black-23%' : ''}"
+					on:click|preventDefault={() => scrollIntoView('plus')}
+				>
 					<ArrorIcon height="100%" width="100%" />
 				</button>
 			</div>
