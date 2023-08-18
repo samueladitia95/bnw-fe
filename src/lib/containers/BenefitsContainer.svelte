@@ -30,28 +30,22 @@
 	let benefitView: number = 0;
 
 	function scrollIntoView(action: 'plus' | 'minus') {
+		const containerEl = document.querySelector('#benefit-container');
+		if (!containerEl) return;
+		const maxWidth = containerEl.scrollWidth;
+
+		const containerImgEl = document.querySelector('#benefit-img-container');
+		if (!containerImgEl) return;
+		const maxWidthImg = containerImgEl.scrollWidth;
+
 		if (action === 'plus' && benefitView < itemNumber - 1) {
 			benefitView = benefitView + 1;
 		} else if (action === 'minus' && benefitView > 0) {
 			benefitView = benefitView - 1;
 		}
 
-		let target: string = `#benefit-${benefitView}`;
-		let targetImg: string = `#benefit-img-${benefitView}`;
-		const el1 = document.querySelector(target);
-		if (!el1) return;
-		el1.scrollIntoView({
-			behavior: 'smooth',
-			block: 'center'
-		});
-		setTimeout(() => {
-			// const el2 = document.querySelector(targetImg);
-			// if (!el2) return;
-			// el2.scrollIntoView({
-			// 	behavior: 'instant',
-			// 	block: 'end'
-			// });
-		}, 500);
+		containerEl.scrollTo({ left: (maxWidth / 3) * benefitView, behavior: 'smooth' });
+		containerImgEl.scrollTo({ left: (maxWidthImg / 3) * benefitView, behavior: 'smooth' });
 	}
 </script>
 
@@ -80,9 +74,9 @@
 						<MindIcon height="100%" width="100%" />
 					</div>
 
-					<div class="flex overflow-hidden snap-x snap-mandatory">
+					<div id="benefit-container" class="flex overflow-hidden snap-x snap-mandatory">
 						{#each benefits as benefit, index}
-							<div class="min-w-full snap-center" id={`benefit-${index}`}>
+							<div class="min-w-full snap-center">
 								<div class="text-2xl md:text-3xl mt-5">{benefit.title}</div>
 								<div class="font-oakes leading-loose mt-5">{benefit.subTitle}</div>
 							</div>
@@ -117,13 +111,12 @@
 			/>
 		</div>
 
-		<div class="flex overflow-hidden snap-x snap-mandatory">
+		<div id="benefit-img-container" class="flex overflow-hidden snap-x snap-mandatory">
 			{#each benefits as benefit, index}
 				<img
 					src={benefit.imgUrl}
 					alt="visions"
 					class="rounded-2xl mt-6 lg:max-h-[525px] min-w-full object-cover transition-all duration-500 ease-in-out"
-					id={`benefit-img-${index}`}
 				/>
 			{/each}
 		</div>
