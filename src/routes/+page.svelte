@@ -1,6 +1,7 @@
 <script lang="ts">
 	import BannerContainer from '$lib/containers/BannerContainer.svelte';
-	import BenefitsContainer from "$lib/containers/BenefitsContainer.svelte";
+	import BenefitsContainer from '$lib/containers/BenefitsContainer.svelte';
+	import ProductsContainer from '$lib/containers/ProductsContainer.svelte';
 	import VisionContainer from '$lib/containers/VisionContainer.svelte';
 	import WhoWeAreContainer from '$lib/containers/WhoWeAreContainer.svelte';
 </script>
@@ -10,4 +11,5 @@
 	<WhoWeAreContainer />
 	<VisionContainer />
 	<BenefitsContainer />
+	<ProductsContainer />
 </div>
