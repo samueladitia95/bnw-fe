@@ -118,7 +118,7 @@
 				<img
 					src={benefit.imgUrl}
 					alt="visions"
-					class="rounded-2xl mt-6 max-h-[255px] md:max-h-[554px] lg:max-w-[719px] w-full object-cover transition-all duration-500 ease-in-out"
+					class="rounded-2xl mt-6 w-full object-cover transition-all duration-500 ease-in-out"
 					id={`benefit-img-${index}`}
 				/>
 			{/each}
