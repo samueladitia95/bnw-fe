@@ -75,13 +75,15 @@
 
 <div class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32">
 	<TopbarPad />
-	<div class="container flex flex-col justify-start items-start">
-		<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">Events</div>
-		<div class="text-4xl">All of Our Events</div>
+	<div class="flex flex-col justify-start items-start">
+		<div class="container flex flex-col justify-start items-start mb-8">
+			<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">Events</div>
+			<div class="text-4xl">All of Our Events</div>
+		</div>
 
 		<div
 			id="events-container"
-			class="flex overflow-hidden snap-x snap-mandatory gap-6 relative max-w-full"
+			class="container flex overflow-hidden snap-x snap-mandatory gap-6 relative max-w-full"
 		>
 			{#each events as event, index}
 				<div class="min-w-[306px] snap-center">
@@ -97,7 +99,7 @@
 			{/each}
 		</div>
 
-		<div class="flex gap-3 mt-11">
+		<div class="container flex gap-3 mt-11">
 			<button
 				class="w-8 h-8 md:w-12 md:h-12 rotate-180 {viewItem === 0
 					? 'text-bwi-eerie-black-23%'
