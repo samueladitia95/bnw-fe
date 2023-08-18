@@ -41,14 +41,16 @@
 		const el1 = document.querySelector(target);
 		if (!el1) return;
 		el1.scrollIntoView({
-			behavior: 'smooth'
+			behavior: 'smooth',
+			block: 'center'
 		});
 		setTimeout(() => {
-			const el2 = document.querySelector(targetImg);
-			if (!el2) return;
-			el2.scrollIntoView({
-				behavior: 'auto'
-			});
+			// const el2 = document.querySelector(targetImg);
+			// if (!el2) return;
+			// el2.scrollIntoView({
+			// 	behavior: 'instant',
+			// 	block: 'end'
+			// });
 		}, 500);
 	}
 </script>
