@@ -56,14 +56,16 @@
 <div class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32">
 	<TopbarPad />
 	<div class="container flex flex-col justify-start items-start">
-		<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">
+		<div class="text-lg md:text-2xl mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">
 			Benefits of choosing us
 		</div>
 
 		<div class="flex flex-col">
 			<div>
-				<div class="text-4xl mb-6">Why go with us?</div>
-				<div class="font-oakes font-normal mb-8 leading-loose">
+				<div class="text-4xl md:text-5xl mb-6">Why go with us?</div>
+				<div
+					class="md:text-xl font-oakes font-normal mb-8 md:mb-16 leading-loose md:leading-loose md:max-w-xl"
+				>
 					To other companies, you might just be a portfolio. To us, a brand is an achievement, a
 					family and a promise of success.
 				</div>
@@ -77,7 +79,7 @@
 					<div class="flex overflow-hidden snap-x snap-mandatory">
 						{#each benefits as benefit, index}
 							<div class="min-w-full snap-center" id={`benefit-${index}`}>
-								<div class="text-2xl mt-5">{benefit.title}</div>
+								<div class="text-2xl md:text-3xl mt-5">{benefit.title}</div>
 								<div class="font-oakes leading-loose mt-5">{benefit.subTitle}</div>
 							</div>
 						{/each}
@@ -86,13 +88,15 @@
 
 				<div class="flex gap-3 mt-5">
 					<button
-						class="w-8 h-8 rotate-180 {benefitView === 0 ? 'text-bwi-eerie-black-23%' : ''}"
+						class="w-8 h-8 md:w-12 md:h-12 rotate-180 {benefitView === 0
+							? 'text-bwi-eerie-black-23%'
+							: ''}"
 						on:click|preventDefault={() => scrollIntoView('minus')}
 					>
 						<ArrorIcon height="100%" width="100%" />
 					</button>
 					<button
-						class="w-8 h-8 {benefitView === 2 ? 'text-bwi-eerie-black-23%' : ''}"
+						class="w-8 h-8 md:w-12 md:h-12 {benefitView === 2 ? 'text-bwi-eerie-black-23%' : ''}"
 						on:click|preventDefault={() => scrollIntoView('plus')}
 					>
 						<ArrorIcon height="100%" width="100%" />
