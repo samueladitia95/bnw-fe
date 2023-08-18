@@ -59,20 +59,17 @@
 	let viewItem: number = 0;
 
 	function scrollIntoView(action: 'plus' | 'minus') {
+		const containerEl = document.querySelector('#events-container');
+		if (!containerEl) return;
+		const maxWidth = containerEl.scrollWidth;
+
 		if (action === 'plus' && viewItem < itemNumber - 1) {
 			viewItem = viewItem + 1;
 		} else if (action === 'minus' && viewItem > 0) {
 			viewItem = viewItem - 1;
 		}
 
-		let target: string = `#event-${viewItem}`;
-		console.log(target);
-		const el1 = document.querySelector(target);
-		if (!el1) return;
-		el1.scrollIntoView({
-			behavior: 'smooth',
-			block: 'center'
-		});
+		containerEl.scrollTo({ left: (maxWidth / itemNumber) * viewItem, behavior: 'smooth' });
 	}
 </script>
 
@@ -82,9 +79,12 @@
 		<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">Events</div>
 		<div class="text-4xl">All of Our Events</div>
 
-		<div class="flex overflow-hidden snap-x snap-mandatory gap-6 relative max-w-full">
+		<div
+			id="events-container"
+			class="flex overflow-hidden snap-x snap-mandatory gap-6 relative max-w-full"
+		>
 			{#each events as event, index}
-				<div id={`event-${index}`} class="min-w-[306px] snap-center">
+				<div class="min-w-[306px] snap-center">
 					<img
 						src={event.imgUrl}
 						alt="events"
