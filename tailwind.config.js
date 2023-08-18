@@ -28,5 +28,6 @@ export default {
 			padding: '2rem'
 		}
 	},
+	safelist: ['translate-x-[0%]', 'translate-x-[100%]', 'translate-x-[200%]'],
 	plugins: []
 };
