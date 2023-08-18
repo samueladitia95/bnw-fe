@@ -35,12 +35,21 @@
 		} else if (action === 'minus' && benefitView > 0) {
 			benefitView = benefitView - 1;
 		}
+
 		let target: string = `#benefit-${benefitView}`;
-		const el = document.querySelector(target);
-		if (!el) return;
-		el.scrollIntoView({
+		let targetImg: string = `#benefit-img-${benefitView}`;
+		const el1 = document.querySelector(target);
+		if (!el1) return;
+		el1.scrollIntoView({
 			behavior: 'smooth'
 		});
+		setTimeout(() => {
+			const el2 = document.querySelector(targetImg);
+			if (!el2) return;
+			el2.scrollIntoView({
+				behavior: 'auto'
+			});
+		}, 500);
 	}
 </script>
 
@@ -59,6 +68,7 @@
 			<div class="w=[66px] h-[78px]">
 				<MindIcon height="100%" width="100%" />
 			</div>
+
 			<div class="flex overflow-hidden snap-x snap-mandatory">
 				{#each benefits as benefit, index}
 					<div class="min-w-full snap-center" id={`benefit-${index}`}>
@@ -67,6 +77,7 @@
 					</div>
 				{/each}
 			</div>
+
 			<div class="flex gap-3 mt-5">
 				<button class="w-8 h-8 rotate-180" on:click|preventDefault={() => scrollIntoView('minus')}>
 					<ArrorIcon height="100%" width="100%" />
@@ -74,6 +85,25 @@
 				<button class="w-8 h-8" on:click|preventDefault={() => scrollIntoView('plus')}>
 					<ArrorIcon height="100%" width="100%" />
 				</button>
+			</div>
+
+			<div class="w-full mt-5 relative">
+				<hr class="absolute w-full border border-bwi-eerie-black-23%" />
+				<hr
+					class="absolute w-1/3 border border-bwi-eerie-black duration-500 transition-all translate-x-[{benefitView *
+						100}%]"
+				/>
+			</div>
+
+			<div class="flex overflow-hidden snap-x snap-mandatory">
+				{#each benefits as benefit, index}
+					<img
+						src={benefit.imgUrl}
+						alt="visions"
+						class="rounded-2xl mt-6 max-h-[255px] md:max-h-[554px] lg:max-w-[719px] w-full object-cover transition-all duration-500 ease-in-out"
+						id={`benefit-img-${index}`}
+					/>
+				{/each}
 			</div>
 		</div>
 	</div>
