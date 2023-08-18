@@ -60,17 +60,19 @@
 			Benefits of choosing us
 		</div>
 
-		<div class="flex flex-col">
-			<div>
+		<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:w-full">
+			<div class="">
 				<div class="text-4xl md:text-5xl mb-6">Why go with us?</div>
 				<div
-					class="md:text-xl font-oakes font-normal mb-8 md:mb-16 leading-loose md:leading-loose md:max-w-xl"
+					class="md:text-xl font-oakes font-normal mb-8 md:mb-16 lg:mb-0 leading-loose md:leading-loose md:max-w-xl"
 				>
 					To other companies, you might just be a portfolio. To us, a brand is an achievement, a
 					family and a promise of success.
 				</div>
 			</div>
-			<div class="flex flex-col items-start md:flex-row md:items-end md:gap-32">
+			<div
+				class="flex flex-col items-start md:flex-row md:items-end md:gap-32 lg:max-w-2xl lg:gap-4"
+			>
 				<div class="flex flex-col items-start">
 					<div class="w=[66px] h-[78px]">
 						<MindIcon height="100%" width="100%" />
@@ -118,7 +120,7 @@
 				<img
 					src={benefit.imgUrl}
 					alt="visions"
-					class="rounded-2xl mt-6 w-full object-cover transition-all duration-500 ease-in-out"
+					class="rounded-2xl mt-6 lg:max-h-[525px] min-w-full object-cover transition-all duration-500 ease-in-out"
 					id={`benefit-img-${index}`}
 				/>
 			{/each}
