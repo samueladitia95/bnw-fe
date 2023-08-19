@@ -32,35 +32,39 @@
 		<div class="w-28 md:w-44 text-white">
 			<MainIcon width="100%" height="100%" />
 		</div>
-		<div class="mt-10 font-oakes text-xl leading-relaxed">
-			Interested in discussing a potential project or want to find out more?
-		</div>
-		<button
-			class="mt-6 font-oakes text-xl md:text-2xl text-bwi-alabaster border-2 border-bwi-alabaster p-4 rounded-full hover:bg-white hover:text-bwi-chamoisee"
-		>
-			Get In Touch
-		</button>
-
-		<div class="mt-12 flex justify-between">
-			<div class="flex flex-col gap-3.5">
-				{#each navbars as navItem}
-					<a class="font-oakes" href={navItem.link}>
-						{navItem.label}
-					</a>
-				{/each}
+		<div class="lg:flex lg:gap-60">
+			<div>
+				<div class="mt-10 font-oakes text-xl leading-relaxed lg:max-w-[416px]">
+					Interested in discussing a potential project or want to find out more?
+				</div>
+				<button
+					class="mt-6 font-oakes text-bwi-alabaster border-2 border-bwi-alabaster p-4 rounded-full hover:bg-white hover:text-bwi-chamoisee"
+				>
+					Get In Touch
+				</button>
 			</div>
 
-			<div class="flex flex-col gap-3.5">
-				<div class="font-oakes font-semibold leading-loose">Follow Us</div>
-				<div class="flex gap-5">
-					<div class="w-6 h-6">
-						<TwitterIcon width="100%" height="100%" />
-					</div>
-					<div class="w-6 h-6">
-						<FacebookIcon width="100%" height="100%" />
-					</div>
-					<div class="w-6 h-6">
-						<Instagram width="100%" height="100%" />
+			<div class="mt-12 flex justify-between md:justify-start md:gap-80">
+				<div class="flex flex-col gap-3.5">
+					{#each navbars as navItem}
+						<a class="font-oakes" href={navItem.link}>
+							{navItem.label}
+						</a>
+					{/each}
+				</div>
+
+				<div class="flex flex-col gap-3.5">
+					<div class="font-oakes font-semibold leading-loose">Follow Us</div>
+					<div class="flex gap-5">
+						<div class="w-6 h-6">
+							<TwitterIcon width="100%" height="100%" />
+						</div>
+						<div class="w-6 h-6">
+							<FacebookIcon width="100%" height="100%" />
+						</div>
+						<div class="w-6 h-6">
+							<Instagram width="100%" height="100%" />
+						</div>
 					</div>
 				</div>
 			</div>
