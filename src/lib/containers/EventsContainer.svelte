@@ -75,12 +75,12 @@
 
 <div class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32">
 	<TopbarPad />
-	<div class="flex flex-col justify-start items-start">
-		<div class="container flex flex-col justify-start items-start mb-8">
+	<div class="flex flex-col justify-start items-start lg:flex-row lg:container lg:gap-20">
+		<div class="container flex flex-col justify-start items-start mb-8 lg:px-0 lg:max-w-[355px]">
 			<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">Events</div>
-			<div class="w-full flex justify-between">
-				<div class="text-4xl">All of Our Events</div>
-				<div class="md:flex gap-3 hidden">
+			<div class="w-full flex justify-between lg:min-w-[355px]">
+				<div class="text-4xl lg:text-5xl">All of Our Events</div>
+				<div class="md:flex gap-3 hidden lg:hidden">
 					<button
 						class="w-8 h-8 md:w-12 md:h-12 rotate-180 {viewItem === 0
 							? 'text-bwi-eerie-black-23%'
@@ -101,7 +101,25 @@
 			</div>
 		</div>
 
-		<div class="container pr-0">
+		<div class="container pr-0 lg:max-w-full lg:min-w-0">
+			<div class="hidden lg:flex gap-3 mb-6">
+				<button
+					class="w-8 h-8 md:w-12 md:h-12 rotate-180 {viewItem === 0
+						? 'text-bwi-eerie-black-23%'
+						: ''}"
+					on:click|preventDefault={() => scrollIntoView('minus')}
+				>
+					<ArrorIcon height="100%" width="100%" />
+				</button>
+				<button
+					class="w-8 h-8 md:w-12 md:h-12 {viewItem === itemNumber - 1
+						? 'text-bwi-eerie-black-23%'
+						: ''}"
+					on:click|preventDefault={() => scrollIntoView('plus')}
+				>
+					<ArrorIcon height="100%" width="100%" />
+				</button>
+			</div>
 			<div
 				id="events-container"
 				class="flex overflow-hidden snap-x snap-mandatory gap-6 relative max-w-full pr-8"
