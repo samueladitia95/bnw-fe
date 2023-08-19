@@ -72,7 +72,10 @@
 	}
 </script>
 
-<div class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32">
+<div
+	id="events-container"
+	class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32"
+>
 	<TopbarPad />
 	<div class="flex flex-col justify-start items-start lg:flex-row lg:container lg:gap-20">
 		<div class="container flex flex-col justify-start items-start mb-8 lg:px-0 lg:max-w-[355px]">

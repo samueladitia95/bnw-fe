@@ -27,7 +27,10 @@
 	];
 </script>
 
-<div class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32">
+<div
+	id="products-container"
+	class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32"
+>
 	<TopbarPad />
 	<div class="container">
 		<div class="flex flex-col">

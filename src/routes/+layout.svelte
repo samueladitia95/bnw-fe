@@ -31,6 +31,13 @@
 	let isBackground: boolean = false;
 
 	isTopbarBackground.subscribe((value) => (isBackground = value));
+
+	const scrollToView = (id: string) => {
+		const targetEl = document.querySelector(id);
+		if (!targetEl) return;
+		sideBarIsOpen = false;
+		targetEl.scrollIntoView({ behavior: 'smooth' });
+	};
 </script>
 
 <div>
@@ -65,9 +72,12 @@
 					class="flex flex-col gap-9 md:gap-14 font-oakes text-white mt-32 justify-start items-start"
 				>
 					{#each navbars as navItem}
-						<a class="font-normal text-2xl md:text-4xl" href={navItem.link}>
+						<button
+							class="font-normal text-2xl md:text-4xl"
+							on:click={() => scrollToView(navItem.link)}
+						>
 							{navItem.label}
-						</a>
+						</button>
 					{/each}
 
 					<button
@@ -107,9 +117,9 @@
 			<!-- Navbar Items In Topbar -->
 			<div class="hidden lg:flex gap-8 font-oakes text-white items-center">
 				{#each navbars as navItem}
-					<a class="font-normal" href={navItem.link}>
+					<button class="font-normal" on:click={() => scrollToView(navItem.link)}>
 						{navItem.label}
-					</a>
+					</button>
 				{/each}
 
 				<button

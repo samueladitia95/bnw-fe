@@ -118,7 +118,10 @@
 	}
 </script>
 
-<div class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32">
+<div
+	id="testimonials-container"
+	class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32"
+>
 	<TopbarPad />
 	<div class="flex flex-col justify-start items-start">
 		<div class="container flex flex-col justify-start items-start mb-8">

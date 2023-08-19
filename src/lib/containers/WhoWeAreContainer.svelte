@@ -9,11 +9,14 @@
 	};
 </script>
 
-<div class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32">
+<div
+	id="about-us-container"
+	class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32"
+>
 	<TopbarPad />
 	<div
 		use:inview={{
-			rootMargin: '-200px',
+			rootMargin: '-100px',
 			unobserveOnEnter: true
 		}}
 		on:inview_change={handleChange}

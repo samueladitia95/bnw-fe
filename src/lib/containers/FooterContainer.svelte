@@ -25,6 +25,12 @@
 			link: '#testimonials-container'
 		}
 	];
+
+	const scrollToView = (id: string) => {
+		const targetEl = document.querySelector(id);
+		if (!targetEl) return;
+		targetEl.scrollIntoView({ behavior: 'smooth' });
+	};
 </script>
 
 <div class="bg-bwi-battleship text-bwi-alabaster">
@@ -45,11 +51,11 @@
 			</div>
 
 			<div class="mt-12 flex justify-between md:justify-start md:gap-80">
-				<div class="flex flex-col gap-3.5">
+				<div class="flex flex-col gap-3.5 items-start">
 					{#each navbars as navItem}
-						<a class="font-oakes" href={navItem.link}>
+						<button class="font-oakes" on:click={() => scrollToView(navItem.link)}>
 							{navItem.label}
-						</a>
+						</button>
 					{/each}
 				</div>
 
