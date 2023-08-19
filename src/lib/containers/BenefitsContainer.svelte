@@ -28,14 +28,11 @@
 
 	const itemNumber: number = 3;
 	let benefitView: number = 0;
+	let containerEl: Element;
+	let containerImgEl: Element;
 
 	function scrollIntoView(action: 'plus' | 'minus') {
-		const containerEl = document.querySelector('#benefit-container');
-		if (!containerEl) return;
 		const maxWidth = containerEl.scrollWidth;
-
-		const containerImgEl = document.querySelector('#benefit-img-container');
-		if (!containerImgEl) return;
 		const maxWidthImg = containerImgEl.scrollWidth;
 
 		if (action === 'plus' && benefitView < itemNumber - 1) {
@@ -74,7 +71,7 @@
 						<MindIcon height="100%" width="100%" />
 					</div>
 
-					<div id="benefit-container" class="flex overflow-hidden snap-x snap-mandatory">
+					<div bind:this={containerEl} class="flex overflow-hidden snap-x snap-mandatory">
 						{#each benefits as benefit, index}
 							<div class="min-w-full snap-center">
 								<div class="text-2xl md:text-3xl mt-5">{benefit.title}</div>
@@ -111,7 +108,7 @@
 			/>
 		</div>
 
-		<div id="benefit-img-container" class="flex overflow-hidden snap-x snap-mandatory">
+		<div bind:this={containerImgEl} class="flex overflow-hidden snap-x snap-mandatory">
 			{#each benefits as benefit, index}
 				<img
 					src={benefit.imgUrl}

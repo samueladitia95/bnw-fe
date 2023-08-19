@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ArrorIcon from '$lib/assets/svg/arror_icon.svelte';
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
+	import { afterUpdate } from 'svelte';
 
 	const events = [
 		{
@@ -57,10 +58,9 @@
 
 	const itemNumber: number = events.length;
 	let viewItem: number = 0;
+	let containerEl: Element;
 
 	function scrollIntoView(action: 'plus' | 'minus') {
-		const containerEl = document.querySelector('#events-container');
-		if (!containerEl) return;
 		const maxWidth = containerEl.scrollWidth;
 
 		if (action === 'plus' && viewItem < itemNumber - 1) {
@@ -78,28 +78,51 @@
 	<div class="flex flex-col justify-start items-start">
 		<div class="container flex flex-col justify-start items-start mb-8">
 			<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">Events</div>
-			<div class="text-4xl">All of Our Events</div>
-		</div>
-
-		<div
-			id="events-container"
-			class="container flex overflow-hidden snap-x snap-mandatory gap-6 relative max-w-full"
-		>
-			{#each events as event, index}
-				<div class="min-w-[306px] snap-center">
-					<img
-						src={event.imgUrl}
-						alt="events"
-						class="max-w-[306px] min-w-[306px] object-cover min-h-[337px] max-h-[337px]"
-					/>
-					<div class="font-optima text-xl mt-5">{event.name}</div>
-					<div class="font-oakes mt-3">{event.date}</div>
-					<div class="font-oakes mt-5">{event.location}</div>
+			<div class="w-full flex justify-between">
+				<div class="text-4xl">All of Our Events</div>
+				<div class="md:flex gap-3 hidden">
+					<button
+						class="w-8 h-8 md:w-12 md:h-12 rotate-180 {viewItem === 0
+							? 'text-bwi-eerie-black-23%'
+							: ''}"
+						on:click|preventDefault={() => scrollIntoView('minus')}
+					>
+						<ArrorIcon height="100%" width="100%" />
+					</button>
+					<button
+						class="w-8 h-8 md:w-12 md:h-12 {viewItem === itemNumber - 1
+							? 'text-bwi-eerie-black-23%'
+							: ''}"
+						on:click|preventDefault={() => scrollIntoView('plus')}
+					>
+						<ArrorIcon height="100%" width="100%" />
+					</button>
 				</div>
-			{/each}
+			</div>
 		</div>
 
-		<div class="container flex gap-3 mt-11">
+		<div class="container pr-0">
+			<div
+				id="events-container"
+				class="flex overflow-hidden snap-x snap-mandatory gap-6 relative max-w-full pr-8"
+				bind:this={containerEl}
+			>
+				{#each events as event, index}
+					<div class="min-w-[306px] snap-start">
+						<img
+							src={event.imgUrl}
+							alt="events"
+							class="max-w-[306px] min-w-[306px] object-cover min-h-[337px] max-h-[337px]"
+						/>
+						<div class="font-optima text-xl mt-5">{event.name}</div>
+						<div class="font-oakes mt-3">{event.date}</div>
+						<div class="font-oakes mt-5">{event.location}</div>
+					</div>
+				{/each}
+			</div>
+		</div>
+
+		<div class="container flex gap-3 mt-11 md:hidden">
 			<button
 				class="w-8 h-8 md:w-12 md:h-12 rotate-180 {viewItem === 0
 					? 'text-bwi-eerie-black-23%'
