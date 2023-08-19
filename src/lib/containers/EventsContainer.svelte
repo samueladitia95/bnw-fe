@@ -128,7 +128,7 @@
 				bind:this={containerEl}
 			>
 				{#each events as event, index}
-					<div class="min-w-[306px] snap-start">
+					<div class="min-w-[306px] snap-start flex flex-col items-start">
 						<img
 							src={event.imgUrl}
 							alt="events"
@@ -137,6 +137,24 @@
 						<div class="font-optima text-xl mt-5">{event.name}</div>
 						<div class="font-oakes mt-3">{event.date}</div>
 						<div class="font-oakes mt-5">{event.location}</div>
+						<div class="hidden lg:block">View Details</div>
+						<button
+							class="hidden lg:flex font-oakes text-center border border-bwi-eerie-black rounded-full px-5 py-3 gap-4 mt-5"
+						>
+							<span class="text-xl">View Details</span>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 25"
+								fill="none"
+							>
+								<path
+									d="M12 4.5L10.59 5.91L16.17 11.5H4V13.5H16.17L10.59 19.09L12 20.5L20 12.5L12 4.5Z"
+									fill="currentColor"
+								/>
+							</svg>
+						</button>
 					</div>
 				{/each}
 			</div>
