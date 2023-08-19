@@ -2,7 +2,6 @@
 	import ChevronIcon from '$lib/assets/svg/chevron_icon.svelte';
 	import VisionIcon from '$lib/assets/svg/vision_icon.svelte';
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
-	import { afterUpdate } from 'svelte';
 
 	let visions = [
 		{
@@ -30,18 +29,14 @@
 		}
 	];
 
-	let displayedImage = '';
-	afterUpdate(() => {
-		if (!displayedImage && visions.length) {
-			displayedImage = visions[0].imgUrl;
-		}
-	});
+	let containerEl: Element;
 
 	const openAccordion = (selectedIndex: number = 0) => {
+		const maxWidth = containerEl.scrollWidth;
 		visions = visions.map((vision, visionIndex) => {
 			const isSelected = visionIndex === selectedIndex;
 			if (isSelected) {
-				displayedImage = vision.imgUrl;
+				containerEl.scrollTo({ left: (maxWidth / 3) * selectedIndex, behavior: 'smooth' });
 			}
 			vision.isOpen = isSelected;
 			return vision;
@@ -104,11 +99,15 @@
 					</div>
 				{/each}
 			</div>
-			<img
-				src={displayedImage}
-				alt="visions"
-				class="rounded-2xl mt-16 max-h-[255px] md:max-h-[554px] lg:max-w-[719px] w-full object-cover transition-all duration-500 ease-in-out"
-			/>
+			<div bind:this={containerEl} class="flex overflow-hidden">
+				{#each visions as vision}
+					<img
+						src={vision.imgUrl}
+						alt="visions"
+						class="rounded-2xl mt-16 max-h-[255px] md:max-h-[554px] min-w-full object-cover transition-all duration-500 ease-in-out"
+					/>
+				{/each}
+			</div>
 		</div>
 	</div>
 </div>
