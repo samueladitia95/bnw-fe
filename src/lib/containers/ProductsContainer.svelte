@@ -37,11 +37,15 @@
 						? 'lg:flex-row'
 						: 'lg:flex-row-reverse'}"
 				>
-					<img
-						src={product.imgUrl}
-						alt="product"
-						class="min-w-full max-h-[302px] md:max-h-[664px] lg:max-w-[50%] lg:min-w-[50%]"
-					/>
+					<div
+						class="min-w-full max-h-[302px] md:max-h-[664px] lg:max-w-[50%] lg:min-w-[50%] overflow-hidden"
+					>
+						<img
+							src={product.imgUrl}
+							alt="product"
+							class=" hover:scale-125 transition-transform duration-200 ease-in-out cursor-pointer"
+						/>
+					</div>
 					<div
 						class="flex flex-col gap-5 p-5 items-start lg:max-w-[50%] lg:min-w-[50%] lg:justify-between"
 					>
