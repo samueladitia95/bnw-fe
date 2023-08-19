@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { isTopbarBackground } from '$lib/store';
+	import { inview } from 'svelte-inview';
+	import type { ObserverEventDetails } from 'svelte-inview';
 
 	const banners = [
 		{
@@ -23,7 +26,11 @@
 			content: '4We are in the business of building relationships.'
 		}
 	];
+	const itemNumber: number = banners.length;
+
 	let interval: number;
+	let bannerView: number = 0;
+	let containerEl: Element;
 
 	const autoPlay = () =>
 		(interval = setInterval(() => {
@@ -36,11 +43,7 @@
 			scrollIntoView(position);
 		}, 3000));
 
-	const itemNumber: number = banners.length;
-	let bannerView: number = 0;
-	let containerEl: Element;
-
-	function scrollIntoView(selectedView: number) {
+	const scrollIntoView = (selectedView: number) => {
 		clearInterval(interval);
 		const maxWidth = containerEl.scrollWidth;
 
@@ -50,14 +53,24 @@
 
 		containerEl.scrollTo({ left: (maxWidth / itemNumber) * bannerView, behavior: 'smooth' });
 		autoPlay();
-	}
+	};
+	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
+		// isInView = detail.inView;
+		isTopbarBackground.set(detail.inView);
+	};
 
 	onMount(() => {
 		autoPlay();
 	});
 </script>
 
-<div class="relative">
+<div
+	use:inview={{
+		rootMargin: '-100px'
+	}}
+	on:inview_change={handleChange}
+	class="relative"
+>
 	<div class="bg-black opacity-50 h-full w-full z-10 absolute" />
 	<div bind:this={containerEl} class="max-w-full overflow-hidden flex">
 		{#each banners as banner}

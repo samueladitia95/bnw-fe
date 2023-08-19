@@ -1,1 +1,1 @@
-<div class="h-36 md:h-44 w-full" />
+<div class="h-44 md:h-48 w-full" />
