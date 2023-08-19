@@ -1,7 +1,6 @@
 <script lang="ts">
 	import ArrorIcon from '$lib/assets/svg/arror_icon.svelte';
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
-	import { afterUpdate } from 'svelte';
 
 	const events = [
 		{
