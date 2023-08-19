@@ -139,7 +139,7 @@
 						<div class="font-oakes mt-5">{event.location}</div>
 						<div class="hidden lg:block">View Details</div>
 						<button
-							class="hidden lg:flex font-oakes text-center border border-bwi-eerie-black rounded-full px-5 py-3 gap-4 mt-5"
+							class="hidden lg:flex font-oakes text-center border border-bwi-eerie-black rounded-full px-5 py-3 gap-4 mt-5 hover:bg-bwi-eerie-black hover:text-bwi-alabaster"
 						>
 							<span class="text-xl">View Details</span>
 							<svg
