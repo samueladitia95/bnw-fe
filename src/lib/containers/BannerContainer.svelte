@@ -41,7 +41,7 @@
 	let containerEl: Element;
 
 	function scrollIntoView(selectedView: number) {
-		clearInterval(itemNumber);
+		clearInterval(interval);
 		const maxWidth = containerEl.scrollWidth;
 
 		if (selectedView >= 0 && selectedView < itemNumber) {
@@ -49,6 +49,7 @@
 		}
 
 		containerEl.scrollTo({ left: (maxWidth / itemNumber) * bannerView, behavior: 'smooth' });
+		autoPlay();
 	}
 
 	onMount(() => {
