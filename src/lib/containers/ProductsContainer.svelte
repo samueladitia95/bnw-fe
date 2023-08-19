@@ -61,7 +61,7 @@
 							</div>
 						</div>
 						<a
-							class="font-oakes text-center border border-bwi-alabaster rounded-full px-5 py-3 flex gap-4"
+							class="font-oakes text-center border border-bwi-alabaster rounded-full px-5 py-3 flex gap-4 hover:bg-bwi-alabaster hover:text-bwi-lion"
 							href={product.link}
 							target="_blank"
 						>
