@@ -1,8 +1,19 @@
 <script lang="ts">
 	import ArrorIcon from '$lib/assets/svg/arror_icon.svelte';
+	import CloseFilledIcon from '$lib/assets/svg/close_filled_icon.svelte';
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
+	import { fly } from 'svelte/transition';
 
-	const events = [
+	type Event = {
+		name: string;
+		date: string;
+		location: string;
+		imgUrl: string;
+		description: string;
+		link: string;
+	};
+
+	const events: Event[] = [
 		{
 			name: 'Baby Products Exhibition',
 			date: '12 - 17 July 2023',
@@ -58,8 +69,17 @@
 	const itemNumber: number = events.length;
 	let viewItem: number = 0;
 	let containerEl: Element;
+	let isOpen: boolean = false;
+	let selectedEvent: Event = {
+		name: '',
+		date: '',
+		location: '',
+		imgUrl: '',
+		description: '',
+		link: ''
+	};
 
-	function scrollIntoView(action: 'plus' | 'minus') {
+	const scrollIntoView = (action: 'plus' | 'minus') => {
 		const maxWidth = containerEl.scrollWidth;
 
 		if (action === 'plus' && viewItem < itemNumber - 1) {
@@ -69,7 +89,12 @@
 		}
 
 		containerEl.scrollTo({ left: (maxWidth / itemNumber) * viewItem, behavior: 'smooth' });
-	}
+	};
+	const setEvent = (event: Event) => {
+		selectedEvent = event;
+		delay: 500;
+		isOpen = true;
+	};
 </script>
 
 <div
@@ -137,9 +162,9 @@
 						<div class="font-optima text-xl mt-5">{event.name}</div>
 						<div class="font-oakes mt-3">{event.date}</div>
 						<div class="font-oakes mt-5">{event.location}</div>
-						<div class="hidden lg:block">View Details</div>
 						<button
-							class="hidden lg:flex font-oakes text-center border border-bwi-eerie-black rounded-full px-5 py-3 gap-4 mt-5 hover:bg-bwi-eerie-black hover:text-bwi-alabaster"
+							class="hidden lg:flex font-oakes text-center border-2 border-bwi-eerie-black rounded-full px-5 py-3 gap-4 mt-5 hover:bg-bwi-eerie-black hover:text-bwi-alabaster"
+							on:click={() => setEvent(event)}
 						>
 							<span class="text-xl">View Details</span>
 							<svg
@@ -180,3 +205,58 @@
 		</div>
 	</div>
 </div>
+
+{#if isOpen}
+	<div>
+		<div class="fixed top-0 left-0 z-40 bg-black opacity-50 h-screen w-screen" />
+		<div
+			class="fixed top-0 left-0 z-50 h-screen w-screen"
+			transition:fly={{ y: 200, duration: 500 }}
+		>
+			<div
+				class="absolute bg-bwi-alabaster max-h-[792px] h-full max-w-[900px] w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+			>
+				<div class="relative">
+					<img alt="modal" src={selectedEvent.imgUrl} class="w-full max-h-[345px] object-cover" />
+					<button
+						class="w-8 h-8 fixed top-4 right-4 text-bwi-alabaster"
+						on:click={() => (isOpen = false)}
+					>
+						<CloseFilledIcon height="100%" width="100%" />
+					</button>
+				</div>
+				<div class="px-6 py-9">
+					<div class="font-optima text-3xl mb-6">{selectedEvent.name}</div>
+					<div class="font-oakes leading-loose mb-9">{selectedEvent.description}</div>
+					<div class="flex gap-24">
+						<div>
+							<div class="font-oakes text-sm font-bold leading-loose">Venue</div>
+							<div class="font-oakes text-xl">{selectedEvent.location}</div>
+						</div>
+						<div>
+							<div class="font-oakes text-sm font-bold leading-loose">Date</div>
+							<div class="font-oakes text-xl">{selectedEvent.date}</div>
+						</div>
+					</div>
+					<button
+						class="hidden lg:flex font-oakes text-center border-2 border-bwi-eerie-black rounded-full px-5 py-3 gap-4 mt-5 hover:bg-bwi-eerie-black hover:text-bwi-alabaster"
+					>
+						<span class="text-xl">Go To Website</span>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 25"
+							fill="none"
+						>
+							<path
+								d="M12 4.5L10.59 5.91L16.17 11.5H4V13.5H16.17L10.59 19.09L12 20.5L20 12.5L12 4.5Z"
+								fill="currentColor"
+							/>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+{/if}
