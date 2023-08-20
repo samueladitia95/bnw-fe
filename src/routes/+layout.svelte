@@ -8,7 +8,6 @@
 	import type { PageData } from './$types';
 	import { superForm } from 'sveltekit-superforms/client';
 	import { schemaContactUs } from '$lib';
-	import { afterUpdate } from 'svelte';
 
 	export let data: PageData;
 
@@ -37,6 +36,7 @@
 	let sideBarIsOpen: boolean = false;
 	let isBackground: boolean = false;
 	let contactUsIsOpen: boolean = false;
+	let isSuccess: boolean = false;
 
 	isTopbarBackground.subscribe((value) => (isBackground = value));
 	isContactOpen.subscribe((value) => (contactUsIsOpen = value));
@@ -48,13 +48,14 @@
 		targetEl.scrollIntoView({ behavior: 'smooth' });
 	};
 
-	const { form, errors, enhance, delayed, reset } = superForm(data.form, {
+	const { form, errors, enhance, reset } = superForm(data.form, {
 		validationMethod: 'onblur',
-		validators: schemaContactUs
-	});
-
-	afterUpdate(() => {
-		console.log($errors);
+		validators: schemaContactUs,
+		onUpdated({ form }) {
+			if (form.valid) {
+				isSuccess = true;
+			}
+		}
 	});
 </script>
 
@@ -163,7 +164,7 @@
 			<div class="fixed top-0 left-0 z-40 bg-black opacity-50 h-screen w-screen" />
 		{/if}
 		<div
-			class="z-50 h-screen w-11/12 lg:w-[720px] fixed top-0 right-0 duration-500 transition-transform {contactUsIsOpen
+			class="z-50 h-screen w-11/12 md:w-[720px] fixed top-0 right-0 duration-500 transition-transform {contactUsIsOpen
 				? 'translate-x-0'
 				: 'translate-x-full'}"
 		>
@@ -181,39 +182,67 @@
 					</button>
 				</div>
 
-				<div class="font-oakes leading-loose mb-8 md:max-w-lg">
-					We love hearing from new and current clients, so if you would like to discuss a project,
-					or require more information regarding our services, please don’t hesitate to contact us.
-				</div>
-
-				<!-- Contact Us Form -->
-				<form method="post" action="?/contact" use:enhance class="flex flex-col gap-5 items-end">
-					<Input name="name" label="Fill Your Name" bind:value={$form.name} error={$errors.name} />
-					<Input
-						name="email"
-						label="Fill Your Email"
-						bind:value={$form.email}
-						error={$errors.email}
-					/>
-					<Input name="phone" label="Phone Number" bind:value={$form.phone} error={$errors.phone} />
-					<Input
-						name="subject"
-						label="Subject"
-						bind:value={$form.subject}
-						error={$errors.subject}
-					/>
-					<Input
-						name="message"
-						label="Message"
-						bind:value={$form.message}
-						error={$errors.message}
-					/>
+				{#if isSuccess}
+					<div class="font-oakes leading-loose mb-8 md:max-w-lg">Thank you for submitting!</div>
+					<div class="font-oakes leading-loose mb-8 md:max-w-lg">
+						Our team will get back to you as soon as possible
+					</div>
 					<button
-						type="submit"
+						type="button"
 						class="mt-4 px-10 py-3 font-oakes bg-bwi-lion text-bwi-alabaster rounded-full"
-						disabled={delayed ? true : false}>Send</button
+						on:click={() => {
+							isSuccess = false;
+							reset();
+						}}
 					>
-				</form>
+						Send Another Message
+					</button>
+				{:else}
+					<div class="font-oakes leading-loose mb-8 md:max-w-lg">
+						We love hearing from new and current clients, so if you would like to discuss a project,
+						or require more information regarding our services, please don’t hesitate to contact us.
+					</div>
+
+					<!-- Contact Us Form -->
+					<form method="post" action="?/contact" use:enhance class="flex flex-col gap-5 items-end">
+						<Input
+							name="name"
+							label="Fill Your Name"
+							bind:value={$form.name}
+							error={$errors.name}
+						/>
+						<Input
+							name="email"
+							label="Fill Your Email"
+							bind:value={$form.email}
+							error={$errors.email}
+						/>
+						<Input
+							name="phone"
+							label="Phone Number"
+							bind:value={$form.phone}
+							error={$errors.phone}
+						/>
+						<Input
+							name="subject"
+							label="Subject"
+							bind:value={$form.subject}
+							error={$errors.subject}
+						/>
+						<Input
+							name="message"
+							label="Message"
+							bind:value={$form.message}
+							error={$errors.message}
+						/>
+						<button
+							type="submit"
+							class="mt-4 px-10 py-3 font-oakes bg-bwi-lion text-bwi-alabaster rounded-full"
+						>
+							Send
+						</button>
+					</form>
+				{/if}
 			</div>
 		</div>
 	</div>
