@@ -146,6 +146,10 @@
 
 				<button
 					class="font-normal font-oakes leading-tight text-bwi-alabaster border-2 border-bwi-alabaster px-5 py-4 rounded-full hover:bg-white hover:text-bwi-chamoisee"
+					on:click={() => {
+						sideBarIsOpen = false;
+						isContactOpen.set(true);
+					}}
 				>
 					Get In Touch
 				</button>
@@ -159,15 +163,15 @@
 			<div class="fixed top-0 left-0 z-40 bg-black opacity-50 h-screen w-screen" />
 		{/if}
 		<div
-			class="z-50 h-screen w-11/12 fixed top-0 right-0 duration-500 transition-transform {contactUsIsOpen
+			class="z-50 h-screen w-11/12 lg:w-[720px] fixed top-0 right-0 duration-500 transition-transform {contactUsIsOpen
 				? 'translate-x-0'
 				: 'translate-x-full'}"
 		>
 			<div class="bg-bwi-alabaster text-bwi-eerie-black h-full w-full px-6 py-12 overflow-auto">
 				<div class="flex justify-between mb-7">
-					<div class="font-optima text-3xl">Contact Us</div>
+					<div class="font-optima text-3xl md:text-5xl">Contact Us</div>
 					<button
-						class="w-8 h-8"
+						class="w-8 h-8 md:w-12 md:h-12"
 						on:click={() => {
 							reset();
 							isContactOpen.set(false);
@@ -177,7 +181,7 @@
 					</button>
 				</div>
 
-				<div class="font-oakes leading-loose mb-8">
+				<div class="font-oakes leading-loose mb-8 md:max-w-lg">
 					We love hearing from new and current clients, so if you would like to discuss a project,
 					or require more information regarding our services, please don’t hesitate to contact us.
 				</div>
