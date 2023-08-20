@@ -26,7 +26,7 @@
 		{#if isShow}
 			<div
 				transition:fly={{ y: -200, duration: 1000, delay: 500 }}
-				class="text-2xl font-normal mb-8 md:text-4xl leading-normal md:leading-loose lg:text-5xl lg:leading-loose"
+				class="text-2xl font-normal mb-8 md:text-4xl leading-normal md:leading-relaxed lg:text-5xl lg:leading-relaxed"
 			>
 				Established in 2011, PT. B&W International is a Jakarta-based baby products company. We've
 				grown significantly, specializing in product acquisition, marketing, training, and
