@@ -3,6 +3,7 @@
 	import Instagram from '$lib/assets/svg/instagram.svelte';
 	import MainIcon from '$lib/assets/svg/main_icon.svelte';
 	import TwitterIcon from '$lib/assets/svg/twitter_icon.svelte';
+	import { isContactOpen } from '$lib/store';
 	const navbars = [
 		{
 			label: 'About Us',
@@ -45,6 +46,9 @@
 				</div>
 				<button
 					class="mt-6 font-oakes text-bwi-alabaster border-2 border-bwi-alabaster p-4 rounded-full hover:bg-white hover:text-bwi-chamoisee"
+					on:click={() => {
+						isContactOpen.set(true);
+					}}
 				>
 					Get In Touch
 				</button>

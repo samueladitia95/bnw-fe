@@ -3,7 +3,14 @@
 	import MainIcon from '$lib/assets/svg/main_icon.svelte';
 	import CloseIcon from '$lib/assets/svg/close_icon.svelte';
 	import MenuICon from '$lib/assets/svg/menu_icon.svelte';
-	import { isTopbarBackground } from '$lib/store';
+	import { isContactOpen, isTopbarBackground } from '$lib/store';
+	import Input from '$lib/components/Input.svelte';
+	import type { PageData } from './$types';
+	import { superForm } from 'sveltekit-superforms/client';
+	import { schemaContactUs } from '$lib';
+	import { afterUpdate } from 'svelte';
+
+	export let data: PageData;
 
 	const navbars = [
 		{
@@ -29,8 +36,10 @@
 	];
 	let sideBarIsOpen: boolean = false;
 	let isBackground: boolean = false;
+	let contactUsIsOpen: boolean = false;
 
 	isTopbarBackground.subscribe((value) => (isBackground = value));
+	isContactOpen.subscribe((value) => (contactUsIsOpen = value));
 
 	const scrollToView = (id: string) => {
 		const targetEl = document.querySelector(id);
@@ -38,6 +47,15 @@
 		sideBarIsOpen = false;
 		targetEl.scrollIntoView({ behavior: 'smooth' });
 	};
+
+	const { form, errors, enhance, delayed, reset } = superForm(data.form, {
+		validationMethod: 'onblur',
+		validators: schemaContactUs
+	});
+
+	afterUpdate(() => {
+		console.log($errors);
+	});
 </script>
 
 <div>
@@ -82,6 +100,10 @@
 
 					<button
 						class="font-normal text-2xl md:text-3xl text-bwi-alabaster border-2 border-bwi-alabaster p-5 md:p-7 rounded-full hover:bg-white hover:text-bwi-chamoisee"
+						on:click={() => {
+							sideBarIsOpen = false;
+							isContactOpen.set(true);
+						}}
 					>
 						Get In Touch
 					</button>
@@ -127,6 +149,67 @@
 				>
 					Get In Touch
 				</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Contact Us Sidebar -->
+	<div>
+		{#if contactUsIsOpen}
+			<div class="fixed top-0 left-0 z-40 bg-black opacity-50 h-screen w-screen" />
+		{/if}
+		<div
+			class="z-50 h-screen w-11/12 fixed top-0 right-0 duration-500 transition-transform {contactUsIsOpen
+				? 'translate-x-0'
+				: 'translate-x-full'}"
+		>
+			<div class="bg-bwi-alabaster text-bwi-eerie-black h-full w-full px-6 py-12 overflow-auto">
+				<div class="flex justify-between mb-7">
+					<div class="font-optima text-3xl">Contact Us</div>
+					<button
+						class="w-8 h-8"
+						on:click={() => {
+							reset();
+							isContactOpen.set(false);
+						}}
+					>
+						<CloseIcon height="100%" width="100%" />
+					</button>
+				</div>
+
+				<div class="font-oakes leading-loose mb-8">
+					We love hearing from new and current clients, so if you would like to discuss a project,
+					or require more information regarding our services, please don’t hesitate to contact us.
+				</div>
+
+				<!-- Contact Us Form -->
+				<form method="post" action="?/contact" use:enhance class="flex flex-col gap-5 items-end">
+					<Input name="name" label="Fill Your Name" bind:value={$form.name} error={$errors.name} />
+					<Input
+						name="email"
+						label="Fill Your Email"
+						bind:value={$form.email}
+						error={$errors.email}
+					/>
+					<Input name="phone" label="Phone Number" bind:value={$form.phone} error={$errors.phone} />
+					<Input
+						name="subject"
+						label="Subject"
+						bind:value={$form.subject}
+						error={$errors.subject}
+					/>
+					<Input
+						name="message"
+						label="Message"
+						bind:value={$form.message}
+						error={$errors.message}
+					/>
+					<button
+						type="submit"
+						class="mt-4 px-10 py-3 font-oakes bg-bwi-lion text-bwi-alabaster rounded-full"
+						disabled={delayed ? true : false}>Send</button
+					>
+				</form>
 			</div>
 		</div>
 	</div>

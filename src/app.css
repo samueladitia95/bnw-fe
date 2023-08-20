@@ -92,14 +92,14 @@
 	}
 	@font-face {
 		font-family: 'Optima';
-		src: local('Optima'), local('optima'), url('/fonts/Optima/Optima-Italic-02.ttf');
+		src: local('Optima'), local('optima'), url('/fonts/Optima/Optima-Italic-03.ttf');
 		font-weight: 400;
 		font-display: swap;
 		font-style: italic;
 	}
 	@font-face {
 		font-family: 'Optima';
-		src: local('Optima'), local('optima'), url('/fonts/Optima/Optima-Bold-03.ttf');
+		src: local('Optima'), local('optima'), url('/fonts/Optima/Optima-Bold-02.ttf');
 		font-weight: 700;
 		font-display: swap;
 		font-style: normal;
