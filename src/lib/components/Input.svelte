@@ -19,14 +19,14 @@
 		required
 	/>
 	<div
-		class="after:content[' '] text-black-60% pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-xs font-normal leading-tight transition-all after:absolute after:-bottom-1.5 after:block after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-focus:text-xs peer-focus:leading-tight peer-focus:text-bwi-lion {error
+		class="after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-xs font-normal leading-tight transition-all after:absolute after:-bottom-1.5 after:block after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-focus:text-xs peer-focus:leading-tight peer-focus:text-bwi-lion {error
 			? 'text-bwi-error'
-			: ''}"
+			: 'text-black-60%'}"
 	>
 		{label}*
 	</div>
 	{#if error && error.length}
-		<div transition:fly={{ y: -20, duration: 300 }} class="text-sm text-bwi-error pt-2">
+		<div transition:fly={{ y: -20, duration: 300 }} class="text-xs text-bwi-error pt-2">
 			{error[0]}
 		</div>
 	{/if}
