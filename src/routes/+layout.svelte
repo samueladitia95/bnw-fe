@@ -61,6 +61,7 @@
 
 	onMount(() => {
 		document.body.classList.add('no-scrollbar');
+		window.scrollTo(0, 0);
 	});
 </script>
 
