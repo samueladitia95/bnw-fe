@@ -3,6 +3,7 @@
 	import CloseFilledIcon from '$lib/assets/svg/close_filled_icon.svelte';
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
 	import { fly } from 'svelte/transition';
+	import { inview } from 'svelte-inview';
 
 	type Event = {
 		name: string;
@@ -78,6 +79,7 @@
 		description: '',
 		link: ''
 	};
+	let isShow: boolean = false;
 
 	const scrollIntoView = (action: 'plus' | 'minus') => {
 		const maxWidth = containerEl.scrollWidth;
@@ -90,10 +92,15 @@
 
 		containerEl.scrollTo({ left: (maxWidth / itemNumber) * viewItem, behavior: 'smooth' });
 	};
+
 	const setEvent = (event: Event) => {
 		selectedEvent = event;
 		delay: 500;
 		isOpen = true;
+	};
+
+	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
+		if (!isShow && detail.inView) isShow = true;
 	};
 </script>
 
@@ -102,12 +109,48 @@
 	class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32"
 >
 	<TopbarPad />
-	<div class="flex flex-col justify-start items-start lg:flex-row lg:container lg:gap-20">
-		<div class="container flex flex-col justify-start items-start mb-8 lg:px-0 lg:max-w-[355px]">
-			<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">Events</div>
-			<div class="w-full flex justify-between lg:min-w-[355px]">
-				<div class="text-4xl lg:text-5xl">All of Our Events</div>
-				<div class="md:flex gap-3 hidden lg:hidden">
+	<div
+		use:inview={{
+			rootMargin: '-100px',
+			unobserveOnEnter: true
+		}}
+		on:inview_change={handleChange}
+		class="flex flex-col justify-start items-start lg:flex-row lg:container lg:gap-20"
+	>
+		{#if isShow}
+			<div
+				transition:fly={{ y: -200, duration: 1000, delay: 500 }}
+				class="container flex flex-col justify-start items-start mb-8 lg:px-0 lg:max-w-[355px]"
+			>
+				<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">Events</div>
+				<div class="w-full flex justify-between lg:min-w-[355px]">
+					<div class="text-4xl lg:text-5xl">All of Our Events</div>
+					<div class="md:flex gap-3 hidden lg:hidden">
+						<button
+							class="w-8 h-8 md:w-12 md:h-12 rotate-180 {viewItem === 0
+								? 'text-bwi-eerie-black-23%'
+								: ''}"
+							on:click|preventDefault={() => scrollIntoView('minus')}
+						>
+							<ArrorIcon height="100%" width="100%" />
+						</button>
+						<button
+							class="w-8 h-8 md:w-12 md:h-12 {viewItem === itemNumber - 1
+								? 'text-bwi-eerie-black-23%'
+								: ''}"
+							on:click|preventDefault={() => scrollIntoView('plus')}
+						>
+							<ArrorIcon height="100%" width="100%" />
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div
+				transition:fly={{ x: -200, duration: 1000, delay: 500 }}
+				class="container pr-0 lg:max-w-full lg:min-w-0"
+			>
+				<div class="hidden lg:flex gap-3 mb-6">
 					<button
 						class="w-8 h-8 md:w-12 md:h-12 rotate-180 {viewItem === 0
 							? 'text-bwi-eerie-black-23%'
@@ -125,11 +168,48 @@
 						<ArrorIcon height="100%" width="100%" />
 					</button>
 				</div>
+				<div
+					id="events-container"
+					class="flex overflow-hidden snap-x snap-mandatory gap-6 relative max-w-full pr-8"
+					bind:this={containerEl}
+				>
+					{#each events as event}
+						<div class="min-w-[306px] snap-start flex flex-col items-start">
+							<img
+								src={event.imgUrl}
+								alt="events"
+								class="max-w-[306px] min-w-[306px] object-cover min-h-[337px] max-h-[337px]"
+							/>
+							<div class="font-optima text-xl mt-5">{event.name}</div>
+							<div class="font-oakes mt-3">{event.date}</div>
+							<div class="font-oakes mt-5">{event.location}</div>
+							<button
+								class="hidden lg:flex font-oakes text-center border-2 border-bwi-eerie-black rounded-full px-5 py-3 gap-4 mt-5 hover:bg-bwi-eerie-black hover:text-bwi-alabaster"
+								on:click={() => setEvent(event)}
+							>
+								<span class="text-xl">View Details</span>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 25"
+									fill="none"
+								>
+									<path
+										d="M12 4.5L10.59 5.91L16.17 11.5H4V13.5H16.17L10.59 19.09L12 20.5L20 12.5L12 4.5Z"
+										fill="currentColor"
+									/>
+								</svg>
+							</button>
+						</div>
+					{/each}
+				</div>
 			</div>
-		</div>
 
-		<div class="container pr-0 lg:max-w-full lg:min-w-0">
-			<div class="hidden lg:flex gap-3 mb-6">
+			<div
+				transition:fly={{ y: 200, duration: 1000, delay: 1000 }}
+				class="container flex gap-3 mt-11 md:hidden"
+			>
 				<button
 					class="w-8 h-8 md:w-12 md:h-12 rotate-180 {viewItem === 0
 						? 'text-bwi-eerie-black-23%'
@@ -147,62 +227,7 @@
 					<ArrorIcon height="100%" width="100%" />
 				</button>
 			</div>
-			<div
-				id="events-container"
-				class="flex overflow-hidden snap-x snap-mandatory gap-6 relative max-w-full pr-8"
-				bind:this={containerEl}
-			>
-				{#each events as event, index}
-					<div class="min-w-[306px] snap-start flex flex-col items-start">
-						<img
-							src={event.imgUrl}
-							alt="events"
-							class="max-w-[306px] min-w-[306px] object-cover min-h-[337px] max-h-[337px]"
-						/>
-						<div class="font-optima text-xl mt-5">{event.name}</div>
-						<div class="font-oakes mt-3">{event.date}</div>
-						<div class="font-oakes mt-5">{event.location}</div>
-						<button
-							class="hidden lg:flex font-oakes text-center border-2 border-bwi-eerie-black rounded-full px-5 py-3 gap-4 mt-5 hover:bg-bwi-eerie-black hover:text-bwi-alabaster"
-							on:click={() => setEvent(event)}
-						>
-							<span class="text-xl">View Details</span>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="24"
-								height="24"
-								viewBox="0 0 24 25"
-								fill="none"
-							>
-								<path
-									d="M12 4.5L10.59 5.91L16.17 11.5H4V13.5H16.17L10.59 19.09L12 20.5L20 12.5L12 4.5Z"
-									fill="currentColor"
-								/>
-							</svg>
-						</button>
-					</div>
-				{/each}
-			</div>
-		</div>
-
-		<div class="container flex gap-3 mt-11 md:hidden">
-			<button
-				class="w-8 h-8 md:w-12 md:h-12 rotate-180 {viewItem === 0
-					? 'text-bwi-eerie-black-23%'
-					: ''}"
-				on:click|preventDefault={() => scrollIntoView('minus')}
-			>
-				<ArrorIcon height="100%" width="100%" />
-			</button>
-			<button
-				class="w-8 h-8 md:w-12 md:h-12 {viewItem === itemNumber - 1
-					? 'text-bwi-eerie-black-23%'
-					: ''}"
-				on:click|preventDefault={() => scrollIntoView('plus')}
-			>
-				<ArrorIcon height="100%" width="100%" />
-			</button>
-		</div>
+		{/if}
 	</div>
 </div>
 
