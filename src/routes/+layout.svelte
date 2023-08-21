@@ -72,7 +72,7 @@
 			: 'translate-x-full'}"
 	>
 		<div
-			class="h-full w-full px-6 md:px-12 pb-8 md:pb-12 pt-11 bg-bwi-battleship text-bwi-alabaster flex flex-col gap-10 justify-between overflow-auto"
+			class="h-full w-full px-6 md:px-12 pb-8 md:pb-12 pt-11 bg-bwi-battleship text-bwi-alabaster flex flex-col gap-10 justify-between overflow-auto no-scrollbar"
 		>
 			<div>
 				<!-- main logo -->
@@ -105,7 +105,7 @@
 					{/each}
 
 					<button
-						class="font-normal text-2xl md:text-3xl text-bwi-alabaster border-2 border-bwi-alabaster p-5 md:p-7 rounded-full hover:bg-white hover:text-bwi-chamoisee"
+						class="font-normal text-2xl md:text-3xl text-white border-2 border-white p-5 md:p-7 rounded-full hover:bg-white hover:text-bwi-chamoisee"
 						on:click={() => {
 							sideBarIsOpen = false;
 							isContactOpen.set(true);
@@ -151,7 +151,7 @@
 				{/each}
 
 				<button
-					class="font-normal font-oakes leading-tight text-bwi-alabaster border-2 border-bwi-alabaster px-5 py-4 rounded-full hover:bg-white hover:text-bwi-chamoisee"
+					class="font-normal font-oakes leading-tight text-white border-2 border-white px-5 py-4 rounded-full hover:bg-white hover:text-bwi-chamoisee"
 					on:click={() => {
 						sideBarIsOpen = false;
 						isContactOpen.set(true);
