@@ -189,7 +189,7 @@
 					</div>
 					<button
 						type="button"
-						class="mt-4 px-10 py-3 font-oakes bg-bwi-lion text-bwi-alabaster rounded-full"
+						class="mt-4 px-10 py-3 font-oakes bg-bwi-lion text-bwi-alabaster rounded-full hover:bg-bwi-chamoisee"
 						on:click={() => {
 							isSuccess = false;
 							reset();
@@ -237,7 +237,7 @@
 						/>
 						<button
 							type="submit"
-							class="mt-4 px-10 py-3 font-oakes bg-bwi-lion text-bwi-alabaster rounded-full"
+							class="mt-4 px-10 py-3 font-oakes bg-bwi-lion text-bwi-alabaster rounded-full hover:bg-bwi-chamoisee"
 						>
 							Send
 						</button>
