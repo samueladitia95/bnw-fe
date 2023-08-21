@@ -172,7 +172,7 @@
 				<div class="flex justify-between mb-7">
 					<div class="font-optima text-3xl md:text-5xl">Contact Us</div>
 					<button
-						class="w-8 h-8 md:w-12 md:h-12"
+						class="w-8 h-8 opacity-60 hover:opacity-100"
 						on:click={() => {
 							reset();
 							isContactOpen.set(false);
