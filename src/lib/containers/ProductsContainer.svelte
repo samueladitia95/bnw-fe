@@ -53,7 +53,7 @@
 						class="flex flex-col gap-5 p-5 items-start lg:max-w-[50%] lg:min-w-[50%] lg:justify-between"
 					>
 						<div class="flex flex-col gap-5">
-							<div class="font-optima text-3xl md:text-5xl">{product.name}</div>
+							<div class="font-optima text-3xl md:text-5xl lg:text-4xl">{product.name}</div>
 							<div
 								class="font-oakes text-sm md:text-xl md:leading-loose leading-loose min-h-[131px] md:min-h-[471px] md:max-w-[500px] lg:min-h-0"
 							>
