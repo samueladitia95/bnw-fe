@@ -53,7 +53,7 @@
 				{#if isShow}
 					<div
 						transition:fly={{
-							x: index % 2 === 0 ? 200 : -200,
+							x: -100,
 							duration: 1000,
 							delay: 500 * (index + 1)
 						}}
