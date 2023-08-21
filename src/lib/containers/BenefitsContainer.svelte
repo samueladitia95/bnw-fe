@@ -56,7 +56,7 @@
 			Benefits of choosing us
 		</div>
 
-		<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:w-full">
+		<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:w-full lg:gap-10">
 			<div class="">
 				<div class="text-4xl md:text-5xl mb-6">Why go with us?</div>
 				<div
