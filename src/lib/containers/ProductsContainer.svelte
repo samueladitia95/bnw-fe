@@ -1,5 +1,8 @@
 <script lang="ts">
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
+	import { inview } from 'svelte-inview';
+	import { fly } from 'svelte/transition';
+
 	const products = [
 		{
 			name: 'Easywalker',
@@ -25,6 +28,11 @@
 				'https://s3-alpha-sig.figma.com/img/228c/a0bc/d9c9c5eaf00a89f09395d5b154298228?Expires=1693180800&Signature=D-KspcPKuHVkokK0hopvlwWOkfZNNGL0~HoU8Y5AZ~et9QW2Tt0Z6ysmed21x-Z3GeSI8wAo7Eq8vX9K2l~Ct4D~Nu2QPP-r0TnqJ1AmWZs2zQn5MgndMgl9Eb9j0VBcEDf5hcr~HaWmfJ8mxijbS9GC8T3IRHQ1RPo9mIGfrPzlMhk3Fb2p402UmUpE98rYAKQw5Hj5c0XZC-WsKD31hh8jsv51tFY6bN2dbUbFxfeLkTK~~~j4nbhEsSskS8D07Jd5yTNFRGaLvRX8q6V5-gfznKcg4KdmpWuoPhnx88N5iCt3vqEDTr5LdF49cVBQvGQRPRIZarMFkr5xFfSzcQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
 		}
 	];
+	let isShow: boolean = false;
+
+	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
+		if (!isShow && detail.inView) isShow = true;
+	};
 </script>
 
 <div
@@ -32,55 +40,69 @@
 	class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32"
 >
 	<TopbarPad />
-	<div class="container">
+	<div
+		use:inview={{
+			rootMargin: '-100px',
+			unobserveOnEnter: true
+		}}
+		on:inview_change={handleChange}
+		class="container"
+	>
 		<div class="flex flex-col">
 			{#each products as product, index}
-				<div
-					class="flex flex-col bg-bwi-lion text-bwi-alabaster {index % 2 === 0
-						? 'lg:flex-row'
-						: 'lg:flex-row-reverse'}"
-				>
+				{#if isShow}
 					<div
-						class="min-w-full max-h-[302px] md:max-h-[664px] lg:max-w-[50%] lg:min-w-[50%] overflow-hidden"
+						transition:fly={{
+							x: index % 2 === 0 ? 200 : -200,
+							duration: 1000,
+							delay: 500 * (index + 1)
+						}}
+						class="flex flex-col bg-bwi-lion text-bwi-alabaster {index % 2 === 0
+							? 'lg:flex-row'
+							: 'lg:flex-row-reverse'}"
 					>
-						<img
-							src={product.imgUrl}
-							alt="product"
-							class=" hover:scale-125 transition-transform duration-200 ease-in-out cursor-pointer"
-						/>
-					</div>
-					<div
-						class="flex flex-col gap-5 p-5 items-start lg:max-w-[50%] lg:min-w-[50%] lg:justify-between"
-					>
-						<div class="flex flex-col gap-5">
-							<div class="font-optima text-3xl md:text-5xl lg:text-4xl">{product.name}</div>
-							<div
-								class="font-oakes text-sm md:text-xl md:leading-loose leading-loose min-h-[131px] md:min-h-[471px] md:max-w-[500px] lg:min-h-0"
-							>
-								{product.description}
-							</div>
-						</div>
-						<a
-							class="font-oakes text-center border-2 border-bwi-alabaster rounded-full px-5 py-3 flex gap-4 hover:bg-bwi-alabaster hover:text-bwi-lion"
-							href={product.link}
-							target="_blank"
+						<div
+							class="min-w-full max-h-[302px] md:max-h-[664px] lg:max-w-[50%] lg:min-w-[50%] overflow-hidden"
 						>
-							<span class="md:text-xl">View Details</span>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="24"
-								height="24"
-								viewBox="0 0 24 25"
-								fill="none"
+							<img
+								src={product.imgUrl}
+								alt="product"
+								class=" hover:scale-125 transition-transform duration-200 ease-in-out cursor-pointer"
+							/>
+						</div>
+						<div
+							class="flex flex-col gap-5 p-5 items-start lg:max-w-[50%] lg:min-w-[50%] lg:justify-between"
+						>
+							<div class="flex flex-col gap-5">
+								<div class="font-optima text-3xl md:text-5xl lg:text-4xl">{product.name}</div>
+								<div
+									class="font-oakes text-sm md:text-xl md:leading-loose leading-loose min-h-[131px] md:min-h-[471px] md:max-w-[500px] lg:min-h-0"
+								>
+									{product.description}
+								</div>
+							</div>
+							<a
+								class="font-oakes text-center border-2 border-bwi-alabaster rounded-full px-5 py-3 flex gap-4 hover:bg-bwi-alabaster hover:text-bwi-lion"
+								href={product.link}
+								target="_blank"
 							>
-								<path
-									d="M12 4.5L10.59 5.91L16.17 11.5H4V13.5H16.17L10.59 19.09L12 20.5L20 12.5L12 4.5Z"
-									fill="currentColor"
-								/>
-							</svg>
-						</a>
+								<span class="md:text-xl">View Details</span>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 25"
+									fill="none"
+								>
+									<path
+										d="M12 4.5L10.59 5.91L16.17 11.5H4V13.5H16.17L10.59 19.09L12 20.5L20 12.5L12 4.5Z"
+										fill="currentColor"
+									/>
+								</svg>
+							</a>
+						</div>
 					</div>
-				</div>
+				{/if}
 			{/each}
 		</div>
 	</div>
