@@ -82,7 +82,7 @@
 
 		<hr class="border border-bwi-alabaster w-full mt-16" />
 
-		<div class="text-sm font-oakes text-white opacity-70 tracking-tighter mt-4">
+		<div class="text-sm font-oakes text-bwi-alabaster tracking-tighter mt-4">
 			© 2023 B&W International. , All Rights Reserved
 		</div>
 	</div>
