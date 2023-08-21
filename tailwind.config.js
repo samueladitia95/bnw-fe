@@ -15,7 +15,8 @@ export default {
 				'bwi-battleship': '#8E8B7B',
 				'bwi-bone': '#D7CEBD',
 				'bwi-lion': '#A0825B',
-				'bwi-error': '#D32F2F'
+				'bwi-error': '#D32F2F',
+				'black-60%': 'rgba(0, 0, 0, 0.7)',
 			},
 			fontFamily: {
 				oakes: ['Oakes Grotesk', ...defaultTheme.fontFamily.sans],

@@ -7,11 +7,11 @@
 	export let value: string;
 </script>
 
-<div class="relative h-11 w-full min-w-[200px] {error ? 'mb-5' : ''}">
+<div class="relative text-black-60% h-11 w-full min-w-[200px] {error ? 'mb-5' : ''}">
 	<input
 		class="peer h-full w-full bg-transparent pt-4 pb-1.5 font-oakes font-normal outline outline-0 transition-all focus:outline-0 {error
 			? 'border-bwi-error border-b-2'
-			: 'border-bwi-eerie-black border-b'}"
+			: 'border-black-60% border-b'}"
 		placeholder=""
 		type="text"
 		{name}
