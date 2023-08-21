@@ -168,7 +168,7 @@
 				? 'translate-x-0'
 				: 'translate-x-full'}"
 		>
-			<div class="bg-bwi-alabaster text-bwi-eerie-black h-full w-full px-6 py-12 overflow-auto">
+			<div class="bg-bwi-alabaster text-bwi-eerie-black h-full w-full px-6 py-12 md:p-12 overflow-auto">
 				<div class="flex justify-between mb-7">
 					<div class="font-optima text-3xl md:text-5xl">Contact Us</div>
 					<button
