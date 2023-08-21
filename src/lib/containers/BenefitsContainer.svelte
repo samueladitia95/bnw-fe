@@ -2,6 +2,9 @@
 	import ArrorIcon from '$lib/assets/svg/arror_icon.svelte';
 	import MindIcon from '$lib/assets/svg/mind_icon.svelte';
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
+	import { inview } from 'svelte-inview';
+	import { fly } from 'svelte/transition';
+
 	const benefits = [
 		{
 			title: 'Key Player',
@@ -30,6 +33,7 @@
 	let benefitView: number = 0;
 	let containerEl: Element;
 	let containerImgEl: Element;
+	let isShow = false;
 
 	function scrollIntoView(action: 'plus' | 'minus') {
 		const maxWidth = containerEl.scrollWidth;
@@ -44,6 +48,10 @@
 		containerEl.scrollTo({ left: (maxWidth / 3) * benefitView, behavior: 'smooth' });
 		containerImgEl.scrollTo({ left: (maxWidthImg / 3) * benefitView, behavior: 'smooth' });
 	}
+
+	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
+		if (!isShow && detail.inView) isShow = true;
+	};
 </script>
 
 <div
@@ -51,75 +59,94 @@
 	class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32"
 >
 	<TopbarPad />
-	<div class="container flex flex-col justify-start items-start">
+	<div
+		use:inview={{
+			rootMargin: '-100px',
+			unobserveOnEnter: true
+		}}
+		on:inview_change={handleChange}
+		class="container flex flex-col justify-start items-start"
+	>
 		<div class="text-lg md:text-2xl mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">
 			Benefits of choosing us
 		</div>
 
 		<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:w-full lg:gap-10">
-			<div class="">
-				<div class="text-4xl md:text-5xl mb-6">Why go with us?</div>
-				<div
-					class="md:text-xl font-oakes font-normal mb-8 md:mb-16 lg:mb-0 leading-loose md:leading-loose md:max-w-xl"
-				>
-					To other companies, you might just be a portfolio. To us, a brand is an achievement, a
-					family and a promise of success.
-				</div>
-			</div>
-			<div>
-				<div
-					class="flex flex-col items-start md:flex-row md:items-end md:gap-32 lg:max-w-2xl lg:gap-4"
-				>
-					<div class="flex flex-col items-start">
-						<div class="w=[66px] h-[78px]">
-							<MindIcon height="100%" width="100%" />
-						</div>
-
-						<div bind:this={containerEl} class="flex overflow-hidden snap-x snap-mandatory">
-							{#each benefits as benefit, index}
-								<div class="min-w-full snap-center">
-									<div class="text-2xl md:text-3xl mt-5">{benefit.title}</div>
-									<div class="font-oakes leading-loose mt-5">{benefit.subTitle}</div>
-								</div>
-							{/each}
-						</div>
-					</div>
-
-					<div class="flex gap-3 mt-5">
-						<button
-							class="w-8 h-8 md:w-12 md:h-12 rotate-180 {benefitView === 0
-								? 'text-bwi-eerie-black-23%'
-								: ''}"
-							on:click|preventDefault={() => scrollIntoView('minus')}
-						>
-							<ArrorIcon height="100%" width="100%" />
-						</button>
-						<button
-							class="w-8 h-8 md:w-12 md:h-12 {benefitView === 2 ? 'text-bwi-eerie-black-23%' : ''}"
-							on:click|preventDefault={() => scrollIntoView('plus')}
-						>
-							<ArrorIcon height="100%" width="100%" />
-						</button>
+			{#if isShow}
+				<div transition:fly={{ y: -200, duration: 1000, delay: 500 }}>
+					<div class="text-4xl md:text-5xl mb-6">Why go with us?</div>
+					<div
+						class="md:text-xl font-oakes font-normal mb-8 md:mb-16 lg:mb-0 leading-loose md:leading-loose md:max-w-xl"
+					>
+						To other companies, you might just be a portfolio. To us, a brand is an achievement, a
+						family and a promise of success.
 					</div>
 				</div>
-				<div class="w-full mt-5 relative">
-					<hr class="absolute w-full border border-bwi-eerie-black-23%" />
-					<hr
-						class="absolute w-1/3 border border-bwi-eerie-black duration-500 transition-all translate-x-[{benefitView *
-							100}%]"
+			{/if}
+			{#if isShow}
+				<div transition:fly={{ x: -100, duration: 1000, delay: 1000 }}>
+					<div
+						class="flex flex-col items-start md:flex-row md:items-end md:gap-32 lg:max-w-2xl lg:gap-4"
+					>
+						<div class="flex flex-col items-start">
+							<div class="w=[66px] h-[78px]">
+								<MindIcon height="100%" width="100%" />
+							</div>
+
+							<div bind:this={containerEl} class="flex overflow-hidden snap-x snap-mandatory">
+								{#each benefits as benefit, index}
+									<div class="min-w-full snap-center">
+										<div class="text-2xl md:text-3xl mt-5">{benefit.title}</div>
+										<div class="font-oakes leading-loose mt-5">{benefit.subTitle}</div>
+									</div>
+								{/each}
+							</div>
+						</div>
+
+						<div class="flex gap-3 mt-5">
+							<button
+								class="w-8 h-8 md:w-12 md:h-12 rotate-180 {benefitView === 0
+									? 'text-bwi-eerie-black-23%'
+									: ''}"
+								on:click|preventDefault={() => scrollIntoView('minus')}
+							>
+								<ArrorIcon height="100%" width="100%" />
+							</button>
+							<button
+								class="w-8 h-8 md:w-12 md:h-12 {benefitView === 2
+									? 'text-bwi-eerie-black-23%'
+									: ''}"
+								on:click|preventDefault={() => scrollIntoView('plus')}
+							>
+								<ArrorIcon height="100%" width="100%" />
+							</button>
+						</div>
+					</div>
+					<div class="w-full mt-5 relative">
+						<hr class="absolute w-full border border-bwi-eerie-black-23%" />
+						<hr
+							class="absolute w-1/3 border border-bwi-eerie-black duration-500 transition-all translate-x-[{benefitView *
+								100}%]"
+						/>
+					</div>
+				</div>
+			{/if}
+		</div>
+
+		{#if isShow}
+			<div
+				transition:fly={{ y: 100, duration: 1000, delay: 1000 }}
+				bind:this={containerImgEl}
+				class="flex overflow-hidden snap-x snap-mandatory"
+			>
+				{#each benefits as benefit}
+					<img
+						src={benefit.imgUrl}
+						alt="visions"
+						class="rounded-2xl mt-6 lg:max-h-[525px] min-w-full object-cover transition-all duration-500 ease-in-out"
 					/>
-				</div>
+				{/each}
 			</div>
-		</div>
-
-		<div bind:this={containerImgEl} class="flex overflow-hidden snap-x snap-mandatory">
-			{#each benefits as benefit, index}
-				<img
-					src={benefit.imgUrl}
-					alt="visions"
-					class="rounded-2xl mt-6 lg:max-h-[525px] min-w-full object-cover transition-all duration-500 ease-in-out"
-				/>
-			{/each}
-		</div>
+		{/if}
 	</div>
 </div>
