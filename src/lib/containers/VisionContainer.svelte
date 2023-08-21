@@ -31,14 +31,16 @@
 
 	let containerEl: Element;
 
-	const openAccordion = (selectedIndex: number = 0) => {
+	const openAccordion = (selectedIndex: number = 0, isOpen = false) => {
 		const maxWidth = containerEl.scrollWidth;
 		visions = visions.map((vision, visionIndex) => {
 			const isSelected = visionIndex === selectedIndex;
 			if (isSelected) {
 				containerEl.scrollTo({ left: (maxWidth / 3) * selectedIndex, behavior: 'smooth' });
+				vision.isOpen = isOpen;
+			} else {
+				vision.isOpen = false;
 			}
-			vision.isOpen = isSelected;
 			return vision;
 		});
 	};
@@ -62,7 +64,7 @@
 					<div>
 						<button
 							class="flex justify-between items-center gap-3.5 w-full text-left"
-							on:click={() => openAccordion(index)}
+							on:click={() => openAccordion(index, !vision.isOpen)}
 						>
 							<div
 								class="flex gap-3.5 items-center transition-all duration-500 ease-in-out {vision.isOpen
