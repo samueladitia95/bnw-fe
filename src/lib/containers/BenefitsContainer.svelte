@@ -11,21 +11,21 @@
 			subTitle:
 				'We pride ourselves to be the melting point for our partners to be the preferred brands for our customers.',
 			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/8494/f5c5/70805deda024efb76f18298d5953843f?Expires=1693180800&Signature=HueOcNfsm9ARNzAaeVHMi~zWcRDfmlLgp5UZk5otVl3kHpY2BbLA0teR0KOePYsCk0YRVsaWi2d9tJv6mNcJs2OPn5k9EQBoFUeYx~tZLvz4zEhyQZ2IprMCRphl41jVrMoAa90yMHB3N7re~4J6X2XpTl~bxh-GjcSpNJzTwS2KEsl-5KBca~X18DyatLh-lhOjEJ1YpDaXX7q03N9X2vmYTLOE9xslLHMy4UJo1oDO3EZTyqp2NEw6ehydxgGFdlJcu5NumtqUbcwEs2ZTPZIkHbudbUaDTNY6uW8wJWfB0j88gkhlNjaQNA0q2m-AFfwD7IQDL6ehiVmu1rkOvw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+				'https://s3-alpha-sig.figma.com/img/8494/f5c5/70805deda024efb76f18298d5953843f?Expires=1694390400&Signature=QRjdYStNomNt0a22mqcMZ9X60j7jvq7FS~dEUEZiPOi2CtZ4zUKmbv3SNRYPOvkRzAxssUI7N3~ga0J2OP34Mb50DDyZrObQvnnNZVEBYZGuuonq1cnLMowDbr9kK1n94mJSfGxe16xl5-1O8rhwhmTOXD~kJHXrSvsCVZb5PvD6emM2YicY21lcoWYRkR4qqeNWVIRkbXHVeeE0Z8Zy7vOehtFaCfte3rX5GBFZoyxRSeA8T94rfy8USqcK1ulwonkDkJq6bJcvyw3FDHtwDsPQKASQRJ0qWFPGQoafMzsQlPxWU61q4vQxKLDGvxR~NnWWk1h1wo22usDw8qYqbw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
 		},
 		{
 			title: 'Embrace Diversity',
 			subTitle:
 				'We pride ourselves to be the melting point for our partners to be the preferred brands for our customers.',
 			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/7d50/2ac3/ec4d9891bff314ae85405e1a0999e37a?Expires=1693180800&Signature=Gsb8LDC~7ctJe5cR1L9J4AUx6x3M1aHK4ylQGzkMP4AsfAuwfLlHvSGMq9Zwi82dovF-YdDbDC9Q0Um7ZJ1c2wzQQirSfuwzLHr~bt5G75A~pEmoBMJV0m-2O2z9605DBiH3O5MCQtWewUQSQUrveMet9KrtGxyLodUXZo9varMler78~akIF7qGvVPrOGD~pS71gmviNWRWdBn8Dm6lF1wfdGrFHJdM8rRyLaf-vjFRO4T4TuYYunTQ5S-nbBrTrgHFPuZUcyPxvZC2XEWjOoFU4JKMOhAwTAWfYBXXtafxYtvsIPrNAskfrVNQhOtui3eabxpHvmKApug24rJnvg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+				'https://s3-alpha-sig.figma.com/img/7d50/2ac3/ec4d9891bff314ae85405e1a0999e37a?Expires=1694390400&Signature=gwI2xBXuHddpwCW68utbhJyclwH2diw5h2v6~7L3pC5mHZZjxTl531sGbDwkzSjY6skumJtr2gRLlNgh~s0vrTnszxSg7M~hIyy~cQjI16dcDnnCCunrLhINA1LVKsBe6TZlqlfqQ3dLCVnL2JM2fPVWL4MxSAozHsIlkrAlrBSquKcj5cECytA1GMr6VZo7HozBs4KpQC4STnOepdKs~pRogCEdsXmW2eAl-qU69bzOoKaZvLvX51czCUqpwUtK6ZZVdTS8886h5qSj3nn3eQWL745sd4NVGRQ0U8t1WLC3HleyCoVxxDW~ennM71G4sD0aF1ZRP6prcHcu8THR~g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
 		},
 		{
 			title: 'Personal Approach',
 			subTitle:
 				'We pride ourselves to be the melting point for our partners to be the preferred brands for our customers.',
 			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/1f59/7c22/8ad2d73be1fc235e624190f1e9f4d322?Expires=1693180800&Signature=YvpzBEUB1W~-2Gf3T2itoFjpxZW3iYp6aN-DO4n2mmdxa6NFfzVlohgf29VXPUxJCZEmhQhwqU~UuLUPymifowEbaUT5PCQlm540Ze1kohan17TKYEKKGDvZSRp3qiSTu5BC2kwkr4CzG0A2BpUoNsDg5ec4BdYnQVMGHk4PoqU0rQ1PFjCxOy8Y4JX6GryD-fiCRC-iIXXylNptGXoThWCFyMqPwFBPoGiF4-waZ4819MiAQG2sfHYXaD~YsOPYvFPkUSLvN7~4NhDASwybrU8mxr~cHp8K~UGOdi1Jn9oOXK-BOaWmt6OG2Z7YNoLGk12X2mp~P0dWBiSgDkpcOg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+				'https://s3-alpha-sig.figma.com/img/1f59/7c22/8ad2d73be1fc235e624190f1e9f4d322?Expires=1694390400&Signature=nMuWD~oOyexuT5y86hhKtrGbcbIVHc5RpL0ZDQQ5OQLbW-vhuAOC6IkR-~UstVGQQCv7bOxA8aHMTWbnkhf~gBO0f8rQY~g2pQSO0t~KZaLdEbu9saUIU4XViEUqOSGWAlMDdtmJsChhkuzSW94M7Wu7zMXRCFex0jk7YjtZxdFtFPEpAPBuBgfXR6ONpetanPPr8dzM-uMMSfsQqyeCANAjKquwUoTu2dYbe8-oBYO1Hyr7Aw0BeoTisUoY3z29nhGmhsEevby0c7NtrZGzCWTdKzIzkNZNTP-S8iuwZ-Q3Nl8PjSC5Q6yVGFD7HmrmBsWvHNylL-P-Aab0lE5m4g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
 		}
 	];
 
