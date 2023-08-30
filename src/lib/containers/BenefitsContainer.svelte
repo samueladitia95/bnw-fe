@@ -29,6 +29,8 @@
 		}
 	];
 
+	export let mainBenefits: string;
+
 	const itemNumber: number = 3;
 	let benefitView: number = 0;
 	let containerEl: Element;
@@ -76,8 +78,7 @@
 					<div
 						class="md:text-xl font-oakes font-normal mb-8 md:mb-16 lg:mb-0 leading-loose md:leading-loose md:max-w-xl"
 					>
-						To other companies, you might just be a portfolio. To us, a brand is an achievement, a
-						family and a promise of success.
+						{mainBenefits}
 					</div>
 				</div>
 			{/if}

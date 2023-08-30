@@ -14,6 +14,12 @@ export const load: PageLoad = async () => {
 		whoweare: {
 			content: basicInformation['who_we_are'],
 			img: basicInformation['who_we_are_img']
+		},
+		visions: {
+			mainVision: basicInformation['main_vision']
+		},
+		benefits: {
+			mainBenefits: basicInformation['main_benefits']
 		}
 	};
 };

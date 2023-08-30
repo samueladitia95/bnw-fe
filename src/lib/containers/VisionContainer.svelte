@@ -31,6 +31,8 @@
 		}
 	];
 
+	export let mainVision: string;
+
 	let containerEl: Element;
 	let isShow = false;
 
@@ -71,8 +73,7 @@
 				transition:fly={{ y: -200, duration: 1000, delay: 500 }}
 				class="font-oakes font-normal mb-8 leading-loose text-justify md:text-2xl md:leading-loose lg:text-center"
 			>
-				To become the number one high quality baby products distributions company that provides
-				locally fitted marketing and branding strategy to suit Indonesian diverse culture.
+				{mainVision}
 			</div>
 		{/if}
 		{#if isShow}

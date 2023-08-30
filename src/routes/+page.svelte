@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { pb } from "$lib/pocketbase";
+	import { pb } from '$lib/pocketbase';
 	import type { PageData } from './$types';
 	import BannerContainer from '$lib/containers/BannerContainer.svelte';
 	import BenefitsContainer from '$lib/containers/BenefitsContainer.svelte';
@@ -15,9 +15,9 @@
 
 <div>
 	<BannerContainer banners={data.banners} />
-	<WhoWeAreContainer content={data.whoweare.content}/>
-	<VisionContainer />
-	<BenefitsContainer />
+	<WhoWeAreContainer content={data.whoweare.content} />
+	<VisionContainer mainVision={data.visions.mainVision} />
+	<BenefitsContainer mainBenefits={data.benefits.mainBenefits} />
 	<!-- <ProductsContainer /> -->
 	<!-- <EventsContainer /> -->
 	<!-- <TestimonialsContainer /> -->
