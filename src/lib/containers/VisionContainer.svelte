@@ -11,7 +11,7 @@
 			subTitle: 'Establish long-term, effective, and valuable business partnerships.',
 			isOpen: false,
 			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/be00/6d5b/14031bc64d4a9639beff43f25fbadf19?Expires=1693180800&Signature=FFRnsQwlKApWXIoA3Sjc5i5UbpZ4NPPK6-qAKRL-AhnqUqqUNLd674WP8sXwo-iWmdAveBKVmNHeBCMwG8OIz4~ZfrNkaAdWbbjLuUvunh2nYfNT8BXFAtyvQr1uU0zDHZDzIMcl8VnFt9qCStZgJp6JXz5~stnwFFkgeCFKowCC~jxnvaLJr542r2sVQMwWvYRFP4u7QKc-yaR~DgtBYHOPveSDHGVSTsDSBYw3nfizEkjNe4WM4oIrnGjowyPljdFvJris3TqBr5GdTQCnEKTG8XGomRC8nqiUnjziLcH5I5C8rr-cmW86hcjagnt0Z9Gc~YkZtBKdXXNbgw0u0Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+				'https://s3-alpha-sig.figma.com/img/be00/6d5b/14031bc64d4a9639beff43f25fbadf19?Expires=1694390400&Signature=R1PlwRjPWuOjUH9FOwDYATAMKrKfrxeua6CY5sOFdsESMxnYgvpnn8hQ1CCGz8EnCGj1PA~rDNK0BF2DYa622-3ff5KpsBc6GsWWIa5r3I~Dhk7DM7uSMBdxpZwtPQV38GHD5Nfe98eOFyUsCBXxqft~G01CYSvmauEl7LFstbF661Cxe6iZEohzfgxegxzo-OYXd9wOrhi23hrsu27s7aZ~ZjYQnxtCuqAfyRpDavBKZgagjyxK7gSZaUSntw2wYQoMpf8lArGS5oN5ZEc0UGhfUNWNXDWbeu2wdphKvHsxe1oUsf7IoBuVkhpMtphFo9HOg6L6zIM4KHqfTPe4DA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
 		},
 		{
 			title: 'Creating a unique marketing strategies',
@@ -19,7 +19,7 @@
 				'We want to implement a unique marketing strategies to strengthen our business partners’ brand awareness in Indonesia',
 			isOpen: false,
 			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/c16f/443f/08fa65166c6c2c853588ebb6456f2dc7?Expires=1693180800&Signature=q2g5t1Usr1N2326rNMVs5ajkcqBrybLxSsGU1oDpHQXAFCAsoLmoYvZQjTmEIH7Q1UD7WYugldC87SwD~uMkCy~3~dekN8Qffy59fHSow7pxBpoPvu2JJ6IPllI463IjQObLz3Kgr5VwAHzvCtRYvUoJlVPJdMN-W6UA4NOvKNXbOiQ6wX~n1nD3K5gtPkWN1nMKcMN1Dw0HE1vpW~1Dgaa~sMhWQx1CPmmWtCFw-Y954NHKcPghkodAt8IctWJDU1N7yprEVKp9fXoKnQR~ViDKhlsq6iq~7DNfRtH0F8Ut6DLno3Pv9Vy~zIs-03CAeRHc1QdjabuEvYDR0KBggQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+				'https://s3-alpha-sig.figma.com/img/be00/6d5b/14031bc64d4a9639beff43f25fbadf19?Expires=1694390400&Signature=R1PlwRjPWuOjUH9FOwDYATAMKrKfrxeua6CY5sOFdsESMxnYgvpnn8hQ1CCGz8EnCGj1PA~rDNK0BF2DYa622-3ff5KpsBc6GsWWIa5r3I~Dhk7DM7uSMBdxpZwtPQV38GHD5Nfe98eOFyUsCBXxqft~G01CYSvmauEl7LFstbF661Cxe6iZEohzfgxegxzo-OYXd9wOrhi23hrsu27s7aZ~ZjYQnxtCuqAfyRpDavBKZgagjyxK7gSZaUSntw2wYQoMpf8lArGS5oN5ZEc0UGhfUNWNXDWbeu2wdphKvHsxe1oUsf7IoBuVkhpMtphFo9HOg6L6zIM4KHqfTPe4DA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
 		},
 		{
 			title: 'Provide the inventive solutions',
@@ -27,7 +27,7 @@
 				'Support with a consistent, professional, and efficient solutions to our retailers.',
 			isOpen: false,
 			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/2a1f/8e4d/509fcaa48ae29269e186f444c7effe14?Expires=1693180800&Signature=LEso82keGslgq03MMQyvrpWY8RXEp7j7CAjH1ddrKwdZrDa6oUhkMJ5ym5PB5Mv9RPL-QJIveuqo-nLj92zfrv5EEH0FoJJzmQ9pvgcX85H0gmVSglC5jluDYVWijrpWDDigukcTepN6yNwBrwMsatcUu7wjtpU~Q3jPEYD6ntWT3DfclUMWMoOYSVpkE6gLgd-t1FDAXa7dfcwCoSh~ho9-OzlQuXU-Kq0XVtPtLNvJP-7Rk8J00uEN5PpcgfvCRnElqBOBdP~OnZMg2CYr-xErAVtumSGmM5UUMxJ80rBuqb-3G04UvoZ-6ziMqehg4i8UA4VeRzl-auBKg-Ykfw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+				'https://s3-alpha-sig.figma.com/img/be00/6d5b/14031bc64d4a9639beff43f25fbadf19?Expires=1694390400&Signature=R1PlwRjPWuOjUH9FOwDYATAMKrKfrxeua6CY5sOFdsESMxnYgvpnn8hQ1CCGz8EnCGj1PA~rDNK0BF2DYa622-3ff5KpsBc6GsWWIa5r3I~Dhk7DM7uSMBdxpZwtPQV38GHD5Nfe98eOFyUsCBXxqft~G01CYSvmauEl7LFstbF661Cxe6iZEohzfgxegxzo-OYXd9wOrhi23hrsu27s7aZ~ZjYQnxtCuqAfyRpDavBKZgagjyxK7gSZaUSntw2wYQoMpf8lArGS5oN5ZEc0UGhfUNWNXDWbeu2wdphKvHsxe1oUsf7IoBuVkhpMtphFo9HOg6L6zIM4KHqfTPe4DA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
 		}
 	];
 
