@@ -128,16 +128,14 @@
 <div
 	id="testimonials-container"
 	class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32"
+	use:inview={{
+		rootMargin: '-100px',
+		unobserveOnEnter: true
+	}}
+	on:inview_change={handleChange}
 >
 	<TopbarPad />
-	<div
-		use:inview={{
-			rootMargin: '-100px',
-			unobserveOnEnter: true
-		}}
-		on:inview_change={handleChange}
-		class="flex flex-col justify-start items-start"
-	>
+	<div class="flex flex-col justify-start items-start">
 		{#if isShow}
 			<div
 				transition:fly={{ y: -200, duration: 1000, delay: 500 }}

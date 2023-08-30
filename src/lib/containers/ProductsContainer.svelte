@@ -38,16 +38,14 @@
 <div
 	id="products-container"
 	class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32"
+	use:inview={{
+		rootMargin: '-100px',
+		unobserveOnEnter: true
+	}}
+	on:inview_change={handleChange}
 >
 	<TopbarPad />
-	<div
-		use:inview={{
-			rootMargin: '-100px',
-			unobserveOnEnter: true
-		}}
-		on:inview_change={handleChange}
-		class="container"
-	>
+	<div class="container">
 		<div class="flex flex-col">
 			{#each products as product, index}
 				{#if isShow}

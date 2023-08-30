@@ -53,16 +53,16 @@
 	};
 </script>
 
-<div class="min-h-screen w-full bg-bwi-bone text-bwi-eerie-black font-optima pb-32">
+<div
+	class="min-h-screen w-full bg-bwi-bone text-bwi-eerie-black font-optima pb-32"
+	use:inview={{
+		rootMargin: '-100px',
+		unobserveOnEnter: true
+	}}
+	on:inview_change={handleChange}
+>
 	<TopbarPad />
-	<div
-		use:inview={{
-			rootMargin: '-100px',
-			unobserveOnEnter: true
-		}}
-		on:inview_change={handleChange}
-		class="container flex flex-col justify-start items-start lg:items-center"
-	>
+	<div class="container flex flex-col justify-start items-start lg:items-center">
 		<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">
 			Our Vision & Mission
 		</div>

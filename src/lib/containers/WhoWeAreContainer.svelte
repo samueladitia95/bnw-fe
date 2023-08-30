@@ -12,16 +12,14 @@
 <div
 	id="about-us-container"
 	class="min-h-screen w-full bg-bwi-alabaster text-bwi-eerie-black font-optima pb-32"
+	use:inview={{
+		rootMargin: '-100px',
+		unobserveOnEnter: true
+	}}
+	on:inview_change={handleChange}
 >
 	<TopbarPad />
-	<div
-		use:inview={{
-			rootMargin: '-100px',
-			unobserveOnEnter: true
-		}}
-		on:inview_change={handleChange}
-		class="container flex flex-col justify-start items-start"
-	>
+	<div class="container flex flex-col justify-start items-start">
 		<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">Who We are</div>
 		{#if isShow}
 			<div
