@@ -3,6 +3,9 @@
 	import { inview } from 'svelte-inview';
 	import { fly } from 'svelte/transition';
 
+	export let content: string;
+	export let imgUrl: string = 'https://placehold.co/1296x689';
+
 	let isShow = false;
 	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
 		if (!isShow && detail.inView) isShow = true;
@@ -26,15 +29,13 @@
 				transition:fly={{ y: -200, duration: 1000, delay: 500 }}
 				class="text-2xl font-normal mb-8 md:text-4xl leading-normal md:leading-relaxed"
 			>
-				Established in 2011, PT. B&W International is a Jakarta-based baby products company. We've
-				grown significantly, specializing in product acquisition, marketing, training, and
-				distribution. Our creative marketing sets us apart as a dynamic industry powerhouse.
+				{content}
 			</div>
 		{/if}
 		{#if isShow}
 			<img
 				transition:fly={{ y: 100, duration: 1000, delay: 1000 }}
-				src="https://placehold.co/1296x689"
+				src={imgUrl}
 				alt="who we are"
 				class="rounded-xl w-full max-h-[183px] md:max-h-[393px] lg:max-h-[900px]"
 			/>
