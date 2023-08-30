@@ -31,7 +31,8 @@
 		}
 	];
 
-	export let mainVision: string;
+	export let mainVision: string =
+		'To become the number one high quality baby products distributions company that provides locally fitted marketing and branding strategy to suit Indonesian diverse culture.';
 
 	let containerEl: Element;
 	let isShow = false;

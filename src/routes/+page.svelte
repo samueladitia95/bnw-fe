@@ -15,9 +15,9 @@
 
 <div>
 	<BannerContainer banners={data.banners} />
-	<WhoWeAreContainer content={data.whoweare.content} />
-	<VisionContainer mainVision={data.visions.mainVision} />
-	<BenefitsContainer mainBenefits={data.benefits.mainBenefits} />
+	<WhoWeAreContainer  />
+	<VisionContainer/>
+	<BenefitsContainer />
 	<!-- <ProductsContainer /> -->
 	<!-- <EventsContainer /> -->
 	<!-- <TestimonialsContainer /> -->

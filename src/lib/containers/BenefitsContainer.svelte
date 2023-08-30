@@ -29,7 +29,8 @@
 		}
 	];
 
-	export let mainBenefits: string;
+	export let mainBenefits: string =
+		'To other companies, you might just be a portfolio. To us, a brand is an achievement, a family and a promise of success.';
 
 	const itemNumber: number = 3;
 	let benefitView: number = 0;
