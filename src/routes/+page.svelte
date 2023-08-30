@@ -14,9 +14,9 @@
 </script>
 
 <div>
-	<BannerContainer banners={data.banners} />
-	<WhoWeAreContainer  />
-	<VisionContainer/>
+	<BannerContainer />
+	<WhoWeAreContainer />
+	<VisionContainer />
 	<BenefitsContainer />
 	<!-- <ProductsContainer /> -->
 	<!-- <EventsContainer /> -->
