@@ -69,7 +69,7 @@
 	<TopbarPad />
 	<div class="container flex flex-col justify-start items-start">
 		<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">
-			Benefits of choosing us
+			Benefits of Partnership
 		</div>
 
 		<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:w-full lg:gap-10">
