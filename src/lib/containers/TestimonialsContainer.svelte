@@ -169,7 +169,7 @@
 
 			<div
 				transition:fly={{ x: -200, duration: 1000, delay: 500 }}
-				class="container pr-0 xl:max-w-[calc(100%-(100%-1280px)/2)] xl:ml-[calc((100%-1280px)/2)] 2xl:max-w-[calc(100%-(100%-1536px)/2)] 2xl:ml-[calc((100%-1536px)/2)]"
+				class="container pr-0 xl:max-w-[100%]"
 			>
 				<div
 					id="events-container"
