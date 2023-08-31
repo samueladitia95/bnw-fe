@@ -148,7 +148,7 @@
 				transition:fly={{ x: -200, duration: 1000, delay: 500 }}
 				class="container pr-0 lg:max-w-full lg:min-w-0"
 			>
-				<div class="hidden lg:flex gap-3 mb-6">
+				<div class="hidden lg:flex gap-3 mb-6 lg:justify-end">
 					<button
 						class="w-8 h-8 md:w-12 md:h-12 rotate-180 {viewItem === 0
 							? 'text-bwi-eerie-black-23%'
