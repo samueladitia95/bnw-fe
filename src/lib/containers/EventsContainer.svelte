@@ -4,7 +4,7 @@
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
 	import { fly } from 'svelte/transition';
 	import { inview } from 'svelte-inview';
-	import { afterUpdate } from "svelte";
+	import { afterUpdate } from 'svelte';
 
 	type Event = {
 		name: string;
@@ -169,7 +169,7 @@
 				</div>
 				<div
 					id="events-container"
-					class="flex overflow-hidden snap-x snap-mandatory gap-6 relative max-w-full pr-8 lg:min-w-[calc(102%+(100vw-1536px)/2)]"
+					class="flex overflow-hidden snap-x snap-mandatory gap-6 relative max-w-full pr-8 xl:min-w-[calc(102%+(100vw-1280px)/2)] 2xl:min-w-[calc(102%+(100vw-1536px)/2)]"
 					bind:this={containerEl}
 				>
 					{#each events as event}
