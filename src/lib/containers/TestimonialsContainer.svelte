@@ -167,13 +167,16 @@
 				</div>
 			</div>
 
-			<div transition:fly={{ x: -200, duration: 1000, delay: 500 }} class="container pr-0">
+			<div
+				transition:fly={{ x: -200, duration: 1000, delay: 500 }}
+				class="container pr-0 lg:max-w-[calc(100%-(100%-1536px)/2)] lg:ml-[calc((100%-1536px)/2)]"
+			>
 				<div
 					id="events-container"
 					class="flex overflow-hidden snap-x snap-mandatory gap-5 relative max-w-full pr-8"
 					bind:this={containerEl}
 				>
-					{#each testimonials as testimonial, index}
+					{#each testimonials as testimonial}
 						<div
 							class="min-w-[306px] snap-start p-6 border border-bwi-eerie-black rounded-2xl flex flex-col justify-between gap-9"
 						>
