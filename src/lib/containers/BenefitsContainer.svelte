@@ -68,7 +68,7 @@
 >
 	<TopbarPad />
 	<div class="container flex flex-col justify-start items-start">
-		<div class="text-lg md:text-2xl mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">
+		<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">
 			Benefits of choosing us
 		</div>
 
