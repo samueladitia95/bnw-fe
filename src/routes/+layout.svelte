@@ -125,9 +125,7 @@
 
 	<!-- Topbar -->
 	<!-- bg color disabled for now -->
-	<div
-		class="z-20 px-8 pb-8 pt-11 fixed w-full top-0 {isBackground ? '' : 'bg-bwi-eerie-black-23%'}"
-	>
+	<div class="z-20 px-8 pb-8 pt-11 fixed w-full top-0 {isBackground ? '' : 'bg-bwi-battleship'}">
 		<!-- main logo -->
 		<div class="flex justify-between">
 			<div class="w-28 md:w-44 text-white">
