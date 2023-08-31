@@ -24,7 +24,7 @@
 >
 	<TopbarPad />
 	<div class="container flex flex-col justify-start items-start">
-		<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">Who We are</div>
+		<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">About Us</div>
 		{#if isShow}
 			<div
 				transition:fly={{ y: -200, duration: 1000, delay: 500 }}
