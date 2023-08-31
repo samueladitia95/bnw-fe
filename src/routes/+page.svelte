@@ -18,7 +18,7 @@
 	<WhoWeAreContainer />
 	<VisionContainer />
 	<BenefitsContainer />
-	<ProductsContainer />
+	<ProductsContainer products={data.products} />
 	<EventsContainer />
 	<TestimonialsContainer />
 	<FooterContainer />

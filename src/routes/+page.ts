@@ -5,9 +5,14 @@ export const load: PageLoad = async () => {
 	const banners = await pb.collection('banner_images').getFullList({
 		filter: 'project_name="bnw"'
 	});
+
 	const basicInformation = await pb
 		.collection('basic_informations')
 		.getFirstListItem('project_name="bnw"');
+
+	const products = await pb.collection('products').getFullList({
+		filter: 'project_name="bnw"'
+	});
 
 	return {
 		banners,
@@ -20,6 +25,7 @@ export const load: PageLoad = async () => {
 		},
 		benefits: {
 			mainBenefits: basicInformation['main_benefits']
-		}
+		},
+		products
 	};
 };
