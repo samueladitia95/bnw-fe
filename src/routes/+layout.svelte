@@ -5,12 +5,12 @@
 	import MainIcon from '$lib/assets/svg/main_icon.svelte';
 	import CloseIcon from '$lib/assets/svg/close_icon.svelte';
 	import MenuICon from '$lib/assets/svg/menu_icon.svelte';
-	import { isContactOpen, isTopbarBackground, isTopbarLight } from '$lib/store';
+	import { backgroundColor, isContactOpen, isTopbarBackground, isTopbarLight } from '$lib/store';
 	import Input from '$lib/components/Input.svelte';
 	import type { PageData } from './$types';
 	import { superForm } from 'sveltekit-superforms/client';
 	import { schemaContactUs } from '$lib';
-	import { onMount } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 
 	export let data: PageData;
 
@@ -41,10 +41,12 @@
 	let contactUsIsOpen: boolean = false;
 	let isSuccess: boolean = false;
 	let isLightText: boolean = false;
+	let bgColor: string = 'bg-bwi-battleship';
 
 	isTopbarBackground.subscribe((value) => (isBackground = value));
 	isContactOpen.subscribe((value) => (contactUsIsOpen = value));
 	isTopbarLight.subscribe((value) => (isLightText = value));
+	backgroundColor.subscribe((value) => (bgColor = value));
 
 	const scrollToView = (id: string) => {
 		const targetEl = document.querySelector(id);
@@ -129,11 +131,7 @@
 
 	<!-- Topbar -->
 	<!-- bg color disabled for now -->
-	<div
-		class="z-20 px-6 md:px-16 pb-8 pt-11 fixed w-full top-0 {isBackground
-			? ''
-			: 'bg-bwi-battleship'}"
-	>
+	<div class="z-20 px-6 md:px-16 pb-8 pt-11 fixed w-full top-0 {isBackground ? '' : bgColor}">
 		<!-- main logo -->
 		<div class="flex justify-between {isLightText ? 'text-bwi-alabaster' : 'text-bwi-eerie-black'}">
 			<div class="w-28 md:w-32">

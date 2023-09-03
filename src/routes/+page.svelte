@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { isTopbarLight } from '$lib/store';
+	import { backgroundColor, isTopbarLight } from '$lib/store';
 	import type { PageData } from './$types';
 	import BannerContainer from '$lib/containers/BannerContainer.svelte';
 	import BenefitsContainer from '$lib/containers/BenefitsContainer.svelte';
@@ -14,6 +14,7 @@
 
 	onMount(() => {
 		isTopbarLight.set(true);
+		backgroundColor.set('bg-bwi-battleship');
 	});
 </script>
 

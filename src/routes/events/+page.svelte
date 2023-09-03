@@ -1,14 +1,15 @@
 <script>
 	import { onMount } from 'svelte';
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
-	import { isTopbarBackground, isTopbarLight } from '$lib/store';
+	import { backgroundColor, isTopbarBackground, isTopbarLight } from '$lib/store';
 
 	onMount(() => {
-		isTopbarBackground.set(true);
+		isTopbarBackground.set(false);
 		isTopbarLight.set(false);
+		backgroundColor.set('bg-bwi-alabaster');
 	});
 </script>
 
-<div class="bg-bwi- min-h-screen">
+<div class="bg-bwi-alabaster min-h-screen">
 	<TopbarPad />
 </div>
