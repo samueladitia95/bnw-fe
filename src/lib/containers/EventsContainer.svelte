@@ -4,7 +4,6 @@
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
 	import { fly } from 'svelte/transition';
 	import { inview } from 'svelte-inview';
-	import { afterUpdate } from 'svelte';
 
 	type Event = {
 		name: string;
@@ -13,6 +12,7 @@
 		imgUrl: string;
 		description: string;
 		link: string;
+		label: string;
 	};
 
 	const events: Event[] = [
@@ -24,7 +24,8 @@
 				'https://s3-alpha-sig.figma.com/img/9565/4573/906cf8f9affd18c6787bd2c583a054a8?Expires=1694390400&Signature=PA~H0L2h1HEFTM~ZNMejPeCXMGit5JC815BBK~0FetrTWBxsalKRxjNsn-pPMt9f2~WJIykubiY8Zg16NkbANZjD8F30cy4si9kPhp2zp8rExojbwx8dNYtRJMTenwtajFEppJvYi1lrn9klNdVFg61aL1lPMIFdU9ZCsZWHt3p1qtllAy9UqiJMqpmIPh2hwf-MWBe~GsAVtVwi0~EdbGLkrmx9lC-Ku1tTRksYBqh91PWlPq~-1Y3bhRuXbgGa0WmXxBAQ5ptj4Y0bruHAGcN0GX5ZWU9oyspuXxEZ6kss6jVrfEMuUw-yk3~Lzobyc5OR6A1r7MMDdECGdmMstA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
 			description:
 				'CKE is the flagship baby products fair in Asia, where overseas buyers can meet and source directly from the largest number of Chinese manufacturers. The suppliers are from main production regions of China and specialize in a wide variety of products.',
-			link: 'www.google.com'
+			link: 'www.google.com',
+			label: 'Upcoming Event'
 		},
 		{
 			name: 'Baby Products Exhibition',
@@ -34,7 +35,8 @@
 				'https://s3-alpha-sig.figma.com/img/9565/4573/906cf8f9affd18c6787bd2c583a054a8?Expires=1694390400&Signature=PA~H0L2h1HEFTM~ZNMejPeCXMGit5JC815BBK~0FetrTWBxsalKRxjNsn-pPMt9f2~WJIykubiY8Zg16NkbANZjD8F30cy4si9kPhp2zp8rExojbwx8dNYtRJMTenwtajFEppJvYi1lrn9klNdVFg61aL1lPMIFdU9ZCsZWHt3p1qtllAy9UqiJMqpmIPh2hwf-MWBe~GsAVtVwi0~EdbGLkrmx9lC-Ku1tTRksYBqh91PWlPq~-1Y3bhRuXbgGa0WmXxBAQ5ptj4Y0bruHAGcN0GX5ZWU9oyspuXxEZ6kss6jVrfEMuUw-yk3~Lzobyc5OR6A1r7MMDdECGdmMstA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
 			description:
 				'CKE is the flagship baby products fair in Asia, where overseas buyers can meet and source directly from the largest number of Chinese manufacturers. The suppliers are from main production regions of China and specialize in a wide variety of products.',
-			link: 'www.google.com'
+			link: 'www.google.com',
+			label: 'Upcoming Event'
 		},
 		{
 			name: 'Baby Products Exhibition',
@@ -44,7 +46,8 @@
 				'https://s3-alpha-sig.figma.com/img/9565/4573/906cf8f9affd18c6787bd2c583a054a8?Expires=1694390400&Signature=PA~H0L2h1HEFTM~ZNMejPeCXMGit5JC815BBK~0FetrTWBxsalKRxjNsn-pPMt9f2~WJIykubiY8Zg16NkbANZjD8F30cy4si9kPhp2zp8rExojbwx8dNYtRJMTenwtajFEppJvYi1lrn9klNdVFg61aL1lPMIFdU9ZCsZWHt3p1qtllAy9UqiJMqpmIPh2hwf-MWBe~GsAVtVwi0~EdbGLkrmx9lC-Ku1tTRksYBqh91PWlPq~-1Y3bhRuXbgGa0WmXxBAQ5ptj4Y0bruHAGcN0GX5ZWU9oyspuXxEZ6kss6jVrfEMuUw-yk3~Lzobyc5OR6A1r7MMDdECGdmMstA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
 			description:
 				'CKE is the flagship baby products fair in Asia, where overseas buyers can meet and source directly from the largest number of Chinese manufacturers. The suppliers are from main production regions of China and specialize in a wide variety of products.',
-			link: 'www.google.com'
+			link: 'www.google.com',
+			label: 'Upcoming Event'
 		},
 		{
 			name: 'Baby Products Exhibition',
@@ -54,7 +57,8 @@
 				'https://s3-alpha-sig.figma.com/img/02b1/ee1a/e70e11cfea7968800eeaa2982ff7faab?Expires=1694390400&Signature=HcMrTMjRwuFIrx6uPt765ZaLRYbYfx4~mP1hWm14Gnot2W3J5wUgkcLdLeZ-xlgxdtmbmKGcqVtG6kYwsuTuCNxBCBMcMyiL2m2tY0gj0fFA3Uhu83P7JQDlWTy25ExPoP-6Y2U3CnyewA-xcmPFkw42Gtb~At~F6Ma4kHn91JNM4LgTiKMFdGtZt-JngiUr7nTa38JoxZDscYTXNsDBy9xs3dVySPJBcpemtGH9IZW1-cbsAQgsnr7t8Oh7~KuWkimK9Q5kyDab--ZKOohrpwPl~axuZsroO1YP1F5Cw-GYsm35HAXFMAz6chQPjctDif3Rb8zq~GyNj6g3wgm~CA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
 			description:
 				'CKE is the flagship baby products fair in Asia, where overseas buyers can meet and source directly from the largest number of Chinese manufacturers. The suppliers are from main production regions of China and specialize in a wide variety of products.',
-			link: 'www.google.com'
+			link: 'www.google.com',
+			label: 'Upcoming Event'
 		},
 		{
 			name: 'Baby Products Exhibition',
@@ -64,7 +68,8 @@
 				'https://s3-alpha-sig.figma.com/img/ffb9/6ff1/f6e8173c8cbdbf3b847469dbe9bdd842?Expires=1694390400&Signature=mdVzT2bJtsSygEaCpe-cQqqis0amTgrCZ3AVXIWYOWTkVLRr~OA6FpUbB2IkbEs4gozzzazwaYcQ5TK3EV2wZ5S2lJ0QM1f5C9QsoZKsqrCbuQxXJ7qUfaQ11Jwo39GIw3QvmsXnwtZsWRuGP4it1PeNEQatyG1yUf~x0R~SfnFpbP4QC6uOHFc6Oh3ypAzbBfrlnzIKStKMYunBsvJU6TCOwA6ryR2WlgD44B3FBOW6U7mLsZT2nEdoHv9y6eGMkHmlAyyY2DBZmDSZTIEjlXRGqNjsvtQgsCWS48aWOyyNvOEAOv407u86bZXUlHh8~vIU~EZNLS2Pw9nmgfl1mw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
 			description:
 				'CKE is the flagship baby products fair in Asia, where overseas buyers can meet and source directly from the largest number of Chinese manufacturers. The suppliers are from main production regions of China and specialize in a wide variety of products.',
-			link: 'www.google.com'
+			link: 'www.google.com',
+			label: 'Upcoming Event'
 		}
 	];
 
@@ -78,7 +83,8 @@
 		location: '',
 		imgUrl: '',
 		description: '',
-		link: ''
+		link: '',
+		label: ''
 	};
 	let isShow: boolean = false;
 
@@ -167,18 +173,25 @@
 						<ArrorIcon height="100%" width="100%" />
 					</button>
 				</div>
+				<!-- Events Container -->
 				<div
 					id="events-container"
 					class="flex overflow-hidden snap-x snap-mandatory gap-6 relative max-w-full pr-8 xl:min-w-[calc(102%+(100vw-1280px)/2)] 2xl:min-w-[calc(102%+(100vw-1536px)/2)]"
 					bind:this={containerEl}
 				>
 					{#each events as event}
+						<!-- Event Card -->
 						<div class="min-w-[306px] snap-start flex flex-col items-start">
 							<img
 								src={event.imgUrl}
 								alt="events"
 								class="max-w-[306px] min-w-[306px] object-cover min-h-[337px] max-h-[337px]"
 							/>
+							<div
+								class="px-4 py-2 font-oakes text-bwi-alabaster bg-bwi-battleship rounded-full mt-5"
+							>
+								{event.label}
+							</div>
 							<div class="font-optima text-xl mt-5">{event.name}</div>
 							<div class="font-oakes mt-3">{event.date}</div>
 							<div class="font-oakes mt-5">{event.location}</div>
