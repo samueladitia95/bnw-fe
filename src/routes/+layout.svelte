@@ -1,5 +1,7 @@
 <script lang="ts">
 	import '../app.css';
+	import FooterContainer from '$lib/containers/FooterContainer.svelte';
+
 	import MainIcon from '$lib/assets/svg/main_icon.svelte';
 	import CloseIcon from '$lib/assets/svg/close_icon.svelte';
 	import MenuICon from '$lib/assets/svg/menu_icon.svelte';
@@ -255,5 +257,6 @@
 
 	<div class="">
 		<slot />
+		<FooterContainer />
 	</div>
 </div>

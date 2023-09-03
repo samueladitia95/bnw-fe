@@ -3,7 +3,6 @@
 	import type { PageData } from './$types';
 	import BannerContainer from '$lib/containers/BannerContainer.svelte';
 	import BenefitsContainer from '$lib/containers/BenefitsContainer.svelte';
-	import FooterContainer from '$lib/containers/FooterContainer.svelte';
 	import VisionContainer from '$lib/containers/VisionContainer.svelte';
 	import WhoWeAreContainer from '$lib/containers/WhoWeAreContainer.svelte';
 	import EventsContainer from '$lib/containers/EventsContainer.svelte';
@@ -21,5 +20,4 @@
 	<ProductsContainer products={data.products} />
 	<EventsContainer />
 	<TestimonialsContainer />
-	<FooterContainer />
 </div>
