@@ -4,91 +4,21 @@
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
 	import { fly } from 'svelte/transition';
 	import { inview } from 'svelte-inview';
+	import type { ListResult, Record } from 'pocketbase';
 
-	type Event = {
-		name: string;
-		date: string;
-		location: string;
-		imgUrl: string;
-		description: string;
-		link: string;
-		label: string;
-	};
+	const imgUrl =
+		'https://s3-alpha-sig.figma.com/img/1203/de7a/c03f268845b14f761c33e470396fd8d3?Expires=1694390400&Signature=Dxhtp1wE-jS5~zZYYHqOrHW3sLAy4Zteq2NSyWQ3tivUewDRo-ooTOWjodT27j9X8rZA4if4dNnJ5UFyVUG~I8KmCP6px8nG82wdRVreUVdOZ6N~f7-p9ELDP66tCpJNMjgIh0LMd0RdnTu6iy3gkNZaZbfjOoagMzV6D7P1DMEGTrCVIXfr5V10esTpotwlrJtrcBnR5qPtPi7Y2YHpTlHG-Lzq6ohuBr5R~WXpNgxKOk2MKSZnvLxzXluMjwodO1QOYpSY1u5ej~IdxclMamrDAtpKFh2aKBYnpiSrvZhwPa-QAekv09aGI6tnO8ZnM6OkhgYcrozSzsDzCCmjbQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4';
 
-	const events: Event[] = [
-		{
-			name: 'Baby Products Exhibition',
-			date: '12 - 17 July 2023',
-			location: 'Jakarta International Expo Hall D no 24',
-			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/9565/4573/906cf8f9affd18c6787bd2c583a054a8?Expires=1694390400&Signature=PA~H0L2h1HEFTM~ZNMejPeCXMGit5JC815BBK~0FetrTWBxsalKRxjNsn-pPMt9f2~WJIykubiY8Zg16NkbANZjD8F30cy4si9kPhp2zp8rExojbwx8dNYtRJMTenwtajFEppJvYi1lrn9klNdVFg61aL1lPMIFdU9ZCsZWHt3p1qtllAy9UqiJMqpmIPh2hwf-MWBe~GsAVtVwi0~EdbGLkrmx9lC-Ku1tTRksYBqh91PWlPq~-1Y3bhRuXbgGa0WmXxBAQ5ptj4Y0bruHAGcN0GX5ZWU9oyspuXxEZ6kss6jVrfEMuUw-yk3~Lzobyc5OR6A1r7MMDdECGdmMstA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
-			description:
-				'CKE is the flagship baby products fair in Asia, where overseas buyers can meet and source directly from the largest number of Chinese manufacturers. The suppliers are from main production regions of China and specialize in a wide variety of products.',
-			link: 'www.google.com',
-			label: 'Upcoming Event'
-		},
-		{
-			name: 'Baby Products Exhibition',
-			date: '12 - 17 July 2023',
-			location: 'Jakarta International Expo Hall D no 24',
-			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/9565/4573/906cf8f9affd18c6787bd2c583a054a8?Expires=1694390400&Signature=PA~H0L2h1HEFTM~ZNMejPeCXMGit5JC815BBK~0FetrTWBxsalKRxjNsn-pPMt9f2~WJIykubiY8Zg16NkbANZjD8F30cy4si9kPhp2zp8rExojbwx8dNYtRJMTenwtajFEppJvYi1lrn9klNdVFg61aL1lPMIFdU9ZCsZWHt3p1qtllAy9UqiJMqpmIPh2hwf-MWBe~GsAVtVwi0~EdbGLkrmx9lC-Ku1tTRksYBqh91PWlPq~-1Y3bhRuXbgGa0WmXxBAQ5ptj4Y0bruHAGcN0GX5ZWU9oyspuXxEZ6kss6jVrfEMuUw-yk3~Lzobyc5OR6A1r7MMDdECGdmMstA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
-			description:
-				'CKE is the flagship baby products fair in Asia, where overseas buyers can meet and source directly from the largest number of Chinese manufacturers. The suppliers are from main production regions of China and specialize in a wide variety of products.',
-			link: 'www.google.com',
-			label: 'Upcoming Event'
-		},
-		{
-			name: 'Baby Products Exhibition',
-			date: '12 - 17 July 2023',
-			location: 'Jakarta International Expo Hall D no 24',
-			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/9565/4573/906cf8f9affd18c6787bd2c583a054a8?Expires=1694390400&Signature=PA~H0L2h1HEFTM~ZNMejPeCXMGit5JC815BBK~0FetrTWBxsalKRxjNsn-pPMt9f2~WJIykubiY8Zg16NkbANZjD8F30cy4si9kPhp2zp8rExojbwx8dNYtRJMTenwtajFEppJvYi1lrn9klNdVFg61aL1lPMIFdU9ZCsZWHt3p1qtllAy9UqiJMqpmIPh2hwf-MWBe~GsAVtVwi0~EdbGLkrmx9lC-Ku1tTRksYBqh91PWlPq~-1Y3bhRuXbgGa0WmXxBAQ5ptj4Y0bruHAGcN0GX5ZWU9oyspuXxEZ6kss6jVrfEMuUw-yk3~Lzobyc5OR6A1r7MMDdECGdmMstA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
-			description:
-				'CKE is the flagship baby products fair in Asia, where overseas buyers can meet and source directly from the largest number of Chinese manufacturers. The suppliers are from main production regions of China and specialize in a wide variety of products.',
-			link: 'www.google.com',
-			label: 'Upcoming Event'
-		},
-		{
-			name: 'Baby Products Exhibition',
-			date: '12 - 17 July 2023',
-			location: 'Jakarta International Expo Hall D no 24',
-			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/02b1/ee1a/e70e11cfea7968800eeaa2982ff7faab?Expires=1694390400&Signature=HcMrTMjRwuFIrx6uPt765ZaLRYbYfx4~mP1hWm14Gnot2W3J5wUgkcLdLeZ-xlgxdtmbmKGcqVtG6kYwsuTuCNxBCBMcMyiL2m2tY0gj0fFA3Uhu83P7JQDlWTy25ExPoP-6Y2U3CnyewA-xcmPFkw42Gtb~At~F6Ma4kHn91JNM4LgTiKMFdGtZt-JngiUr7nTa38JoxZDscYTXNsDBy9xs3dVySPJBcpemtGH9IZW1-cbsAQgsnr7t8Oh7~KuWkimK9Q5kyDab--ZKOohrpwPl~axuZsroO1YP1F5Cw-GYsm35HAXFMAz6chQPjctDif3Rb8zq~GyNj6g3wgm~CA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
-			description:
-				'CKE is the flagship baby products fair in Asia, where overseas buyers can meet and source directly from the largest number of Chinese manufacturers. The suppliers are from main production regions of China and specialize in a wide variety of products.',
-			link: 'www.google.com',
-			label: 'Upcoming Event'
-		},
-		{
-			name: 'Baby Products Exhibition',
-			date: '12 - 17 July 2023',
-			location: 'Jakarta International Expo Hall D no 24',
-			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/ffb9/6ff1/f6e8173c8cbdbf3b847469dbe9bdd842?Expires=1694390400&Signature=mdVzT2bJtsSygEaCpe-cQqqis0amTgrCZ3AVXIWYOWTkVLRr~OA6FpUbB2IkbEs4gozzzazwaYcQ5TK3EV2wZ5S2lJ0QM1f5C9QsoZKsqrCbuQxXJ7qUfaQ11Jwo39GIw3QvmsXnwtZsWRuGP4it1PeNEQatyG1yUf~x0R~SfnFpbP4QC6uOHFc6Oh3ypAzbBfrlnzIKStKMYunBsvJU6TCOwA6ryR2WlgD44B3FBOW6U7mLsZT2nEdoHv9y6eGMkHmlAyyY2DBZmDSZTIEjlXRGqNjsvtQgsCWS48aWOyyNvOEAOv407u86bZXUlHh8~vIU~EZNLS2Pw9nmgfl1mw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
-			description:
-				'CKE is the flagship baby products fair in Asia, where overseas buyers can meet and source directly from the largest number of Chinese manufacturers. The suppliers are from main production regions of China and specialize in a wide variety of products.',
-			link: 'www.google.com',
-			label: 'Upcoming Event'
-		}
-	];
-
-	const itemNumber: number = events.length;
+	export let events: ListResult<Record>;
+	const itemNumber: number = events.items.length;
 	let viewItem: number = 0;
 	let containerEl: Element;
 	let isOpen: boolean = false;
-	let selectedEvent: Event = {
-		name: '',
-		date: '',
-		location: '',
-		imgUrl: '',
-		description: '',
-		link: '',
-		label: ''
-	};
+	let selectedEvent: Record;
 	let isShow: boolean = false;
 
 	const scrollIntoView = (action: 'plus' | 'minus') => {
+		events;
 		const maxWidth = containerEl.scrollWidth;
 
 		if (action === 'plus' && viewItem < itemNumber - 1) {
@@ -100,7 +30,7 @@
 		containerEl.scrollTo({ left: (maxWidth / itemNumber) * viewItem, behavior: 'smooth' });
 	};
 
-	const setEvent = (event: Event) => {
+	const setEvent = (event: Record) => {
 		selectedEvent = event;
 		delay: 500;
 		isOpen = true;
@@ -179,11 +109,11 @@
 					class="flex overflow-hidden snap-x snap-mandatory gap-6 relative max-w-full pr-8 xl:min-w-[calc(102%+(100vw-1280px)/2)] 2xl:min-w-[calc(102%+(100vw-1536px)/2)]"
 					bind:this={containerEl}
 				>
-					{#each events as event}
+					{#each events.items as event}
 						<!-- Event Card -->
 						<div class="min-w-[306px] snap-start flex flex-col items-start">
 							<img
-								src={event.imgUrl}
+								src={imgUrl}
 								alt="events"
 								class="max-w-[306px] min-w-[306px] object-cover min-h-[337px] max-h-[337px]"
 							/>
@@ -254,7 +184,7 @@
 				class="absolute bg-bwi-alabaster max-h-[792px] h-full max-w-[900px] w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
 			>
 				<div class="relative">
-					<img alt="modal" src={selectedEvent.imgUrl} class="w-full max-h-[345px] object-cover" />
+					<img alt="modal" src={imgUrl} class="w-full max-h-[345px] object-cover" />
 					<button
 						class="w-8 h-8 fixed top-4 right-4 text-bwi-alabaster"
 						on:click={() => (isOpen = false)}

@@ -24,6 +24,6 @@
 	<VisionContainer />
 	<BenefitsContainer />
 	<ProductsContainer products={data.products} />
-	<EventsContainer />
+	<EventsContainer events={data.events} />
 	<TestimonialsContainer />
 </div>
