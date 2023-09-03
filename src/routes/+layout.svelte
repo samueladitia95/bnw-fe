@@ -156,7 +156,9 @@
 				{/each}
 
 				<button
-					class="font-normal font-oakes leading-tight border-2 border-white px-5 py-4 rounded-full hover:bg-white hover:text-bwi-chamoisee"
+					class="font-normal font-oakes leading-tight border-2 {isLightText
+						? 'border-bwi-alabaster hover:bg-bwi-alabaster hover:text-bwi-chamoisee'
+						: 'border-bwi-eerie-black hover:bg-bwi-eerie-black hover:text-bwi-alabaster'} px-5 py-4 rounded-full"
 					on:click={() => {
 						sideBarIsOpen = false;
 						isContactOpen.set(true);
