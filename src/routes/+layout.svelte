@@ -5,7 +5,7 @@
 	import MainIcon from '$lib/assets/svg/main_icon.svelte';
 	import CloseIcon from '$lib/assets/svg/close_icon.svelte';
 	import MenuICon from '$lib/assets/svg/menu_icon.svelte';
-	import { isContactOpen, isTopbarBackground } from '$lib/store';
+	import { isContactOpen, isTopbarBackground, isTopbarLight } from '$lib/store';
 	import Input from '$lib/components/Input.svelte';
 	import type { PageData } from './$types';
 	import { superForm } from 'sveltekit-superforms/client';
@@ -40,9 +40,11 @@
 	let isBackground: boolean = false;
 	let contactUsIsOpen: boolean = false;
 	let isSuccess: boolean = false;
+	let isLightText: boolean = false;
 
 	isTopbarBackground.subscribe((value) => (isBackground = value));
 	isContactOpen.subscribe((value) => (contactUsIsOpen = value));
+	isTopbarLight.subscribe((value) => (isLightText = value));
 
 	const scrollToView = (id: string) => {
 		const targetEl = document.querySelector(id);
@@ -80,7 +82,7 @@
 			<div>
 				<!-- main logo -->
 				<div class="flex justify-between">
-					<div class="w-28 md:w-44 text-white">
+					<div class="w-28 md:w-32 text-white">
 						<MainIcon width="100%" height="100%" />
 					</div>
 
@@ -127,15 +129,19 @@
 
 	<!-- Topbar -->
 	<!-- bg color disabled for now -->
-	<div class="z-20 px-16 py-7 fixed w-full top-0 {isBackground ? '' : 'bg-bwi-battleship'}">
+	<div
+		class="z-20 px-6 md:px-16 pb-8 pt-11 fixed w-full top-0 {isBackground
+			? ''
+			: 'bg-bwi-battleship'}"
+	>
 		<!-- main logo -->
-		<div class="flex justify-between">
-			<div class="w-28 md:w-32 text-white">
+		<div class="flex justify-between {isLightText ? 'text-bwi-alabaster' : 'text-bwi-eerie-black'}">
+			<div class="w-28 md:w-32">
 				<MainIcon width="100%" height="100%" />
 			</div>
 
 			<button
-				class="w-8 h-8 md:w-11 md:h-11 text-bwi-alabaster lg:hidden"
+				class="w-8 h-8 md:w-11 md:h-11 lg:hidden"
 				on:click={() => {
 					sideBarIsOpen = !sideBarIsOpen;
 				}}
@@ -144,7 +150,7 @@
 			</button>
 
 			<!-- Navbar Items In Topbar -->
-			<div class="hidden lg:flex gap-8 font-oakes text-white items-center">
+			<div class="hidden lg:flex gap-8 font-oakes items-center">
 				{#each navbars as navItem}
 					<button class="font-normal" on:click={() => scrollToView(navItem.link)}>
 						{navItem.label}
@@ -152,7 +158,7 @@
 				{/each}
 
 				<button
-					class="font-normal font-oakes leading-tight text-white border-2 border-white px-5 py-4 rounded-full hover:bg-white hover:text-bwi-chamoisee"
+					class="font-normal font-oakes leading-tight border-2 border-white px-5 py-4 rounded-full hover:bg-white hover:text-bwi-chamoisee"
 					on:click={() => {
 						sideBarIsOpen = false;
 						isContactOpen.set(true);

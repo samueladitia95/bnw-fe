@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { pb } from '$lib/pocketbase';
+	import { onMount } from 'svelte';
+	import { isTopbarLight } from '$lib/store';
 	import type { PageData } from './$types';
 	import BannerContainer from '$lib/containers/BannerContainer.svelte';
 	import BenefitsContainer from '$lib/containers/BenefitsContainer.svelte';
@@ -10,6 +11,10 @@
 	import TestimonialsContainer from '$lib/containers/TestimonialsContainer.svelte';
 
 	export let data: PageData;
+
+	onMount(() => {
+		isTopbarLight.set(true);
+	});
 </script>
 
 <div>
