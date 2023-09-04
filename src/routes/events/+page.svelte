@@ -31,8 +31,8 @@
 	let onSubmit = async () => {
 		let currentSearchTerm = '';
 
-		const urlParams = new URLSearchParams(window.location.search);
-		currentSearchTerm = urlParams.get('q') || '';
+		const urlParamsSearch = new URLSearchParams(window.location.search);
+		currentSearchTerm = urlParamsSearch.get('q') || '';
 
 		if (searchQuery.trim() == currentSearchTerm?.trim()) return;
 
@@ -105,6 +105,14 @@
 				Sorry we haven’t found any event with “{searchQuery}”
 			</div>
 		{/if}
+
+		<div class="flex w-full justify-center items-center mt-20">
+			<button
+				class="flex font-oakes text-center border-2 border-bwi-eerie-black rounded-full px-5 py-3 gap-4 mt-5 hover:bg-bwi-eerie-black hover:text-bwi-alabaster lg:text-lg"
+			>
+				Show More
+			</button>
+		</div>
 	</div>
 </div>
 
