@@ -4,56 +4,87 @@
 	import { backgroundColor, isTopbarBackground, isTopbarLight } from '$lib/store';
 	import type { PageData } from './$types';
 	import type { Record } from 'pocketbase';
+	import { inview } from 'svelte-inview';
 	import CloseFilledIcon from '$lib/assets/svg/close_filled_icon.svelte';
 	import { fly } from 'svelte/transition';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { flip } from 'svelte/animate';
 
-	const options: string[] = ['All Events', 'Upcoming Events', 'Past Events'];
+	const options = [
+		{
+			label: 'All Events',
+			value: ''
+		},
+		{
+			label: 'Upcoming Events',
+			value: 'Upcoming Events'
+		},
+		{
+			label: 'Upcoming Events',
+			value: 'Upcoming Events'
+		}
+	];
+
 	export let data: PageData;
 	const imgUrl =
 		'https://s3-alpha-sig.figma.com/img/1203/de7a/c03f268845b14f761c33e470396fd8d3?Expires=1694390400&Signature=Dxhtp1wE-jS5~zZYYHqOrHW3sLAy4Zteq2NSyWQ3tivUewDRo-ooTOWjodT27j9X8rZA4if4dNnJ5UFyVUG~I8KmCP6px8nG82wdRVreUVdOZ6N~f7-p9ELDP66tCpJNMjgIh0LMd0RdnTu6iy3gkNZaZbfjOoagMzV6D7P1DMEGTrCVIXfr5V10esTpotwlrJtrcBnR5qPtPi7Y2YHpTlHG-Lzq6ohuBr5R~WXpNgxKOk2MKSZnvLxzXluMjwodO1QOYpSY1u5ej~IdxclMamrDAtpKFh2aKBYnpiSrvZhwPa-QAekv09aGI6tnO8ZnM6OkhgYcrozSzsDzCCmjbQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4';
 
 	let selectedEvent: Record;
 	let isOpen: boolean = false;
+	let isShow = false;
 	const setEvent = (event: Record) => {
 		selectedEvent = event;
 		isOpen = true;
 	};
 
-	let q: string = $page.url.searchParams.get('q') || '';
-	let n: string = $page.url.searchParams.get('n') || '';
+	let q: string = $page.url.searchParams.get('q') || ''; // query search
+	let n: string = $page.url.searchParams.get('n') || '1'; // total item in a page
+	let l: string = $page.url.searchParams.get('l') || ''; // label filter
 
 	onMount(() => {
 		isTopbarBackground.set(false);
 		isTopbarLight.set(false);
 		backgroundColor.set('bg-bwi-alabaster');
-		console.log(data.events, data.events.items.length >= data.events.totalItems);
 	});
 
 	let onSubmit = async () => {
 		const query = {
 			q: q.trim(),
-			n
+			n,
+			l: l.trim()
 		};
 		await goto(`?${new URLSearchParams(query).toString()}`, {
-			keepFocus: true
+			keepFocus: true,
+			noScroll: true
 		});
+	};
+
+	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
+		if (!isShow && detail.inView) isShow = true;
 	};
 </script>
 
-<div class="bg-bwi-alabaster min-h-screen">
+<div
+	class="bg-bwi-alabaster min-h-screen"
+	use:inview={{
+		rootMargin: '-100px',
+		unobserveOnEnter: true
+	}}
+	on:inview_change={handleChange}
+>
 	<TopbarPad />
 	<div class="container flex flex-col gap-4 text-bwi-eerie-black pb-20">
 		<div class="font-optima text-3xl md:text-5xl">Events</div>
 		<div class="font-oakes flex gap-2 justify-between md:justify-start">
 			{#each options as option}
-				<button class="text-xs md:text-base p-3 border border-bwi-eerie-black rounded-full">
-					{option}
+				<button
+					class="text-xs md:text-base p-3 border border-bwi-eerie-black rounded-full hover:bg-bwi-eerie-black hover:text-bwi-alabaster lg:text-lg hover:disabled:bg-bwi-alabaster hover:disabled:text-bwi-eerie-black disabled:opacity-50"
+				>
+					{option.label}
 				</button>
 			{/each}
 		</div>
-
 		<form on:submit|preventDefault={onSubmit}>
 			<input
 				placeholder="Find Event Here"
@@ -63,13 +94,17 @@
 			/>
 		</form>
 
-		{#if data.events.items.length}
+		{#if data.events.items.length && isShow}
 			<div
 				class="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-y-8"
+				transition:fly={{ y: 200, duration: 1000, delay: 500 }}
 			>
-				{#each data.events.items as event}
+				{#each data.events.items as event, index (index)}
 					<!-- Event Card -->
-					<div class="min-w-full snap-start flex flex-col items-start">
+					<div
+						class="min-w-full snap-start flex flex-col items-start"
+						animate:flip={{ duration: 200 }}
+					>
 						<img
 							src={imgUrl}
 							alt="events"
