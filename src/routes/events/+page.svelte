@@ -20,23 +20,23 @@
 		selectedEvent = event;
 		isOpen = true;
 	};
-	let searchQuery: string = $page.url.searchParams.get('q') || '';
+
+	let q: string = $page.url.searchParams.get('q') || '';
+	let n: string = $page.url.searchParams.get('n') || '';
 
 	onMount(() => {
 		isTopbarBackground.set(false);
 		isTopbarLight.set(false);
 		backgroundColor.set('bg-bwi-alabaster');
+		console.log(data.events, data.events.items.length >= data.events.totalItems);
 	});
 
 	let onSubmit = async () => {
-		let currentSearchTerm = '';
-
-		const urlParamsSearch = new URLSearchParams(window.location.search);
-		currentSearchTerm = urlParamsSearch.get('q') || '';
-
-		if (searchQuery.trim() == currentSearchTerm?.trim()) return;
-
-		await goto(`/events?q=${encodeURIComponent(searchQuery.trim())}`, {
+		const query = {
+			q: q.trim(),
+			n
+		};
+		await goto(`?${new URLSearchParams(query).toString()}`, {
 			keepFocus: true
 		});
 	};
@@ -58,7 +58,7 @@
 			<input
 				placeholder="Find Event Here"
 				class="py-2 px-4 w-full rounded bg-bwi-alabaster border border-bwi-eerie-black-23% outline-bwi-eerie-black-23%"
-				bind:value={searchQuery}
+				bind:value={q}
 				on:blur|preventDefault={onSubmit}
 			/>
 		</form>
@@ -98,17 +98,22 @@
 					</div>
 				{/each}
 			</div>
-		{:else if data.events.items.length < 1 && searchQuery}
+		{:else if data.events.items.length < 1 && q}
 			<div
 				class="text-bwi-bwi-eerie-black font-oakes h-[30vh] w-full flex justify-center items-center"
 			>
-				Sorry we haven’t found any event with “{searchQuery}”
+				Sorry we haven’t found any event with “{q}”
 			</div>
 		{/if}
 
 		<div class="flex w-full justify-center items-center mt-20">
 			<button
-				class="flex font-oakes text-center border-2 border-bwi-eerie-black rounded-full px-5 py-3 gap-4 mt-5 hover:bg-bwi-eerie-black hover:text-bwi-alabaster lg:text-lg"
+				class="flex font-oakes text-center border-2 border-bwi-eerie-black rounded-full px-5 py-3 gap-4 mt-5 hover:bg-bwi-eerie-black hover:text-bwi-alabaster lg:text-lg hover:disabled:bg-bwi-alabaster hover:disabled:text-bwi-eerie-black disabled:opacity-50"
+				on:click={() => {
+					n = String(+n + 1);
+					onSubmit();
+				}}
+				disabled={data.events.items.length >= data.events.totalItems}
 			>
 				Show More
 			</button>
