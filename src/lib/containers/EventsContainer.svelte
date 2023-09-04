@@ -32,7 +32,6 @@
 
 	const setEvent = (event: Record) => {
 		selectedEvent = event;
-		delay: 500;
 		isOpen = true;
 	};
 
