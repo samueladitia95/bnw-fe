@@ -6,6 +6,7 @@
 	import type { Record } from 'pocketbase';
 	import CloseFilledIcon from '$lib/assets/svg/close_filled_icon.svelte';
 	import { fly } from 'svelte/transition';
+	import { goto } from '$app/navigation';
 
 	const options: string[] = ['All Events', 'Upcoming Events', 'Past Events'];
 	export let data: PageData;
@@ -18,12 +19,26 @@
 		selectedEvent = event;
 		isOpen = true;
 	};
+	let searchQuery: string = '';
 
 	onMount(() => {
 		isTopbarBackground.set(false);
 		isTopbarLight.set(false);
 		backgroundColor.set('bg-bwi-alabaster');
 	});
+
+	let onSubmit = async () => {
+		let currentSearchTerm = '';
+
+		const urlParams = new URLSearchParams(window.location.search);
+		currentSearchTerm = urlParams.get('q') || '';
+
+		if (searchQuery.trim() == currentSearchTerm?.trim()) return;
+
+		await goto(`/events?q=${encodeURIComponent(searchQuery.trim())}`, {
+			keepFocus: true
+		});
+	};
 </script>
 
 <div class="bg-bwi-alabaster min-h-screen">
@@ -32,15 +47,20 @@
 		<div class="font-optima text-3xl md:text-5xl">Events</div>
 		<div class="font-oakes flex gap-2 justify-between md:justify-start">
 			{#each options as option}
-				<div class="text-xs md:text-base p-3 border border-bwi-eerie-black rounded-full">
+				<button class="text-xs md:text-base p-3 border border-bwi-eerie-black rounded-full">
 					{option}
-				</div>
+				</button>
 			{/each}
 		</div>
-		<input
-			placeholder="Find Event Here"
-			class="py-2 px-4 w-full rounded bg-bwi-alabaster border border-bwi-eerie-black-23% outline-bwi-eerie-black-23%"
-		/>
+
+		<form on:submit|preventDefault={onSubmit}>
+			<input
+				placeholder="Find Event Here"
+				class="py-2 px-4 w-full rounded bg-bwi-alabaster border border-bwi-eerie-black-23% outline-bwi-eerie-black-23%"
+				bind:value={searchQuery}
+				on:blur|preventDefault={onSubmit}
+			/>
+		</form>
 
 		<div
 			class="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-y-8"
