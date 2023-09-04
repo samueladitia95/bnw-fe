@@ -59,7 +59,26 @@
 			>
 				<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">Events</div>
 				<div class="w-full flex justify-between lg:min-w-[355px]">
-					<div class="text-4xl lg:text-5xl">All of Our Events</div>
+					<div>
+						<div class="text-4xl lg:text-5xl">All of Our Events</div>
+						<a class="mt-3 md:mt-5 flex gap-3 text-lg md:text-xl font-oakes" href="/events">
+							View All
+							<div class="w-5 h-5">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 25"
+									fill="none"
+								>
+									<path
+										d="M12 4.5L10.59 5.91L16.17 11.5H4V13.5H16.17L10.59 19.09L12 20.5L20 12.5L12 4.5Z"
+										fill="currentColor"
+									/>
+								</svg>
+							</div>
+						</a>
+					</div>
 					<div class="md:flex gap-3 hidden lg:hidden">
 						<button
 							class="w-8 h-8 md:w-12 md:h-12 rotate-180 {viewItem === 0
