@@ -7,6 +7,7 @@
 	import CloseFilledIcon from '$lib/assets/svg/close_filled_icon.svelte';
 	import { fly } from 'svelte/transition';
 	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 
 	const options: string[] = ['All Events', 'Upcoming Events', 'Past Events'];
 	export let data: PageData;
@@ -19,7 +20,7 @@
 		selectedEvent = event;
 		isOpen = true;
 	};
-	let searchQuery: string = '';
+	let searchQuery: string = $page.url.searchParams.get('q') || '';
 
 	onMount(() => {
 		isTopbarBackground.set(false);
@@ -62,40 +63,48 @@
 			/>
 		</form>
 
-		<div
-			class="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-y-8"
-		>
-			{#each data.events.items as event}
-				<!-- Event Card -->
-				<div class="min-w-full snap-start flex flex-col items-start">
-					<img
-						src={imgUrl}
-						alt="events"
-						class="min-w-full object-cover min-h-[337px] max-h-[337px]"
-					/>
-					<div class="font-optima text-xl mt-5">{event.name}</div>
-					<div class="font-oakes mt-3">{event.date}</div>
-					<button
-						class="flex font-oakes text-center border-2 border-bwi-eerie-black rounded-full px-5 py-3 gap-4 mt-5 hover:bg-bwi-eerie-black hover:text-bwi-alabaster"
-						on:click={() => setEvent(event)}
-					>
-						<span class="lg:text-xl">View Details</span>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 25"
-							fill="none"
+		{#if data.events.items.length}
+			<div
+				class="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-y-8"
+			>
+				{#each data.events.items as event}
+					<!-- Event Card -->
+					<div class="min-w-full snap-start flex flex-col items-start">
+						<img
+							src={imgUrl}
+							alt="events"
+							class="min-w-full object-cover min-h-[337px] max-h-[337px]"
+						/>
+						<div class="font-optima text-xl mt-5">{event.name}</div>
+						<div class="font-oakes mt-3">{event.date}</div>
+						<button
+							class="flex font-oakes text-center border-2 border-bwi-eerie-black rounded-full px-5 py-3 gap-4 mt-5 hover:bg-bwi-eerie-black hover:text-bwi-alabaster"
+							on:click={() => setEvent(event)}
 						>
-							<path
-								d="M12 4.5L10.59 5.91L16.17 11.5H4V13.5H16.17L10.59 19.09L12 20.5L20 12.5L12 4.5Z"
-								fill="currentColor"
-							/>
-						</svg>
-					</button>
-				</div>
-			{/each}
-		</div>
+							<span class="lg:text-xl">View Details</span>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 25"
+								fill="none"
+							>
+								<path
+									d="M12 4.5L10.59 5.91L16.17 11.5H4V13.5H16.17L10.59 19.09L12 20.5L20 12.5L12 4.5Z"
+									fill="currentColor"
+								/>
+							</svg>
+						</button>
+					</div>
+				{/each}
+			</div>
+		{:else if data.events.items.length < 1 && searchQuery}
+			<div
+				class="text-bwi-bwi-eerie-black font-oakes h-[30vh] w-full flex justify-center items-center"
+			>
+				Sorry we haven’t found any event with “{searchQuery}”
+			</div>
+		{/if}
 	</div>
 </div>
 
