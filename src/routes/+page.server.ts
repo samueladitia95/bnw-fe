@@ -6,7 +6,6 @@ import { fail } from '@sveltejs/kit';
 export const actions = {
 	contact: async ({ request }) => {
 		const form = await superValidate(request, schemaContactUs);
-		console.log('POST', form);
 
 		// Convenient validation check:
 		if (!form.valid) {

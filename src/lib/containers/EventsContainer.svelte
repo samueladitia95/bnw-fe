@@ -5,9 +5,7 @@
 	import { fly } from 'svelte/transition';
 	import { inview } from 'svelte-inview';
 	import type { ListResult, Record } from 'pocketbase';
-
-	const imgUrl =
-		'https://s3-alpha-sig.figma.com/img/1203/de7a/c03f268845b14f761c33e470396fd8d3?Expires=1694390400&Signature=Dxhtp1wE-jS5~zZYYHqOrHW3sLAy4Zteq2NSyWQ3tivUewDRo-ooTOWjodT27j9X8rZA4if4dNnJ5UFyVUG~I8KmCP6px8nG82wdRVreUVdOZ6N~f7-p9ELDP66tCpJNMjgIh0LMd0RdnTu6iy3gkNZaZbfjOoagMzV6D7P1DMEGTrCVIXfr5V10esTpotwlrJtrcBnR5qPtPi7Y2YHpTlHG-Lzq6ohuBr5R~WXpNgxKOk2MKSZnvLxzXluMjwodO1QOYpSY1u5ej~IdxclMamrDAtpKFh2aKBYnpiSrvZhwPa-QAekv09aGI6tnO8ZnM6OkhgYcrozSzsDzCCmjbQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4';
+	import { pb } from '$lib/pocketbase';
 
 	export let events: ListResult<Record>;
 	const itemNumber: number = events.items.length;
@@ -131,7 +129,7 @@
 						<!-- Event Card -->
 						<div class="min-w-[306px] snap-start flex flex-col items-start">
 							<img
-								src={imgUrl}
+								src={pb.files.getUrl(event, event.img)}
 								alt="events"
 								class="max-w-[306px] min-w-[306px] object-cover min-h-[337px] max-h-[337px]"
 							/>
@@ -201,7 +199,11 @@
 				class="absolute bg-bwi-alabaster max-h-[792px] h-full max-w-[900px] w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
 			>
 				<div class="relative">
-					<img alt="modal" src={imgUrl} class="w-full max-h-[345px] object-cover" />
+					<img
+						alt="modal"
+						src={pb.files.getUrl(selectedEvent, selectedEvent.img)}
+						class="w-full max-h-[345px] object-cover"
+					/>
 					<button
 						class="w-8 h-8 fixed top-4 right-4 text-bwi-alabaster"
 						on:click={() => (isOpen = false)}
