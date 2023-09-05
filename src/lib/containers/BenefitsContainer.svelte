@@ -77,7 +77,7 @@
 					</div>
 
 					<div
-						class="flex flex-col items-start md:flex-row md:items-end md:gap-32 lg:max-w-2xl lg:gap-4 lg:items-top"
+						class="flex flex-col items-start md:flex-row md:items-end md:gap-20 lg:max-w-2xl lg:gap-4 lg:items-top"
 					>
 						<div class="flex flex-col items-start">
 							<div bind:this={containerEl} class="flex overflow-hidden snap-x snap-mandatory">
