@@ -79,7 +79,7 @@
 			: 'translate-x-full'}"
 	>
 		<div
-			class="h-full w-full px-6 md:px-12 pb-8 md:pb-12 pt-11 bg-bwi-battleship text-bwi-alabaster flex flex-col gap-10 justify-between overflow-auto no-scrollbar"
+			class="h-full w-full px-6 md:px-12 py-7 bg-bwi-battleship text-bwi-alabaster flex flex-col gap-10 justify-between overflow-auto no-scrollbar"
 		>
 			<div>
 				<!-- main logo -->
@@ -131,7 +131,7 @@
 
 	<!-- Topbar -->
 	<!-- bg color disabled for now -->
-	<div class="z-20 px-6 md:px-16 pb-8 pt-11 fixed w-full top-0 {isBackground ? '' : bgColor}">
+	<div class="z-20 px-6 md:px-16 py-7 fixed w-full top-0 {isBackground ? '' : bgColor}">
 		<!-- main logo -->
 		<div class="flex justify-between {isLightText ? 'text-bwi-alabaster' : 'text-bwi-eerie-black'}">
 			<div class="w-28 md:w-32">
