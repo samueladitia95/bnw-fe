@@ -115,7 +115,7 @@
 									: 'max-h-0'}"
 							>
 								<div
-									class="mt-8 font-oakes font-normal text-xl leading-relaxed md:text-2xl md:leading-relaxed"
+									class="mt-8 font-oakes text-lg lg:text-xl leading-loose md:text-2xl md:leading-loose lg:leading-loose"
 								>
 									{vision.subTitle}
 								</div>
