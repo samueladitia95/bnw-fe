@@ -94,7 +94,7 @@
 										? 'text-bwi-lion'
 										: ''}"
 								>
-									<div class="w-8 h-8">
+									<div class="min-w-[32px] min-h-[32px] max-w-[32px] max-h-[32px]">
 										<VisionIcon width="100%" height="100%" />
 									</div>
 									<div class="font-optima leading-relaxed text-xl md:text-2xl md:leading-relaxed">
