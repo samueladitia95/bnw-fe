@@ -13,6 +13,7 @@ export const load: PageLoad = async () => {
 	const products = await pb.collection('products').getFullList({
 		filter: 'project_name="bnw"'
 	});
+
 	const events = await pb.collection('events').getList(1, 6, {
 		filter: 'project_name="bnw"'
 	});

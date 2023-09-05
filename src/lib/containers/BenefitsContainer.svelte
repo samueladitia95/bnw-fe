@@ -13,11 +13,13 @@
 	let benefitView: number = 0;
 	let containerEl: Element;
 	let containerImgEl: Element;
+	let containerContent: Element;
 	let isShow = false;
 
 	function scrollIntoView(action: 'plus' | 'minus') {
 		const maxWidth = containerEl.scrollWidth;
 		const maxWidthImg = containerImgEl.scrollWidth;
+		const maxWidthContent = containerImgEl.scrollWidth;
 
 		if (action === 'plus' && benefitView < itemNumber - 1) {
 			benefitView = benefitView + 1;
@@ -27,6 +29,7 @@
 
 		containerEl.scrollTo({ left: (maxWidth / 3) * benefitView, behavior: 'smooth' });
 		containerImgEl.scrollTo({ left: (maxWidthImg / 3) * benefitView, behavior: 'smooth' });
+		containerContent.scrollTo({ left: (maxWidthContent / 4) * benefitView, behavior: 'smooth' });
 	}
 
 	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
@@ -67,19 +70,21 @@
 			{/if}
 			{#if isShow}
 				<div transition:fly={{ x: -100, duration: 1000, delay: 1000 }}>
+					<div class="flex flex-start">
+						<div class="w=[66px] h-[78px]">
+							<MindIcon height="100%" width="100%" />
+						</div>
+					</div>
+
 					<div
-						class="flex flex-col items-start md:flex-row md:items-end md:gap-32 lg:max-w-2xl lg:gap-4 lg:items-center"
+						class="flex flex-col items-start md:flex-row md:items-end md:gap-32 lg:max-w-2xl lg:gap-4 lg:items-top"
 					>
 						<div class="flex flex-col items-start">
-							<div class="w=[66px] h-[78px]">
-								<MindIcon height="100%" width="100%" />
-							</div>
-
 							<div bind:this={containerEl} class="flex overflow-hidden snap-x snap-mandatory">
 								{#each benefits as benefit}
-									<div class="min-w-full snap-center">
+									<div class="min-w-full snap-left">
 										<div class="text-2xl md:text-3xl mt-5">{benefit.title}</div>
-										<div class="font-oakes leading-loose mt-5">{benefit.content}</div>
+										<div class="font-oakes leading-loose mt-5 lg:hidden">{benefit.content}</div>
 									</div>
 								{/each}
 							</div>
@@ -104,6 +109,18 @@
 							</button>
 						</div>
 					</div>
+
+					<div
+						bind:this={containerContent}
+						class="lg:flex overflow-hidden snap-x snap-mandatory hidden max-w-[636px]"
+					>
+						{#each benefits as benefit}
+							<div class="min-w-full snap-center">
+								<div class="font-oakes leading-loose mt-5">{benefit.content}</div>
+							</div>
+						{/each}
+					</div>
+
 					<div class="w-full mt-5 relative">
 						<hr class="absolute w-full border border-bwi-eerie-black-23%" />
 						<hr
