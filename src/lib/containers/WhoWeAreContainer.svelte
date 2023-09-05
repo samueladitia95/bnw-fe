@@ -39,12 +39,16 @@
 			</div>
 		{/if}
 		{#if isShow}
-			<img
-				transition:fly={{ y: 100, duration: 1000, delay: 1000 }}
-				src={imgUrl}
-				alt="who we are"
-				class="rounded-xl w-full max-h-[183px] md:max-h-[393px] lg:max-h-[900px]"
-			/>
+			<div class="flex items-center min-w-full">
+				<iframe
+					src="https://www.youtube.com/embed/ozGC83qjkeg?si=deB_QX6RpxLAqTV5"
+					title="YouTube video player"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen={false}
+					class="w-full min-h-[183px] md:min-h-[393px] lg:min-h-[689px]"
+				></iframe>
+			</div>
 		{/if}
 	</div>
 </div>
