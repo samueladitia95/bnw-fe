@@ -10,7 +10,9 @@
 	import type { PageData } from './$types';
 	import { superForm } from 'sveltekit-superforms/client';
 	import { schemaContactUs } from '$lib';
-	import { getContext, onMount } from 'svelte';
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
 
 	export let data: PageData;
 
@@ -49,10 +51,14 @@
 	backgroundColor.subscribe((value) => (bgColor = value));
 
 	const scrollToView = (id: string) => {
-		const targetEl = document.querySelector(id);
-		if (!targetEl) return;
-		sideBarIsOpen = false;
-		targetEl.scrollIntoView({ behavior: 'smooth' });
+		if ($page.url.pathname === '/') {
+			const targetEl = document.querySelector(id);
+			if (!targetEl) return;
+			sideBarIsOpen = false;
+			targetEl.scrollIntoView({ behavior: 'smooth' });
+		} else {
+			goto(`/${id}`);
+		}
 	};
 
 	const { form, errors, enhance, reset } = superForm(data.form, {
