@@ -243,12 +243,35 @@
 							bind:value={$form.phone}
 							error={$errors.phone}
 						/>
-						<Input
-							name="subject"
-							label="Subject"
-							bind:value={$form.subject}
-							error={$errors.subject}
-						/>
+						<div class="w-full flex flex-col gap-4 font-oakes">
+							<div class="text-xs text-black-60%">Subject*</div>
+							<div class="flex flex-col gap-5 w-full ml-3 md:ml-0  md:flex-row md:gap-8">
+								<div class="flex gap-2 items-center">
+									<input
+										name="subject"
+										type="radio"
+										class="w-5 h-5 appearance-none border-2 border-bwi-lion rounded-full box-content checked:bg-bwi-lion checked:ring-4 checked:ring-bwi-alabaster checked:ring-inset"
+									/>
+									<div class="text-sm text-bwi-eerie-black">Partnership</div>
+								</div>
+								<div class="flex gap-2 items-center">
+									<input
+										name="subject"
+										type="radio"
+										class="w-5 h-5 appearance-none border-2 border-bwi-lion rounded-full box-content checked:bg-bwi-lion checked:ring-4 checked:ring-bwi-alabaster checked:ring-inset"
+									/>
+									<div class="text-sm text-bwi-eerie-black">Be Our Official Retailer</div>
+								</div>
+								<div class="flex gap-2 items-center">
+									<input
+										name="subject"
+										type="radio"
+										class="w-5 h-5 appearance-none border-2 border-bwi-lion rounded-full box-content checked:bg-bwi-lion checked:ring-4 checked:ring-bwi-alabaster checked:ring-inset"
+									/>
+									<div class="text-sm text-bwi-eerie-black">Customer Service</div>
+								</div>
+							</div>
+						</div>
 						<Input
 							name="message"
 							label="Message"
