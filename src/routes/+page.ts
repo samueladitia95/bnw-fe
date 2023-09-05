@@ -48,7 +48,28 @@ export const load: PageLoad = async () => {
 			]
 		},
 		benefits: {
-			mainBenefits: basicInformation['main_benefits']
+			mainBenefit: basicInformation['main_benefit'],
+			id: basicInformation['id'],
+			list: [
+				{
+					title: basicInformation['benefit1_title'],
+					content: basicInformation['benefit1_content'],
+					isOpen: false,
+					imgUrl: basicInformation['benefit1_img']
+				},
+				{
+					title: basicInformation['benefit2_title'],
+					content: basicInformation['benefit2_content'],
+					isOpen: false,
+					imgUrl: basicInformation['benefit2_img']
+				},
+				{
+					title: basicInformation['benefit3_title'],
+					content: basicInformation['benefit3_content'],
+					isOpen: false,
+					imgUrl: basicInformation['benefit3_img']
+				}
+			]
 		},
 		products,
 		events

@@ -2,7 +2,6 @@
 	import ChevronIcon from '$lib/assets/svg/chevron_icon.svelte';
 	import VisionIcon from '$lib/assets/svg/vision_icon.svelte';
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
-	import type { Record } from 'pocketbase';
 	import { inview } from 'svelte-inview';
 	import { fly } from 'svelte/transition';
 

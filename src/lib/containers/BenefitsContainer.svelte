@@ -5,32 +5,9 @@
 	import { inview } from 'svelte-inview';
 	import { fly } from 'svelte/transition';
 
-	const benefits = [
-		{
-			title: 'Key Player',
-			subTitle:
-				'We pride ourselves to be the melting point for our partners to be the preferred brands for our customers.',
-			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/8494/f5c5/70805deda024efb76f18298d5953843f?Expires=1694390400&Signature=QRjdYStNomNt0a22mqcMZ9X60j7jvq7FS~dEUEZiPOi2CtZ4zUKmbv3SNRYPOvkRzAxssUI7N3~ga0J2OP34Mb50DDyZrObQvnnNZVEBYZGuuonq1cnLMowDbr9kK1n94mJSfGxe16xl5-1O8rhwhmTOXD~kJHXrSvsCVZb5PvD6emM2YicY21lcoWYRkR4qqeNWVIRkbXHVeeE0Z8Zy7vOehtFaCfte3rX5GBFZoyxRSeA8T94rfy8USqcK1ulwonkDkJq6bJcvyw3FDHtwDsPQKASQRJ0qWFPGQoafMzsQlPxWU61q4vQxKLDGvxR~NnWWk1h1wo22usDw8qYqbw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-		},
-		{
-			title: 'Embrace Diversity',
-			subTitle:
-				'We pride ourselves to be the melting point for our partners to be the preferred brands for our customers.',
-			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/7d50/2ac3/ec4d9891bff314ae85405e1a0999e37a?Expires=1694390400&Signature=gwI2xBXuHddpwCW68utbhJyclwH2diw5h2v6~7L3pC5mHZZjxTl531sGbDwkzSjY6skumJtr2gRLlNgh~s0vrTnszxSg7M~hIyy~cQjI16dcDnnCCunrLhINA1LVKsBe6TZlqlfqQ3dLCVnL2JM2fPVWL4MxSAozHsIlkrAlrBSquKcj5cECytA1GMr6VZo7HozBs4KpQC4STnOepdKs~pRogCEdsXmW2eAl-qU69bzOoKaZvLvX51czCUqpwUtK6ZZVdTS8886h5qSj3nn3eQWL745sd4NVGRQ0U8t1WLC3HleyCoVxxDW~ennM71G4sD0aF1ZRP6prcHcu8THR~g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-		},
-		{
-			title: 'Personal Approach',
-			subTitle:
-				'We pride ourselves to be the melting point for our partners to be the preferred brands for our customers.',
-			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/1f59/7c22/8ad2d73be1fc235e624190f1e9f4d322?Expires=1694390400&Signature=nMuWD~oOyexuT5y86hhKtrGbcbIVHc5RpL0ZDQQ5OQLbW-vhuAOC6IkR-~UstVGQQCv7bOxA8aHMTWbnkhf~gBO0f8rQY~g2pQSO0t~KZaLdEbu9saUIU4XViEUqOSGWAlMDdtmJsChhkuzSW94M7Wu7zMXRCFex0jk7YjtZxdFtFPEpAPBuBgfXR6ONpetanPPr8dzM-uMMSfsQqyeCANAjKquwUoTu2dYbe8-oBYO1Hyr7Aw0BeoTisUoY3z29nhGmhsEevby0c7NtrZGzCWTdKzIzkNZNTP-S8iuwZ-Q3Nl8PjSC5Q6yVGFD7HmrmBsWvHNylL-P-Aab0lE5m4g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-		}
-	];
-
-	export let mainBenefits: string =
-		'To other companies, you might just be a portfolio. To us, a brand is an achievement, a family and a promise of success.';
+	export let id: string;
+	export let mainBenefit: string;
+	export let benefits: any[];
 
 	const itemNumber: number = 3;
 	let benefitView: number = 0;
@@ -84,7 +61,7 @@
 					<div
 						class="md:text-xl font-oakes font-normal mb-8 md:mb-16 lg:mb-0 leading-loose md:leading-loose md:max-w-xl"
 					>
-						{mainBenefits}
+						{mainBenefit}
 					</div>
 				</div>
 			{/if}
@@ -99,10 +76,10 @@
 							</div>
 
 							<div bind:this={containerEl} class="flex overflow-hidden snap-x snap-mandatory">
-								{#each benefits as benefit, index}
+								{#each benefits as benefit}
 									<div class="min-w-full snap-center">
 										<div class="text-2xl md:text-3xl mt-5">{benefit.title}</div>
-										<div class="font-oakes leading-loose mt-5">{benefit.subTitle}</div>
+										<div class="font-oakes leading-loose mt-5">{benefit.content}</div>
 									</div>
 								{/each}
 							</div>
@@ -146,7 +123,7 @@
 			>
 				{#each benefits as benefit}
 					<img
-						src={benefit.imgUrl}
+						src={`https://dev2.samueladitia.com/api/files/basic_informations/${id}/${benefit.imgUrl}`}
 						alt="visions"
 						class="rounded-2xl mt-6 lg:max-h-[525px] min-w-full object-cover transition-all duration-500 ease-in-out"
 					/>
