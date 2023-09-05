@@ -18,11 +18,11 @@
 		},
 		{
 			label: 'Upcoming Events',
-			value: 'Upcoming Events'
+			value: 'Upcoming Event'
 		},
 		{
-			label: 'Upcoming Events',
-			value: 'Upcoming Events'
+			label: 'Past Events',
+			value: 'Past Event'
 		}
 	];
 
@@ -79,7 +79,12 @@
 		<div class="font-oakes flex gap-2 justify-between md:justify-start">
 			{#each options as option}
 				<button
-					class="text-xs md:text-base p-3 border border-bwi-eerie-black rounded-full hover:bg-bwi-eerie-black hover:text-bwi-alabaster lg:text-lg hover:disabled:bg-bwi-alabaster hover:disabled:text-bwi-eerie-black disabled:opacity-50"
+					class="text-xs md:text-base p-3 border border-bwi-eerie-black rounded-full hover:bg-bwi-eerie-black hover:text-bwi-alabaster lg:text-lg hover:disabled:bg-bwi-battleship hover:disabled:text-bwi-alabaster disabled:bg-bwi-battleship disabled:border-bwi-battleship disabled:text-bwi-alabaster whitespace-nowrap"
+					disabled={option.value === l}
+					on:click={() => {
+						l = option.value;
+						onSubmit();
+					}}
 				>
 					{option.label}
 				</button>
@@ -97,7 +102,7 @@
 		{#if data.events.items.length && isShow}
 			<div
 				class="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-y-8"
-				transition:fly={{ y: 200, duration: 1000, delay: 500 }}
+				transition:fly={{ y: 200, duration: 1000, delay: 100 }}
 			>
 				{#each data.events.items as event, index (index)}
 					<!-- Event Card -->
