@@ -24,7 +24,28 @@ export const load: PageLoad = async () => {
 			img: basicInformation['who_we_are_img']
 		},
 		visions: {
-			mainVision: basicInformation['main_vision']
+			mainVision: basicInformation['main_vision'],
+			id: basicInformation['id'],
+			list: [
+				{
+					title: basicInformation['vision1_title'],
+					content: basicInformation['vision1_content'],
+					isOpen: false,
+					imgUrl: basicInformation['vision1_img']
+				},
+				{
+					title: basicInformation['vision2_title'],
+					content: basicInformation['vision2_content'],
+					isOpen: false,
+					imgUrl: basicInformation['vision2_img']
+				},
+				{
+					title: basicInformation['vision3_title'],
+					content: basicInformation['vision3_content'],
+					isOpen: false,
+					imgUrl: basicInformation['vision3_img']
+				}
+			]
 		},
 		benefits: {
 			mainBenefits: basicInformation['main_benefits']

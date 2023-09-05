@@ -2,37 +2,13 @@
 	import ChevronIcon from '$lib/assets/svg/chevron_icon.svelte';
 	import VisionIcon from '$lib/assets/svg/vision_icon.svelte';
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
+	import type { Record } from 'pocketbase';
 	import { inview } from 'svelte-inview';
 	import { fly } from 'svelte/transition';
 
-	let visions = [
-		{
-			title: 'Valuable Business Partnership',
-			subTitle: 'Establish long-term, effective, and valuable business partnerships.',
-			isOpen: false,
-			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/be00/6d5b/14031bc64d4a9639beff43f25fbadf19?Expires=1694390400&Signature=R1PlwRjPWuOjUH9FOwDYATAMKrKfrxeua6CY5sOFdsESMxnYgvpnn8hQ1CCGz8EnCGj1PA~rDNK0BF2DYa622-3ff5KpsBc6GsWWIa5r3I~Dhk7DM7uSMBdxpZwtPQV38GHD5Nfe98eOFyUsCBXxqft~G01CYSvmauEl7LFstbF661Cxe6iZEohzfgxegxzo-OYXd9wOrhi23hrsu27s7aZ~ZjYQnxtCuqAfyRpDavBKZgagjyxK7gSZaUSntw2wYQoMpf8lArGS5oN5ZEc0UGhfUNWNXDWbeu2wdphKvHsxe1oUsf7IoBuVkhpMtphFo9HOg6L6zIM4KHqfTPe4DA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-		},
-		{
-			title: 'Creating a unique marketing strategies',
-			subTitle:
-				'We want to implement a unique marketing strategies to strengthen our business partners’ brand awareness in Indonesia',
-			isOpen: false,
-			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/be00/6d5b/14031bc64d4a9639beff43f25fbadf19?Expires=1694390400&Signature=R1PlwRjPWuOjUH9FOwDYATAMKrKfrxeua6CY5sOFdsESMxnYgvpnn8hQ1CCGz8EnCGj1PA~rDNK0BF2DYa622-3ff5KpsBc6GsWWIa5r3I~Dhk7DM7uSMBdxpZwtPQV38GHD5Nfe98eOFyUsCBXxqft~G01CYSvmauEl7LFstbF661Cxe6iZEohzfgxegxzo-OYXd9wOrhi23hrsu27s7aZ~ZjYQnxtCuqAfyRpDavBKZgagjyxK7gSZaUSntw2wYQoMpf8lArGS5oN5ZEc0UGhfUNWNXDWbeu2wdphKvHsxe1oUsf7IoBuVkhpMtphFo9HOg6L6zIM4KHqfTPe4DA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-		},
-		{
-			title: 'Provide the inventive solutions',
-			subTitle:
-				'Support with a consistent, professional, and efficient solutions to our retailers.',
-			isOpen: false,
-			imgUrl:
-				'https://s3-alpha-sig.figma.com/img/be00/6d5b/14031bc64d4a9639beff43f25fbadf19?Expires=1694390400&Signature=R1PlwRjPWuOjUH9FOwDYATAMKrKfrxeua6CY5sOFdsESMxnYgvpnn8hQ1CCGz8EnCGj1PA~rDNK0BF2DYa622-3ff5KpsBc6GsWWIa5r3I~Dhk7DM7uSMBdxpZwtPQV38GHD5Nfe98eOFyUsCBXxqft~G01CYSvmauEl7LFstbF661Cxe6iZEohzfgxegxzo-OYXd9wOrhi23hrsu27s7aZ~ZjYQnxtCuqAfyRpDavBKZgagjyxK7gSZaUSntw2wYQoMpf8lArGS5oN5ZEc0UGhfUNWNXDWbeu2wdphKvHsxe1oUsf7IoBuVkhpMtphFo9HOg6L6zIM4KHqfTPe4DA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-		}
-	];
-
-	export let mainVision: string =
-		'To become the number one high quality baby products distributions company that provides locally fitted marketing and branding strategy to suit Indonesian diverse culture.';
+	export let id: string;
+	export let visions: any[];
+	export let mainVision: string;
 
 	let containerEl: Element;
 	let isShow = false;
@@ -119,7 +95,7 @@
 								<div
 									class="mt-8 font-oakes text-lg lg:text-xl leading-loose md:text-2xl md:leading-loose lg:leading-loose"
 								>
-									{vision.subTitle}
+									{vision.content}
 								</div>
 							</div>
 							<hr class="border border-bwi-eerie-black-23% mt-8" />
@@ -129,7 +105,7 @@
 				<div bind:this={containerEl} class="flex overflow-hidden">
 					{#each visions as vision}
 						<img
-							src={vision.imgUrl}
+							src={`https://dev2.samueladitia.com/api/files/basic_informations/${id}/${vision.imgUrl}`}
 							alt="visions"
 							class="rounded-2xl mt-16 max-h-[255px] md:max-h-[554px] min-w-full object-cover transition-all duration-500 ease-in-out"
 						/>

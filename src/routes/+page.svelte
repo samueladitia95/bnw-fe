@@ -21,7 +21,11 @@
 <div>
 	<BannerContainer banners={data.banners} />
 	<WhoWeAreContainer />
-	<VisionContainer />
+	<VisionContainer
+		mainVision={data.visions.mainVision}
+		visions={data.visions.list}
+		id={data.visions.id}
+	/>
 	<BenefitsContainer />
 	<ProductsContainer products={data.products} />
 	<EventsContainer events={data.events} />
