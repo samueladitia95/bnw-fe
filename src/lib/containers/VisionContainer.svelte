@@ -66,18 +66,20 @@
 >
 	<TopbarPad />
 	<div class="container flex flex-col justify-start items-start lg:items-center">
-		<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">
-			Our Vision & Mission
-		</div>
 		{#if isShow}
+			<div
+				transition:fly={{ y: -200, duration: 1000, delay: 500 }}
+				class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6"
+			>
+				Our Vision & Mission
+			</div>
 			<div
 				transition:fly={{ y: -200, duration: 1000, delay: 500 }}
 				class="font-oakes font-normal mb-8 leading-loose text-justify md:text-2xl md:leading-loose lg:text-center"
 			>
 				{mainVision}
 			</div>
-		{/if}
-		{#if isShow}
+
 			<div
 				transition:fly={{ y: 200, duration: 1000, delay: 1000 }}
 				class="flex flex-col lg:flex-row lg:items-center lg:gap-20"

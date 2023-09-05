@@ -68,9 +68,14 @@
 >
 	<TopbarPad />
 	<div class="container flex flex-col justify-start items-start">
-		<div class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6">
-			Benefits of Partnership
-		</div>
+		{#if isShow}
+			<div
+				transition:fly={{ y: -200, duration: 1000, delay: 500 }}
+				class="text-lg mb-6 border border-bwi-eerie-black rounded-full py-3 px-6"
+			>
+				Benefits of Partnership
+			</div>
+		{/if}
 
 		<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:w-full lg:gap-10">
 			{#if isShow}
