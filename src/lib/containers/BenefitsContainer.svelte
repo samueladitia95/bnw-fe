@@ -91,7 +91,7 @@
 			{#if isShow}
 				<div transition:fly={{ x: -100, duration: 1000, delay: 1000 }}>
 					<div
-						class="flex flex-col items-start md:flex-row md:items-end md:gap-32 lg:max-w-2xl lg:gap-4"
+						class="flex flex-col items-start md:flex-row md:items-end md:gap-32 lg:max-w-2xl lg:gap-4 lg:items-center"
 					>
 						<div class="flex flex-col items-start">
 							<div class="w=[66px] h-[78px]">
