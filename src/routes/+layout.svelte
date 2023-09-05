@@ -90,9 +90,9 @@
 			<div>
 				<!-- main logo -->
 				<div class="flex justify-between">
-					<div class="w-28 md:w-32 text-white">
+					<a class="w-28 md:w-32 text-white" href="/">
 						<MainIcon width="100%" height="100%" />
-					</div>
+					</a>
 
 					<button
 						class="w-8 h-8 md:w-11 md:h-11"
@@ -140,9 +140,9 @@
 	<div class="z-20 px-6 md:px-16 py-7 fixed w-full top-0 {isBackground ? '' : bgColor}">
 		<!-- main logo -->
 		<div class="flex justify-between {isLightText ? 'text-bwi-alabaster' : 'text-bwi-eerie-black'}">
-			<div class="w-28 md:w-32">
+			<a class="w-28 md:w-32" href="/">
 				<MainIcon width="100%" height="100%" />
-			</div>
+			</a>
 
 			<button
 				class="w-8 h-8 md:w-11 md:h-11 lg:hidden"
