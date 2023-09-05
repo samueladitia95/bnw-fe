@@ -20,7 +20,7 @@
 
 <div>
 	<BannerContainer banners={data.banners} />
-	<WhoWeAreContainer />
+	<WhoWeAreContainer content={data.whoweare.content} />
 	<VisionContainer
 		mainVision={data.visions.mainVision}
 		visions={data.visions.list}

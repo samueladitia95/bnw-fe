@@ -3,9 +3,7 @@
 	import { inview } from 'svelte-inview';
 	import { fly } from 'svelte/transition';
 
-	export let content: string =
-		"Established in 2011, PT. B&W International is a Jakarta-based baby products company. We've grown significantly, specializing in product acquisition, marketing, training, and distribution. Our creative marketing sets us apart as a dynamic industry powerhouse.";
-	export let imgUrl: string = 'https://placehold.co/1296x689';
+	export let content: string;
 
 	let isShow = false;
 	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {

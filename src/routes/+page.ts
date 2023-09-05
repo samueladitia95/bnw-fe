@@ -20,8 +20,7 @@ export const load: PageLoad = async () => {
 	return {
 		banners,
 		whoweare: {
-			content: basicInformation['who_we_are'],
-			img: basicInformation['who_we_are_img']
+			content: basicInformation['who_we_are']
 		},
 		visions: {
 			mainVision: basicInformation['main_vision'],
