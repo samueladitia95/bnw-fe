@@ -8,7 +8,7 @@
 	import WhoWeAreContainer from '$lib/containers/WhoWeAreContainer.svelte';
 	import EventsContainer from '$lib/containers/EventsContainer.svelte';
 	import ProductsContainer from '$lib/containers/ProductsContainer.svelte';
-	import TestimonialsContainer from '$lib/containers/TestimonialsContainer.svelte';
+	// import TestimonialsContainer from '$lib/containers/TestimonialsContainer.svelte';
 
 	export let data: PageData;
 
@@ -33,5 +33,5 @@
 	/>
 	<ProductsContainer products={data.products} />
 	<EventsContainer events={data.events} />
-	<TestimonialsContainer />
+	<!-- <TestimonialsContainer /> -->
 </div>
