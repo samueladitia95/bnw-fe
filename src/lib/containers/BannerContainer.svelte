@@ -95,11 +95,15 @@
 				>
 					{banner.content}
 				</div>
-				<!-- src={pb.files.getUrl(banner, banner.img)} -->
+				<img
+					src={pb.files.getUrl(banner, banner.img_mobile)}
+					alt="banner"
+					class="w-screen h-screen object-cover md:hidden"
+				/>
 				<img
 					src={pb.files.getUrl(banner, banner.img)}
 					alt="banner"
-					class="w-screen h-screen object-cover"
+					class="hidden w-screen h-screen object-cover md:flex"
 				/>
 			</div>
 		{/each}
