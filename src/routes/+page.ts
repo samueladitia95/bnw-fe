@@ -55,19 +55,22 @@ export const load: PageLoad = async () => {
 					title: basicInformation['benefit1_title'],
 					content: basicInformation['benefit1_content'],
 					isOpen: false,
-					imgUrl: basicInformation['benefit1_img']
+					imgUrl: basicInformation['benefit1_img'],
+					icon: basicInformation['benefit1_icon']
 				},
 				{
 					title: basicInformation['benefit2_title'],
 					content: basicInformation['benefit2_content'],
 					isOpen: false,
-					imgUrl: basicInformation['benefit2_img']
+					imgUrl: basicInformation['benefit2_img'],
+					icon: basicInformation['benefit2_icon']
 				},
 				{
 					title: basicInformation['benefit3_title'],
 					content: basicInformation['benefit3_content'],
 					isOpen: false,
-					imgUrl: basicInformation['benefit3_img']
+					imgUrl: basicInformation['benefit3_img'],
+					icon: basicInformation['benefit3_icon']
 				}
 			]
 		},

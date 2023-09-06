@@ -1,6 +1,5 @@
 <script lang="ts">
 	import ArrorIcon from '$lib/assets/svg/arror_icon.svelte';
-	import MindIcon from '$lib/assets/svg/mind_icon.svelte';
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
 	import { inview } from 'svelte-inview';
 	import { fly } from 'svelte/transition';
@@ -14,12 +13,14 @@
 	let containerEl: Element;
 	let containerImgEl: Element;
 	let containerContent: Element;
+	let containerIcon: Element;
 	let isShow = false;
 
 	function scrollIntoView(action: 'plus' | 'minus') {
 		const maxWidth = containerEl.scrollWidth;
 		const maxWidthImg = containerImgEl.scrollWidth;
 		const maxWidthContent = containerImgEl.scrollWidth;
+		const maxWidthIcon = containerIcon.scrollWidth;
 
 		if (action === 'plus' && benefitView < itemNumber - 1) {
 			benefitView = benefitView + 1;
@@ -30,6 +31,7 @@
 		containerEl.scrollTo({ left: (maxWidth / 3) * benefitView, behavior: 'smooth' });
 		containerImgEl.scrollTo({ left: (maxWidthImg / 3) * benefitView, behavior: 'smooth' });
 		containerContent.scrollTo({ left: (maxWidthContent / 4) * benefitView, behavior: 'smooth' });
+		containerIcon.scrollTo({ left: (maxWidthIcon / 4) * benefitView, behavior: 'smooth' });
 	}
 
 	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
@@ -70,10 +72,17 @@
 			{/if}
 			{#if isShow}
 				<div transition:fly={{ x: -100, duration: 1000, delay: 1000 }}>
-					<div class="flex flex-start">
-						<div class="w=[66px] h-[78px]">
-							<MindIcon height="100%" width="100%" />
-						</div>
+					<div
+						bind:this={containerIcon}
+						class="flex flex-start max-w-[66px] overflow-hidden snap-x snap-mandatory"
+					>
+						{#each benefits as benefit}
+							<img
+								src={`https://dev2.samueladitia.com/api/files/basic_informations/${id}/${benefit.icon}`}
+								alt="visions"
+								class="max-w-[66px] max-h-[78px] min-w-[66px] min-h-[78px] snap-center"
+							/>
+						{/each}
 					</div>
 
 					<div
