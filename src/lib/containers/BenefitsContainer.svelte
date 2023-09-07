@@ -30,8 +30,8 @@
 
 		containerEl.scrollTo({ left: (maxWidth / 3) * benefitView, behavior: 'smooth' });
 		containerImgEl.scrollTo({ left: (maxWidthImg / 3) * benefitView, behavior: 'smooth' });
-		containerContent.scrollTo({ left: (maxWidthContent / 4) * benefitView, behavior: 'smooth' });
-		containerIcon.scrollTo({ left: (maxWidthIcon / 4) * benefitView, behavior: 'smooth' });
+		containerContent.scrollTo({ left: (maxWidthContent / 8) * benefitView, behavior: 'smooth' });
+		containerIcon.scrollTo({ left: (maxWidthIcon / 3) * benefitView, behavior: 'smooth' });
 	}
 
 	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
