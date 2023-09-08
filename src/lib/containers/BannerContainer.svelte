@@ -91,7 +91,7 @@
 		{#each banners as banner}
 			<div class="relative min-w-full">
 				<div
-					class="z-20 text-bwi-alabaster font-optima text-5xl leading-normal text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+					class="z-20 text-bwi-alabaster font-optima text-4xl md:text-5xl leading-normal md:leading-normal text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full px-6 md:min-w-full md:px-12 lg:px-30 xl:min-w-0"
 				>
 					{banner.content}
 				</div>
