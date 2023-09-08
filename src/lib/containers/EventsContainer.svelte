@@ -136,7 +136,7 @@
 							<div
 								class="px-4 py-2 font-oakes text-bwi-alabaster bg-bwi-battleship rounded-full mt-5"
 							>
-								{event.label}
+								{event.status}
 							</div>
 							<div class="font-optima text-xl mt-5">{event.name}</div>
 							<div class="font-oakes mt-3">{event.date}</div>

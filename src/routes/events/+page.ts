@@ -7,7 +7,7 @@ export const load: PageLoad = async ({ url }) => {
 	const filterLabel = url.searchParams.get('l') || '';
 
 	const totalFIlter = `${filterName ? 'name~"' + filterName + '"' : ''} ${
-		filterLabel ? '&& label="' + filterLabel + '"' : ''
+		filterLabel ? '&& status="' + filterLabel + '"' : ''
 	}`;
 
 	const events = await pb.collection('Events').getList(1, +maxPage * 6, {
