@@ -2,17 +2,15 @@ import { pb } from '$lib/pocketbase';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async () => {
-	const banners = await pb.collection('Banners').getFullList({
-		filter: 'project_name="bnw"'
-	});
+	const banners = await pb.collection('Banners').getFullList();
 
 	const basicInformation = await pb
-		.collection('basic_informations')
+		.collection('Basic_Info')
 		.getFirstListItem('project_name="bnw"');
 
-	const products = await pb.collection('products').getFullList();
+	const products = await pb.collection('Products').getFullList();
 
-	const events = await pb.collection('events').getList(1, 6);
+	const events = await pb.collection('Events').getList(1, 6);
 
 	const benefits = await pb.collection('Benefits').getList(1, 3);
 	const visions = await pb.collection('Vision_and_Missions').getList(1, 3);
