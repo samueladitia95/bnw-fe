@@ -68,7 +68,7 @@
 			if (form.valid) {
 				isSuccess = true;
 			}
-		},
+		}
 	});
 
 	onMount(() => {
@@ -224,7 +224,7 @@
 					</div>
 
 					<!-- Contact Us Form -->
-					<form method="post" action="?/contact" use:enhance class="flex flex-col gap-5 items-end">
+					<form method="post" action="/" use:enhance class="flex flex-col gap-5 items-end">
 						<Input
 							name="name"
 							label="Fill Your Name"
