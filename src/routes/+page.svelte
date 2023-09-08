@@ -26,11 +26,7 @@
 		visions={data.visions.list}
 		id={data.visions.id}
 	/>
-	<BenefitsContainer
-		mainBenefit={data.benefits.mainBenefit}
-		benefits={data.benefits.list}
-		id={data.benefits.id}
-	/>
+	<BenefitsContainer mainBenefit={data.benefits.mainBenefit} benefits={data.benefits.list} />
 	<ProductsContainer products={data.products} />
 	<EventsContainer events={data.events} />
 	<!-- <TestimonialsContainer /> -->

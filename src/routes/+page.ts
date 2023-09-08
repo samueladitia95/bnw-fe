@@ -10,13 +10,11 @@ export const load: PageLoad = async () => {
 		.collection('basic_informations')
 		.getFirstListItem('project_name="bnw"');
 
-	const products = await pb.collection('products').getFullList({
-		filter: 'project_name="bnw"'
-	});
+	const products = await pb.collection('products').getFullList();
 
-	const events = await pb.collection('events').getList(1, 6, {
-		filter: 'project_name="bnw"'
-	});
+	const events = await pb.collection('events').getList(1, 6);
+
+	const benefits = await pb.collection('Benefits').getList(1, 3);
 
 	return {
 		banners,
@@ -49,30 +47,7 @@ export const load: PageLoad = async () => {
 		},
 		benefits: {
 			mainBenefit: basicInformation['main_benefit'],
-			id: basicInformation['id'],
-			list: [
-				{
-					title: basicInformation['benefit1_title'],
-					content: basicInformation['benefit1_content'],
-					isOpen: false,
-					imgUrl: basicInformation['benefit1_img'],
-					icon: basicInformation['benefit1_icon']
-				},
-				{
-					title: basicInformation['benefit2_title'],
-					content: basicInformation['benefit2_content'],
-					isOpen: false,
-					imgUrl: basicInformation['benefit2_img'],
-					icon: basicInformation['benefit2_icon']
-				},
-				{
-					title: basicInformation['benefit3_title'],
-					content: basicInformation['benefit3_content'],
-					isOpen: false,
-					imgUrl: basicInformation['benefit3_img'],
-					icon: basicInformation['benefit3_icon']
-				}
-			]
+			list: benefits
 		},
 		products,
 		events

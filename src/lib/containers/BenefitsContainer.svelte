@@ -1,12 +1,13 @@
 <script lang="ts">
 	import ArrorIcon from '$lib/assets/svg/arror_icon.svelte';
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
+	import { pb } from '$lib/pocketbase';
+	import type { ListResult, Record } from 'pocketbase';
 	import { inview } from 'svelte-inview';
 	import { fly } from 'svelte/transition';
 
-	export let id: string;
 	export let mainBenefit: string;
-	export let benefits: any[];
+	export let benefits: ListResult<Record>;
 
 	const itemNumber: number = 3;
 	let benefitView: number = 0;
@@ -76,9 +77,9 @@
 						bind:this={containerIcon}
 						class="flex flex-start max-w-[66px] overflow-hidden snap-x snap-mandatory"
 					>
-						{#each benefits as benefit}
+						{#each benefits.items as benefit}
 							<img
-								src={`https://dev2.samueladitia.com/api/files/basic_informations/${id}/${benefit.icon}`}
+								src={pb.files.getUrl(benefit, benefit.icon)}
 								alt="visions"
 								class="max-w-[66px] max-h-[78px] min-w-[66px] min-h-[78px] snap-center"
 							/>
@@ -90,7 +91,7 @@
 					>
 						<div class="flex flex-col items-start">
 							<div bind:this={containerEl} class="flex overflow-hidden snap-x snap-mandatory">
-								{#each benefits as benefit}
+								{#each benefits.items as benefit}
 									<div class="min-w-full snap-left">
 										<div class="text-2xl md:text-3xl mt-5">{benefit.title}</div>
 										<div class="font-oakes leading-loose mt-5 lg:hidden">{benefit.content}</div>
@@ -123,7 +124,7 @@
 						bind:this={containerContent}
 						class="lg:flex overflow-hidden snap-x snap-mandatory hidden max-w-[636px]"
 					>
-						{#each benefits as benefit}
+						{#each benefits.items as benefit}
 							<div class="min-w-full snap-center">
 								<div class="font-oakes leading-loose mt-5">{benefit.content}</div>
 							</div>
@@ -147,9 +148,9 @@
 				bind:this={containerImgEl}
 				class="flex overflow-hidden snap-x snap-mandatory"
 			>
-				{#each benefits as benefit}
+				{#each benefits.items as benefit}
 					<img
-						src={`https://dev2.samueladitia.com/api/files/basic_informations/${id}/${benefit.imgUrl}`}
+						src={pb.files.getUrl(benefit, benefit.img)}
 						alt="visions"
 						class="rounded-2xl mt-6 lg:max-h-[525px] min-w-full object-cover transition-all duration-500 ease-in-out"
 					/>
