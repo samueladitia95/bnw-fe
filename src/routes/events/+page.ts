@@ -6,10 +6,12 @@ export const load: PageLoad = async ({ url }) => {
 	const filterName = url.searchParams.get('q') || '';
 	const filterLabel = url.searchParams.get('l') || '';
 
-	const events = await pb.collection('events').getList(1, +maxPage * 6, {
-		filter: `project_name="bnw" ${filterName ? '&& name~"' + filterName + '"' : ''} ${
-			filterLabel ? '&& label="' + filterLabel + '"' : ''
-		}`
+	const totalFIlter = `${filterName ? 'name~"' + filterName + '"' : ''} ${
+		filterLabel ? '&& label="' + filterLabel + '"' : ''
+	}`;
+
+	const events = await pb.collection('Events').getList(1, +maxPage * 6, {
+		filter: totalFIlter.trim() ? totalFIlter.trim() : ''
 	});
 
 	return {

@@ -196,7 +196,7 @@
 			transition:fly={{ y: 200, duration: 500 }}
 		>
 			<div
-				class="absolute bg-bwi-alabaster max-h-[792px] h-full max-w-[900px] w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+				class="absolute bg-bwi-alabaster max-h-[792px] h-full max-w-[900px] w-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-y-auto no-scrollbar"
 			>
 				<div class="relative">
 					<img
