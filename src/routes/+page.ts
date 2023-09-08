@@ -15,6 +15,7 @@ export const load: PageLoad = async () => {
 	const events = await pb.collection('events').getList(1, 6);
 
 	const benefits = await pb.collection('Benefits').getList(1, 3);
+	const visions = await pb.collection('Vision_and_Missions').getList(1, 3);
 
 	return {
 		banners,
@@ -23,27 +24,7 @@ export const load: PageLoad = async () => {
 		},
 		visions: {
 			mainVision: basicInformation['main_vision'],
-			id: basicInformation['id'],
-			list: [
-				{
-					title: basicInformation['vision1_title'],
-					content: basicInformation['vision1_content'],
-					isOpen: false,
-					imgUrl: basicInformation['vision1_img']
-				},
-				{
-					title: basicInformation['vision2_title'],
-					content: basicInformation['vision2_content'],
-					isOpen: false,
-					imgUrl: basicInformation['vision2_img']
-				},
-				{
-					title: basicInformation['vision3_title'],
-					content: basicInformation['vision3_content'],
-					isOpen: false,
-					imgUrl: basicInformation['vision3_img']
-				}
-			]
+			list: visions
 		},
 		benefits: {
 			mainBenefit: basicInformation['main_benefit'],

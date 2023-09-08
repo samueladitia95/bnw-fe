@@ -21,11 +21,7 @@
 <div>
 	<BannerContainer banners={data.banners} />
 	<WhoWeAreContainer content={data.whoweare.content} />
-	<VisionContainer
-		mainVision={data.visions.mainVision}
-		visions={data.visions.list}
-		id={data.visions.id}
-	/>
+	<VisionContainer mainVision={data.visions.mainVision} visions={data.visions.list} />
 	<BenefitsContainer mainBenefit={data.benefits.mainBenefit} benefits={data.benefits.list} />
 	<ProductsContainer products={data.products} />
 	<EventsContainer events={data.events} />

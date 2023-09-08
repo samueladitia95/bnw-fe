@@ -2,19 +2,20 @@
 	import ChevronIcon from '$lib/assets/svg/chevron_icon.svelte';
 	import VisionIcon from '$lib/assets/svg/vision_icon.svelte';
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
+	import { pb } from '$lib/pocketbase';
+	import type { ListResult, Record } from 'pocketbase';
 	import { inview } from 'svelte-inview';
 	import { fly } from 'svelte/transition';
 
-	export let id: string;
-	export let visions: any[];
 	export let mainVision: string;
+	export let visions: ListResult<Record>;
 
 	let containerEl: Element;
 	let isShow = false;
 
 	const openAccordion = (selectedIndex: number = 0, isOpen = false) => {
 		const maxWidth = containerEl.scrollWidth;
-		visions = visions.map((vision, visionIndex) => {
+		visions.items = visions.items.map((vision, visionIndex) => {
 			const isSelected = visionIndex === selectedIndex;
 			if (isSelected) {
 				containerEl.scrollTo({ left: (maxWidth / 3) * selectedIndex, behavior: 'smooth' });
@@ -60,7 +61,7 @@
 				class="flex flex-col lg:flex-row lg:items-center lg:gap-20"
 			>
 				<div class="flex flex-col w-full gap-10">
-					{#each visions as vision, index}
+					{#each visions.items as vision, index}
 						<div>
 							<button
 								class="flex justify-between items-center gap-3.5 w-full text-left"
@@ -102,9 +103,9 @@
 					{/each}
 				</div>
 				<div bind:this={containerEl} class="flex overflow-hidden">
-					{#each visions as vision}
+					{#each visions.items as vision}
 						<img
-							src={`https://dev2.samueladitia.com/api/files/basic_informations/${id}/${vision.imgUrl}`}
+							src={pb.files.getUrl(vision, vision.img)}
 							alt="visions"
 							class="rounded-2xl mt-16 max-h-[255px] md:max-h-[554px] min-w-full object-cover transition-all duration-500 ease-in-out"
 						/>
