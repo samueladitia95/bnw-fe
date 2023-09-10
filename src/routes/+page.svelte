@@ -18,6 +18,10 @@
 	});
 </script>
 
+<svelte:head>
+	<meta name="theme-color" content="#8E8B7B" />
+</svelte:head>
+
 <div>
 	<BannerContainer banners={data.banners} />
 	<WhoWeAreContainer content={data.whoweare.content} />

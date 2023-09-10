@@ -64,6 +64,10 @@
 	};
 </script>
 
+<svelte:head>
+	<meta name="theme-color" content="#EAE9DF" />
+</svelte:head>
+
 <div
 	class="bg-bwi-alabaster min-h-screen"
 	use:inview={{
