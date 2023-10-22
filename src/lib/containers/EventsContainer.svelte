@@ -4,15 +4,15 @@
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
 	import { fly } from 'svelte/transition';
 	import { inview } from 'svelte-inview';
-	import type { ListResult, Record } from 'pocketbase';
+	import type { ListResult, RecordModel } from 'pocketbase';
 	import { pb } from '$lib/pocketbase';
 
-	export let events: ListResult<Record>;
+	export let events: ListResult<RecordModel>;
 	const itemNumber: number = events.items.length;
 	let viewItem: number = 0;
 	let containerEl: Element;
 	let isOpen: boolean = false;
-	let selectedEvent: Record;
+	let selectedEvent: RecordModel;
 	let isShow: boolean = false;
 
 	const scrollIntoView = (action: 'plus' | 'minus') => {
@@ -28,7 +28,7 @@
 		containerEl.scrollTo({ left: (maxWidth / itemNumber) * viewItem, behavior: 'smooth' });
 	};
 
-	const setEvent = (event: Record) => {
+	const setEvent = (event: RecordModel) => {
 		selectedEvent = event;
 		isOpen = true;
 	};

@@ -2,12 +2,12 @@
 	import ArrorIcon from '$lib/assets/svg/arror_icon.svelte';
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
 	import { pb } from '$lib/pocketbase';
-	import type { ListResult, Record } from 'pocketbase';
+	import type { ListResult, RecordModel } from 'pocketbase';
 	import { inview } from 'svelte-inview';
 	import { fly } from 'svelte/transition';
 
 	export let mainBenefit: string;
-	export let benefits: ListResult<Record>;
+	export let benefits: ListResult<RecordModel>;
 
 	const itemNumber: number = 3;
 	let benefitView: number = 0;

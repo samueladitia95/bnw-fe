@@ -3,7 +3,7 @@
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
 	import { backgroundColor, isTopbarBackground, isTopbarLight } from '$lib/store';
 	import type { PageData } from './$types';
-	import type { Record } from 'pocketbase';
+	import type { RecordModel } from 'pocketbase';
 	import { inview } from 'svelte-inview';
 	import CloseFilledIcon from '$lib/assets/svg/close_filled_icon.svelte';
 	import { fly } from 'svelte/transition';
@@ -29,10 +29,10 @@
 
 	export let data: PageData;
 
-	let selectedEvent: Record;
+	let selectedEvent: RecordModel;
 	let isOpen: boolean = false;
 	let isShow = false;
-	const setEvent = (event: Record) => {
+	const setEvent = (event: RecordModel) => {
 		selectedEvent = event;
 		isOpen = true;
 	};

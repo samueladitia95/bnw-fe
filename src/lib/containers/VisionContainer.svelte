@@ -3,12 +3,12 @@
 	import VisionIcon from '$lib/assets/svg/vision_icon.svelte';
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
 	import { pb } from '$lib/pocketbase';
-	import type { ListResult, Record } from 'pocketbase';
+	import type { ListResult, RecordModel } from 'pocketbase';
 	import { inview } from 'svelte-inview';
 	import { fly } from 'svelte/transition';
 
 	export let mainVision: string;
-	export let visions: ListResult<Record>;
+	export let visions: ListResult<RecordModel>;
 
 	let containerEl: Element;
 	let isShow = false;
