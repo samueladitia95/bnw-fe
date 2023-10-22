@@ -145,7 +145,11 @@
 
 	<!-- Topbar -->
 	<!-- bg color disabled for now -->
-	<div class="z-20 px-6 md:px-16 py-7 fixed w-full top-0 {isBackground ? '' : bgColor}">
+	<div
+		class="z-20 px-6 md:px-16 py-7 fixed w-full top-0 {isTransparentTopbar || isBackground
+			? ''
+			: bgColor}"
+	>
 		<!-- main logo -->
 		<div class="flex justify-between {isLightText ? 'text-bwi-alabaster' : 'text-bwi-eerie-black'}">
 			<a class="w-28 md:w-32" href="/">

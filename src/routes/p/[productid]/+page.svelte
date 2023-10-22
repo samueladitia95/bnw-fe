@@ -1,11 +1,12 @@
 <script lang="ts">
 	import IntroContainer from '$lib/containers/ProductDetail/IntroContainer.svelte';
-	import { isTopbarBackground, isTransparent } from '$lib/store';
+	import { isTopbarBackground, isTopbarLight, isTransparent } from '$lib/store';
 	import { onMount } from 'svelte';
 
 	onMount(() => {
 		isTopbarBackground.set(false);
 		isTransparent.set(true);
+		isTopbarLight.set(true);
 	});
 </script>
 
