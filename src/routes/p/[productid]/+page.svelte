@@ -1,8 +1,9 @@
 <script lang="ts">
 	import BrandContainer from '$lib/containers/ProductDetail/BrandContainer.svelte';
 	import IntroContainer from '$lib/containers/ProductDetail/IntroContainer.svelte';
+	import MarketingContainer from '$lib/containers/ProductDetail/MarketingContainer.svelte';
 
-	import { isTopbarBackground, isTopbarLight, isTransparent } from '$lib/store';
+	import { isTopbarBackground, isTransparent } from '$lib/store';
 	import { onMount } from 'svelte';
 
 	onMount(() => {
@@ -15,4 +16,5 @@
 <div>
 	<IntroContainer />
 	<BrandContainer />
+	<MarketingContainer />
 </div>
