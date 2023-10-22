@@ -95,4 +95,19 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Further Information -->
+	<div class="mt-8 md:mt-24 lg:mt-28 bg-bwi-bone">
+		<div class="container py-28 md:py-32">
+			<div class="text-center font-oakes text-lg/loose md:text-2xl/loose">
+				For further information about the brand, simply just click download catalog below
+			</div>
+			<div class="w-full flex flex-col items-center mt-8">
+				<button
+					class="bg-bwi-lion text-center text-bwi-alabaster rounded-full py-3 px-6 font-oakes lg:text-xl"
+					>Download Catalog</button
+				>
+			</div>
+		</div>
+	</div>
 </div>
