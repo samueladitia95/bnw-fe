@@ -13,6 +13,14 @@
 		'https://www.youtube.com/embed/ozGC83qjkeg?si=deB_QX6RpxLAqTV5';
 	export let advertisementDesc: string =
 		'As the result for the instagram account of Easywalker Indonesia, there was an improvement of account reached from June 2023 to July 2023';
+
+	export let opinionImgs: string[] = [
+		'https://dev2.samueladitia.com/api/files/bnizqfnu1wdkpi5/if4ins04ghpfdk9/opinion1_rEYJE4z33E.jpg?token=',
+		'https://dev2.samueladitia.com/api/files/bnizqfnu1wdkpi5/if4ins04ghpfdk9/opinion2_WmtnXiDLmx.jpg?token=',
+		'https://dev2.samueladitia.com/api/files/bnizqfnu1wdkpi5/if4ins04ghpfdk9/opinion3_Rk94TOmbmv.jpg?token='
+	];
+	export let opinionDesc: string =
+		'As the result for the instagram account of Easywalker Indonesia, there was an improvement of account reached from June 2023 to July 2023';
 </script>
 
 <div class="text-bwi-eerie-black min-h-screen pt-14 bg-bwi-alabaster">
@@ -64,6 +72,25 @@
 				<div class="mt-8 font-optima text-2xl">Advertisement</div>
 				<div class="mt-4 font-oakes text-lg/loose lg:max-w-5xl">
 					{advertisementDesc}
+				</div>
+			</div>
+		</div>
+
+		<!-- Key Opinion Leaders -->
+		<div class="mt-8 lg:mt-20">
+			<div>
+				<div class="flex flex-col gap-6 md:flex-row md:grid md:grid-cols-2 lg:grid-cols-3">
+					{#each opinionImgs as image}
+						<img
+							src={image}
+							alt="Social Media"
+							class="max-h-[441px] md:max-h-[456px] lg:max-h-[531px] w-full h-full object-cover"
+						/>
+					{/each}
+				</div>
+				<div class="mt-8 font-optima text-2xl">Key Opinion Leaders</div>
+				<div class="mt-4 font-oakes text-lg/loose lg:max-w-5xl">
+					{opinionDesc}
 				</div>
 			</div>
 		</div>
