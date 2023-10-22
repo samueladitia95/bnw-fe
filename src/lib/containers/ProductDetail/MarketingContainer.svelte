@@ -1,11 +1,17 @@
 <script lang="ts">
 	export let marketingDesc: string =
 		'We provide marketing service for Easywalker such as manage Easywalker Indonesia Instagram account, Advertisement & provide Key Opinion leaders to increase brand awareness.';
+
 	export let socialMediaImgs: string[] = [
 		'https://dev2.samueladitia.com/api/files/bnizqfnu1wdkpi5/if4ins04ghpfdk9/social1_H03E6ALQhz.jpg?token=',
 		'https://dev2.samueladitia.com/api/files/bnizqfnu1wdkpi5/if4ins04ghpfdk9/social2_so5FUecZ2k.jpg?token='
 	];
 	export let socialMediaDesc: string =
+		'As the result for the instagram account of Easywalker Indonesia, there was an improvement of account reached from June 2023 to July 2023';
+
+	export let advertisementVideoUrl: string =
+		'https://www.youtube.com/embed/ozGC83qjkeg?si=deB_QX6RpxLAqTV5';
+	export let advertisementDesc: string =
 		'As the result for the instagram account of Easywalker Indonesia, there was an improvement of account reached from June 2023 to July 2023';
 </script>
 
@@ -36,8 +42,28 @@
 					{/each}
 				</div>
 				<div class="mt-8 font-optima text-2xl">Social Media Instagram</div>
-				<div class="mt-4 font-oakes leading-loose md:text-lg/loose lg:max-w-5xl">
+				<div class="mt-4 font-oakes text-lg/loose lg:max-w-5xl">
 					{socialMediaDesc}
+				</div>
+			</div>
+		</div>
+
+		<!-- Advertisement -->
+		<div class="mt-8 lg:mt-20">
+			<div>
+				<div>
+					<iframe
+						src={advertisementVideoUrl}
+						title="YouTube video player"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						allowfullscreen={false}
+						class="w-full min-h-[183px] md:min-h-[393px] lg:min-h-[689px]"
+					></iframe>
+				</div>
+				<div class="mt-8 font-optima text-2xl">Advertisement</div>
+				<div class="mt-4 font-oakes text-lg/loose lg:max-w-5xl">
+					{advertisementDesc}
 				</div>
 			</div>
 		</div>
