@@ -1,9 +1,6 @@
 <script lang="ts">
-	import '@splidejs/svelte-splide/css';
-	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
-	import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 	import { inview } from 'svelte-inview';
-	import { fade, fly } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 
 	const instaDummy: string[] = [
 		'https://s3-alpha-sig.figma.com/img/2ecd/14bf/614e40ce59bd3c9730fb0a4dafc20e5a?Expires=1699228800&Signature=gWp5Xe-2MgUzyO8WMa~F00PpViC3uRKNOhvsugzgaAtZVb59bYvYnVhlXbRZej-4BzBcg8DFj7D-kSBbKABEYBQ62eFdxmpdhWC2NJUnzD5dX128cElad-QhhXoFTNVraj~tVURHnUumecSE9wbu822XHjQH0E-PR15RU3QIgD86Ja-QdUSzXLytoKKR38cjUXFl1M0mIS4XQcN7lYAJ5QVgocAMBeVVuRWguBNOpoNKcaNfQa1y2v1NF3hTAo9c4EE3i0Z3S4lQx5cjU5KR4efD9q4DTAYaifD5zhfW-lLWLdo85StMODlCCTKxyxk1~1UZifxXZ9ra5xGCfZDdBg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
