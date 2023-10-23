@@ -77,7 +77,7 @@
 		<!-- Social Media -->
 		<div
 			use:inview={{
-				rootMargin: '0px',
+				rootMargin: '-100px',
 				unobserveOnEnter: true
 			}}
 			on:inview_change={handleChange2}
@@ -115,7 +115,7 @@
 		<!-- Advertisement -->
 		<div
 			use:inview={{
-				rootMargin: '0px',
+				rootMargin: '-100px',
 				unobserveOnEnter: true
 			}}
 			on:inview_change={handleChange3}
@@ -151,7 +151,7 @@
 		<!-- Key Opinion Leaders -->
 		<div
 			use:inview={{
-				rootMargin: '0px',
+				rootMargin: '-100px',
 				unobserveOnEnter: true
 			}}
 			on:inview_change={handleChange4}
