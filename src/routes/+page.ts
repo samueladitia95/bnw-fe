@@ -4,12 +4,11 @@ import type { PageLoad } from './$types';
 export const load: PageLoad = async () => {
 	const banners = await pb.collection('Banners').getFullList();
 
-	const basicInformation = await pb
-		.collection('Basic_Info')
-		.getFirstListItem('project_name="bnw"');
+	const basicInformation = await pb.collection('Basic_Info').getFirstListItem('project_name="bnw"');
 
 	const products = await pb.collection('Products').getList(1, 3, {
-		filter: "shown = true"
+		filter: 'shown = true',
+		sort: '-created'
 	});
 
 	const events = await pb.collection('Events').getList(1, 6);
