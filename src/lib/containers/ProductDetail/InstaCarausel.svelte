@@ -28,26 +28,32 @@
 	on:inview_change={handleChange}
 	class="py-28 bg-bwi-alabaster"
 >
-	<div transition:fade={{ duration: 1000, delay: 1500 }}>
-		<Splide
-			aria-label="invite countdown carausel"
-			extensions={{ AutoScroll }}
-			options={{
-				arrows: false,
-				pagination: false,
-				type: 'loop',
-				gap: '24px',
-				autoScroll: {
-					rewind: true
-				},
-				autoWidth: true
-			}}
-		>
-			{#each instaDummy as image}
-				<SplideSlide>
-					<img src={image} alt="invite" class="object-cover w-[184px] h-[184px] md:w-[271px] md:h-[271px] rounded" />
-				</SplideSlide>
-			{/each}
-		</Splide>
-	</div>
+	{#if isShow}
+		<div transition:fade={{ duration: 1000, delay: 500 }}>
+			<Splide
+				aria-label="invite countdown carausel"
+				extensions={{ AutoScroll }}
+				options={{
+					arrows: false,
+					pagination: false,
+					type: 'loop',
+					gap: '24px',
+					autoScroll: {
+						rewind: true
+					},
+					autoWidth: true
+				}}
+			>
+				{#each instaDummy as image}
+					<SplideSlide>
+						<img
+							src={image}
+							alt="invite"
+							class="object-cover w-[184px] h-[184px] md:w-[271px] md:h-[271px] rounded"
+						/>
+					</SplideSlide>
+				{/each}
+			</Splide>
+		</div>
+	{/if}
 </div>
