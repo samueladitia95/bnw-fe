@@ -15,10 +15,18 @@
 		isTransparent.set(true);
 		// isTopbarLight.set(true);
 	});
+
+	const brandCarausel: string[] = data.product.brand_carausel;
 </script>
 
 <div>
 	<IntroContainer imgCover={pb.files.getUrl(data.product, data.product.img_cover)} />
-	<BrandContainer />
+	<BrandContainer
+		title={data.product.brand_title}
+		desc={data.product.brand_desc}
+		carauselImages={brandCarausel.map((el) => {
+			return pb.files.getUrl(data.product, el);
+		})}
+	/>
 	<MarketingContainer />
 </div>
