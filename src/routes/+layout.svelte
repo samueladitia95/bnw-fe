@@ -73,7 +73,9 @@
 
 	onMount(() => {
 		document.body.classList.add('no-scrollbar');
-		window.scrollTo(0, 0);
+		if (!$page.url.hash) {
+			window.scrollTo(0, 0);
+		}
 	});
 </script>
 
