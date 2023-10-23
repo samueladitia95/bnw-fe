@@ -27,7 +27,7 @@
 	<WhoWeAreContainer content={data.whoweare.content} />
 	<VisionContainer mainVision={data.visions.mainVision} visions={data.visions.list} />
 	<BenefitsContainer mainBenefit={data.benefits.mainBenefit} benefits={data.benefits.list} />
-	<ProductsContainer products={data.products} />
+	<ProductsContainer products={data.products.items} />
 	<EventsContainer events={data.events} />
 	<!-- <TestimonialsContainer /> -->
 </div>

@@ -8,7 +8,9 @@ export const load: PageLoad = async () => {
 		.collection('Basic_Info')
 		.getFirstListItem('project_name="bnw"');
 
-	const products = await pb.collection('Products').getFullList();
+	const products = await pb.collection('Products').getList(1, 3, {
+		filter: "shown = true"
+	});
 
 	const events = await pb.collection('Events').getList(1, 6);
 
