@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { inview } from 'svelte-inview';
+	import { fade, fly } from 'svelte/transition';
+
 	export let marketingDesc: string =
 		'We provide marketing service for Easywalker such as manage Easywalker Indonesia Instagram account, Advertisement & provide Key Opinion leaders to increase brand awareness.';
 
@@ -21,20 +24,42 @@
 	];
 	export let opinionDesc: string =
 		'As the result for the instagram account of Easywalker Indonesia, there was an improvement of account reached from June 2023 to July 2023';
+
+	let isShow: boolean = false;
+
+	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
+		if (!isShow && detail.inView) isShow = true;
+	};
 </script>
 
-<div class="text-bwi-eerie-black min-h-screen pt-14 bg-bwi-alabaster">
+<div
+	use:inview={{
+		rootMargin: '-100px',
+		unobserveOnEnter: true
+	}}
+	on:inview_change={handleChange}
+	class="text-bwi-eerie-black min-h-screen pt-14 bg-bwi-alabaster"
+>
 	<div class="container">
 		<!-- Marketing Main -->
 		<div class="flex flex-col justify-start items-start gap-8 lg:grid lg:grid-cols-2">
-			<div
-				class="text-2xl border border-bwi-eerie-black rounded-full py-3 px-10 font-optima lg:max-w-[231px]"
-			>
-				The Marketing
-			</div>
-			<div class="flex flex-col justify-start items-start gap-8">
-				<div class="font-oakes text-lg/loose md:text-xl/loose">{marketingDesc}</div>
-			</div>
+			{#if isShow}
+				<div
+					transition:fly={{ x: -200, duration: 1000, delay: 500 }}
+					class="text-2xl border border-bwi-eerie-black rounded-full py-3 px-10 font-optima lg:max-w-[231px]"
+				>
+					The Marketing
+				</div>
+			{/if}
+
+			{#if isShow}
+				<div
+					transition:fade={{ duration: 1000, delay: 1000 }}
+					class="flex flex-col justify-start items-start gap-8"
+				>
+					<div class="font-oakes text-lg/loose md:text-xl/loose">{marketingDesc}</div>
+				</div>
+			{/if}
 		</div>
 
 		<!-- Social Media -->
