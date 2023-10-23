@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { isTopbarBackground, isTopbarLight } from '$lib/store';
+	import { onMount } from 'svelte';
 	import { inview } from 'svelte-inview';
 	import { fly } from 'svelte/transition';
 
@@ -8,15 +10,19 @@
 	let isShow = false;
 
 	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
-		if (!isShow && detail.inView) isShow = true;
+		isTopbarBackground.set(detail.inView);
+		isTopbarLight.set(detail.inView);
 	};
+
+	onMount(() => {
+		isShow = true;
+	});
 </script>
 
 <div
 	class="bg-bwi-alabaster min-h-screen w-screen"
 	use:inview={{
-		rootMargin: '0px',
-		unobserveOnEnter: true
+		rootMargin: '0px'
 	}}
 	on:inview_change={handleChange}
 >

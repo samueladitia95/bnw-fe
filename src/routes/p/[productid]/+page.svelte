@@ -13,7 +13,7 @@
 
 	onMount(() => {
 		isTopbarBackground.set(false);
-		isTopbarLight.set(false);
+		isTopbarLight.set(true);
 		backgroundColor.set('bg-bwi-alabaster');
 	});
 
