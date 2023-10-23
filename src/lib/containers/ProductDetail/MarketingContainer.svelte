@@ -33,7 +33,7 @@
 				The Marketing
 			</div>
 			<div class="flex flex-col justify-start items-start gap-8">
-				<div class="font-oakes leading-loose md:text-xl md:leading-loose">{marketingDesc}</div>
+				<div class="font-oakes text-lg/loose md:text-xl/loose">{marketingDesc}</div>
 			</div>
 		</div>
 
