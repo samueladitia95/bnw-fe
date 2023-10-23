@@ -7,6 +7,7 @@
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 	import { pb } from '$lib/pocketbase';
+	import InstaCarausel from '$lib/containers/ProductDetail/InstaCarausel.svelte';
 
 	export let data: PageData;
 
@@ -43,4 +44,5 @@
 			return pb.files.getUrl(data.product, el);
 		})}
 	/>
+	<InstaCarausel />
 </div>

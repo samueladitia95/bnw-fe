@@ -85,7 +85,6 @@
 							<a
 								class="font-oakes text-center border-2 border-bwi-eerie-black rounded-full px-5 py-3 flex gap-4"
 								href={`/p/${product.id}`}
-								target="_blank"
 							>
 								<span class="md:text-xl">View Detail</span>
 								<svg
