@@ -5,13 +5,7 @@
 	import MainIcon from '$lib/assets/svg/main_icon.svelte';
 	import CloseIcon from '$lib/assets/svg/close_icon.svelte';
 	import MenuICon from '$lib/assets/svg/menu_icon.svelte';
-	import {
-		backgroundColor,
-		isContactOpen,
-		isTopbarBackground,
-		isTopbarLight,
-		isTransparent
-	} from '$lib/store';
+	import { backgroundColor, isContactOpen, isTopbarBackground, isTopbarLight } from '$lib/store';
 	import Input from '$lib/components/Input.svelte';
 	import type { PageData } from './$types';
 	import { superForm } from 'sveltekit-superforms/client';
@@ -46,7 +40,6 @@
 	];
 	let sideBarIsOpen: boolean = false;
 	let isBackground: boolean = false;
-	let isTransparentTopbar: boolean = false;
 	let contactUsIsOpen: boolean = false;
 	let isSuccess: boolean = false;
 	let isLightText: boolean = false;
@@ -56,7 +49,6 @@
 	isContactOpen.subscribe((value) => (contactUsIsOpen = value));
 	isTopbarLight.subscribe((value) => (isLightText = value));
 	backgroundColor.subscribe((value) => (bgColor = value));
-	isTransparent.subscribe((value) => (isTransparentTopbar = value));
 
 	const scrollToView = (id: string) => {
 		if ($page.url.pathname === '/') {
@@ -145,11 +137,7 @@
 
 	<!-- Topbar -->
 	<!-- bg color disabled for now -->
-	<div
-		class="z-20 px-6 md:px-16 py-7 fixed w-full top-0 {isTransparentTopbar || isBackground
-			? ''
-			: bgColor}"
-	>
+	<div class="z-20 px-6 md:px-16 py-7 fixed w-full top-0 {isBackground ? '' : bgColor}">
 		<!-- main logo -->
 		<div class="flex justify-between {isLightText ? 'text-bwi-alabaster' : 'text-bwi-eerie-black'}">
 			<a class="w-28 md:w-32" href="/">

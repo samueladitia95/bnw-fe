@@ -3,7 +3,7 @@
 	import IntroContainer from '$lib/containers/ProductDetail/IntroContainer.svelte';
 	import MarketingContainer from '$lib/containers/ProductDetail/MarketingContainer.svelte';
 
-	import { isTopbarBackground, isTransparent } from '$lib/store';
+	import { backgroundColor, isTopbarBackground, isTopbarLight } from '$lib/store';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 	import { pb } from '$lib/pocketbase';
@@ -13,8 +13,8 @@
 
 	onMount(() => {
 		isTopbarBackground.set(false);
-		isTransparent.set(true);
-		// isTopbarLight.set(true);
+		isTopbarLight.set(false);
+		backgroundColor.set('bg-bwi-alabaster');
 	});
 
 	const brandCarausel: string[] = data.product.brand_carausel;
