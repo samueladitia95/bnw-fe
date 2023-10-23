@@ -17,6 +17,8 @@
 	});
 
 	const brandCarausel: string[] = data.product.brand_carausel;
+	const socialMediaImgs: string[] = data.product.img_social_media;
+	const opinionImgs: string[] = data.product.img_key_opinion_leaders;
 </script>
 
 <div>
@@ -28,5 +30,17 @@
 			return pb.files.getUrl(data.product, el);
 		})}
 	/>
-	<MarketingContainer />
+	<MarketingContainer
+		marketingDesc={data.product.marketing_desc}
+		socialMediaImgs={socialMediaImgs.map((el) => {
+			return pb.files.getUrl(data.product, el);
+		})}
+		socialMediaDesc={data.product.social_media_desc}
+		advertisementVideoUrl={data.product.advertisement_video_url}
+		advertisementDesc={data.product.advertisement_desc}
+		opinionDesc={data.product.key_opinion_leaders_desc}
+		opinionImgs={opinionImgs.map((el) => {
+			return pb.files.getUrl(data.product, el);
+		})}
+	/>
 </div>
