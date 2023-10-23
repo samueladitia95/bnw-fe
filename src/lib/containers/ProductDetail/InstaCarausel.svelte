@@ -29,31 +29,26 @@
 	class="py-28 bg-bwi-alabaster"
 >
 	{#if isShow}
-		<div transition:fade={{ duration: 1000, delay: 500 }}>
-			<Splide
-				aria-label="invite countdown carausel"
-				extensions={{ AutoScroll }}
-				options={{
-					arrows: false,
-					pagination: false,
-					type: 'loop',
-					gap: '24px',
-					autoScroll: {
-						rewind: true
-					},
-					autoWidth: true
-				}}
-			>
-				{#each instaDummy as image}
-					<SplideSlide>
-						<img
-							src={image}
-							alt="invite"
-							class="object-cover w-[184px] h-[184px] md:w-[271px] md:h-[271px] rounded"
-						/>
-					</SplideSlide>
-				{/each}
-			</Splide>
+		<div transition:fade={{ duration: 1000, delay: 500 }} class="grid gap-6 grid-cols-2 md:hidden">
+			{#each instaDummy.slice(0, 2) as image}
+				<img src={image} alt="invite" class="object-cover rounded" />
+			{/each}
+		</div>
+		<div
+			transition:fade={{ duration: 1000, delay: 500 }}
+			class="gap-6 grid-cols-3 hidden md:grid lg:hidden"
+		>
+			{#each instaDummy.slice(0, 3) as image}
+				<img src={image} alt="invite" class="object-cover rounded" />
+			{/each}
+		</div>
+		<div
+			transition:fade={{ duration: 1000, delay: 500 }}
+			class="xl:container gap-6 grid-cols-5 hidden lg:grid"
+		>
+			{#each instaDummy as image}
+				<img src={image} alt="invite" class="object-cover rounded" />
+			{/each}
 		</div>
 	{/if}
 </div>
