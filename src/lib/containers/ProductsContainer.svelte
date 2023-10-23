@@ -84,10 +84,10 @@
 							</div>
 							<a
 								class="font-oakes text-center border-2 border-bwi-eerie-black rounded-full px-5 py-3 flex gap-4"
-								href={product.insta_link}
+								href={`/p/${product.id}`}
 								target="_blank"
 							>
-								<span class="md:text-xl">View Instagram</span>
+								<span class="md:text-xl">View Detail</span>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="24"
