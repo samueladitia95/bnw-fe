@@ -5,6 +5,10 @@
 
 	import { isTopbarBackground, isTransparent } from '$lib/store';
 	import { onMount } from 'svelte';
+	import type { PageData } from './$types';
+	import { pb } from '$lib/pocketbase';
+
+	export let data: PageData;
 
 	onMount(() => {
 		isTopbarBackground.set(false);
@@ -14,7 +18,7 @@
 </script>
 
 <div>
-	<IntroContainer />
+	<IntroContainer imgCover={pb.files.getUrl(data.product, data.product.img_cover)} />
 	<BrandContainer />
 	<MarketingContainer />
 </div>
