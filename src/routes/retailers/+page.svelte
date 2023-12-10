@@ -10,6 +10,7 @@
 	import Input from '$lib/components/Input.svelte';
 	import type { RecordModel } from 'pocketbase';
 	import ChevronIcon from '$lib/assets/svg/chevron_icon.svelte';
+	import OptionIcon from '$lib/assets/svg/option_icon.svelte';
 
 	export let data: PageData;
 	let isShow = false;
@@ -22,6 +23,10 @@
 		isTopbarBackground.set(false);
 		isTopbarLight.set(false);
 		backgroundColor.set('bg-bwi-alabaster');
+
+		// // ! TESTING ONLY
+		// selectedProduct = data.products[0];
+		// isListImageRetailers = true;
 	});
 
 	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
@@ -138,11 +143,23 @@
 				</div>
 			</div>
 
-			<!-- <div>
-				{#each  as }
-					
+			<div class="flex flex-col gap-6">
+				{#each selectedProduct.retailers_images as retailers_image, index}
+					<div class="rounded-2xl">
+						<img
+							src={pb.files.getUrl(selectedProduct, retailers_image)}
+							alt="retail"
+							class="rounded-t-2xl rounded-b"
+						/>
+						<div class="flex items-center justify-between p-4 rounded-b-2xl bg-white">
+							<div>{`${selectedProduct.name}_${index + 1}.jpeg`}</div>
+							<button>
+								<OptionIcon height="1.5em" width="1.5em" opacity={0.6} />
+							</button>
+						</div>
+					</div>
 				{/each}
-			</div> -->
+			</div>
 		</div>
 	</div>
 {/if}
