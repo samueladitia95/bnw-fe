@@ -38,13 +38,21 @@
 		selectedProduct = product;
 	};
 
-	const handleValidatePassword = () => {
-		// ? FOR TESTING ONLY
-		if (password === 'test') {
-			isPasswordModal = false;
-			password = '';
+	const handleValidatePassword = async () => {
+		const body = {
+			id: selectedProduct?.id,
+			password
+		};
+
+		try {
+			await pb.send('/verify-retailer', {
+				method: 'POST',
+				body
+			});
 			isListImageRetailers = true;
-		} else {
+			isPasswordModal = false;
+		} catch (err) {
+			console.log(err);
 		}
 	};
 </script>
