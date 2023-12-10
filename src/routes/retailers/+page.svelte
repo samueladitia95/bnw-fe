@@ -10,7 +10,7 @@
 	import Input from '$lib/components/Input.svelte';
 	import type { RecordModel } from 'pocketbase';
 	import ChevronIcon from '$lib/assets/svg/chevron_icon.svelte';
-	import OptionIcon from '$lib/assets/svg/option_icon.svelte';
+	import ImageCard from '$lib/containers/Retailers/ImageCard.svelte';
 
 	export let data: PageData;
 	let isShow = false;
@@ -24,7 +24,7 @@
 		isTopbarLight.set(false);
 		backgroundColor.set('bg-bwi-alabaster');
 
-		// // ! TESTING ONLY
+		// ! TESTING ONLY
 		// selectedProduct = data.products[0];
 		// isListImageRetailers = true;
 	});
@@ -129,12 +129,12 @@
 		<TopbarPad />
 		<div class="container flex flex-col gap-4 text-bwi-eerie-black pb-20">
 			<div class="flex flex-col gap-4 mb-10">
-				<div class="flex gap-1 items-end">
-					<div class="font-optima text-3xl md:text-5xl">Retailers</div>
+				<div class="flex gap-1 items-center">
+					<div class="font-oakes md:text-2xl">Retailers</div>
 					<div class="-rotate-90">
-						<ChevronIcon width="2em" height="2em" />
+						<ChevronIcon width="1.5em" height="1.5em" />
 					</div>
-					<div class="font-oakes font-semibold text-bwi-eerie-black text-lg whitespace-nowrap">
+					<div class="font-oakes font-semibold text-bwi-eerie-black whitespace-nowrap md:text-2xl">
 						{selectedProduct.name} Catalog
 					</div>
 				</div>
@@ -143,21 +143,11 @@
 				</div>
 			</div>
 
-			<div class="flex flex-col gap-6">
+			<div
+				class="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-y-8"
+			>
 				{#each selectedProduct.retailers_images as retailers_image, index}
-					<div class="rounded-2xl">
-						<img
-							src={pb.files.getUrl(selectedProduct, retailers_image)}
-							alt="retail"
-							class="rounded-t-2xl rounded-b"
-						/>
-						<div class="flex items-center justify-between p-4 rounded-b-2xl bg-white">
-							<div>{`${selectedProduct.name}_${index + 1}.jpeg`}</div>
-							<button>
-								<OptionIcon height="1.5em" width="1.5em" opacity={0.6} />
-							</button>
-						</div>
-					</div>
+					<ImageCard {selectedProduct} {retailers_image} {index} />
 				{/each}
 			</div>
 		</div>
