@@ -22,6 +22,10 @@
 			link: '#about-us-container'
 		},
 		{
+			label: 'Retailers',
+			link: '#retailers'
+		},
+		{
 			label: 'Benefits',
 			link: '#benefits-container'
 		},
@@ -51,7 +55,9 @@
 	backgroundColor.subscribe((value) => (bgColor = value));
 
 	const scrollToView = (id: string) => {
-		if ($page.url.pathname === '/') {
+		if (id === '#retailers') {
+			goto('/retailers');
+		} else if ($page.url.pathname === '/') {
 			const targetEl = document.querySelector(id);
 			if (!targetEl) return;
 			sideBarIsOpen = false;
