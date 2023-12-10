@@ -51,6 +51,7 @@
 			});
 			isListImageRetailers = true;
 			isPasswordModal = false;
+			password = '';
 		} catch (err) {
 			console.log(err);
 		}
@@ -138,7 +139,15 @@
 		<div class="container flex flex-col gap-4 text-bwi-eerie-black pb-20">
 			<div class="flex flex-col gap-4 mb-10">
 				<div class="flex gap-1 items-center">
-					<div class="font-oakes md:text-2xl">Retailers</div>
+					<button
+						class="font-oakes md:text-2xl"
+						on:click={() => {
+							selectedProduct = null;
+							isListImageRetailers = false;
+						}}
+					>
+						Retailers
+					</button>
 					<div class="-rotate-90">
 						<ChevronIcon width="1.5em" height="1.5em" />
 					</div>
