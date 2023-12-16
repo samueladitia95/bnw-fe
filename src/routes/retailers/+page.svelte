@@ -18,6 +18,7 @@
 	let password: string = '';
 	let selectedProduct: RecordModel | null = null;
 	let isListImageRetailers = false;
+	let isPasswordInvalid = false;
 
 	onMount(() => {
 		isTopbarBackground.set(false);
@@ -43,6 +44,7 @@
 			id: selectedProduct?.id,
 			password
 		};
+		isPasswordInvalid = false;
 
 		try {
 			await pb.send('/verify-retailer', {
@@ -53,7 +55,7 @@
 			isPasswordModal = false;
 			password = '';
 		} catch (err) {
-			console.log(err);
+			isPasswordInvalid = true;
 		}
 	};
 </script>
@@ -206,7 +208,13 @@
 					}}
 				>
 					<div class="mt-10">
-						<Input type="password" name="Password" label="Password" bind:value={password} />
+						<Input
+							type="password"
+							name="Password"
+							label="Password"
+							bind:value={password}
+							error={isPasswordInvalid ? ['Password incorrect'] : undefined}
+						/>
 					</div>
 
 					<div class="flex w-full justify-end">
