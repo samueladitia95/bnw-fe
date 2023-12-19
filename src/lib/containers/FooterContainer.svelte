@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import FacebookIcon from '$lib/assets/svg/facebook_icon.svelte';
 	import Instagram from '$lib/assets/svg/instagram.svelte';
 	import MainIcon from '$lib/assets/svg/main_icon.svelte';
@@ -11,6 +12,10 @@
 		{
 			label: 'About Us',
 			link: '#about-us-container'
+		},
+		{
+			label: 'Retailers',
+			link: '#retailers'
 		},
 		{
 			label: 'Benefits',
@@ -33,9 +38,13 @@
 	let isShow: boolean = false;
 
 	const scrollToView = (id: string) => {
-		const targetEl = document.querySelector(id);
-		if (!targetEl) return;
-		targetEl.scrollIntoView({ behavior: 'smooth' });
+		if (id === '#retailers') {
+			goto('/retailers');
+		} else {
+			const targetEl = document.querySelector(id);
+			if (!targetEl) return;
+			targetEl.scrollIntoView({ behavior: 'smooth' });
+		}
 	};
 
 	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {

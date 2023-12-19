@@ -5,6 +5,7 @@
 	export let label: string;
 	export let error: string[] | undefined = undefined;
 	export let value: string;
+	export let type: string = 'text';
 </script>
 
 <div class="relative h-11 w-full min-w-[200px] {error ? 'mb-5' : ''}">
@@ -13,7 +14,7 @@
 			? 'border-bwi-error border-b-2'
 			: 'border-black-60%  focus:border-bwi-lion border-b'}"
 		placeholder=""
-		type="text"
+		{...{ type }}
 		{name}
 		bind:value
 		required

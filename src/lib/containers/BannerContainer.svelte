@@ -3,7 +3,7 @@
 	import { isTopbarBackground } from '$lib/store';
 	import { inview } from 'svelte-inview';
 	import type { ObserverEventDetails } from 'svelte-inview';
-	import type { Record } from 'pocketbase';
+	import type { RecordModel } from 'pocketbase';
 	import { pb } from '$lib/pocketbase';
 
 	// export let banners = [
@@ -41,7 +41,7 @@
 	// 		updated: '2023-08-30 07:52:52.985Z'
 	// 	}
 	// ];
-	export let banners: Record[];
+	export let banners: RecordModel[];
 	const itemNumber: number = banners.length;
 
 	let interval: number;

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
 	import { pb } from '$lib/pocketbase';
-	import type { Record } from 'pocketbase';
+	import type { RecordModel } from 'pocketbase';
 	import { inview } from 'svelte-inview';
 	import { fly } from 'svelte/transition';
 
@@ -30,7 +30,7 @@
 	// 			'https://s3-alpha-sig.figma.com/img/228c/a0bc/d9c9c5eaf00a89f09395d5b154298228?Expires=1693180800&Signature=D-KspcPKuHVkokK0hopvlwWOkfZNNGL0~HoU8Y5AZ~et9QW2Tt0Z6ysmed21x-Z3GeSI8wAo7Eq8vX9K2l~Ct4D~Nu2QPP-r0TnqJ1AmWZs2zQn5MgndMgl9Eb9j0VBcEDf5hcr~HaWmfJ8mxijbS9GC8T3IRHQ1RPo9mIGfrPzlMhk3Fb2p402UmUpE98rYAKQw5Hj5c0XZC-WsKD31hh8jsv51tFY6bN2dbUbFxfeLkTK~~~j4nbhEsSskS8D07Jd5yTNFRGaLvRX8q6V5-gfznKcg4KdmpWuoPhnx88N5iCt3vqEDTr5LdF49cVBQvGQRPRIZarMFkr5xFfSzcQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
 	// 	}
 	// ];
-	export let products: Record[] = [];
+	export let products: RecordModel[] = [];
 	let isShow: boolean = false;
 
 	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
@@ -84,10 +84,9 @@
 							</div>
 							<a
 								class="font-oakes text-center border-2 border-bwi-eerie-black rounded-full px-5 py-3 flex gap-4"
-								href={product.insta_link}
-								target="_blank"
+								href={`/p/${product.id}`}
 							>
-								<span class="md:text-xl">View Instagram</span>
+								<span class="md:text-xl">View Detail</span>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="24"
