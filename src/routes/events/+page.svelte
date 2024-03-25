@@ -200,23 +200,25 @@
 							<div class="font-oakes text-xl">{selectedEvent.date}</div>
 						</div>
 					</div>
-					<button
-						class="hidden lg:flex font-oakes text-center border-2 border-bwi-eerie-black rounded-full px-5 py-3 gap-4 mt-5 hover:bg-bwi-eerie-black hover:text-bwi-alabaster"
-					>
-						<span class="text-xl">Go To Website</span>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 25"
-							fill="none"
+					<a href={selectedEvent.link} target="_blank">
+						<button
+							class="hidden lg:flex font-oakes text-center border-2 border-bwi-eerie-black rounded-full px-5 py-3 gap-4 mt-5 hover:bg-bwi-eerie-black hover:text-bwi-alabaster"
 						>
-							<path
-								d="M12 4.5L10.59 5.91L16.17 11.5H4V13.5H16.17L10.59 19.09L12 20.5L20 12.5L12 4.5Z"
-								fill="currentColor"
-							/>
-						</svg>
-					</button>
+							<span class="text-xl">Go To Website</span>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 25"
+								fill="none"
+							>
+								<path
+									d="M12 4.5L10.59 5.91L16.17 11.5H4V13.5H16.17L10.59 19.09L12 20.5L20 12.5L12 4.5Z"
+									fill="currentColor"
+								/>
+							</svg>
+						</button>
+					</a>
 				</div>
 			</div>
 		</div>
