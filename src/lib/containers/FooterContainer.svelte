@@ -29,10 +29,10 @@
 			label: 'Events',
 			link: '#events-container'
 		},
-		{
-			label: 'Testimonials',
-			link: '#testimonials-container'
-		}
+		// {
+		// 	label: 'Testimonials',
+		// 	link: '#testimonials-container'
+		// }
 	];
 
 	let isShow: boolean = false;
