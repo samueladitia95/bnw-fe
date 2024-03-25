@@ -35,6 +35,10 @@
 		// }
 	];
 
+	export let instagramLink: string;
+	export let youtubeLink: string;
+	export let whatsappLink: string;
+
 	let isShow: boolean = false;
 
 	const scrollToView = (id: string) => {
@@ -92,15 +96,15 @@
 					<div class="flex flex-col gap-3.5">
 						<div class="font-oakes font-semibold leading-loose">Follow Us</div>
 						<div class="flex gap-5">
-							<div class="w-6 h-6">
+							<a class="w-6 h-6" href={instagramLink} target="_blank">
 								<Instagram width="100%" height="100%" />
-							</div>
-							<div class="w-6 h-6">
+							</a>
+							<a class="w-6 h-6" href={youtubeLink} target="_blank">
 								<Youtube width="100%" height="100%" />
-							</div>
-							<div class="w-6 h-6">
+							</a>
+							<a class="w-6 h-6" href={whatsappLink} target="_blank">
 								<Whatsapp width="100%" height="100%" />
-							</div>
+							</a>
 						</div>
 					</div>
 				</div>

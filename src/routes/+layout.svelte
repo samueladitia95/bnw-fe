@@ -306,6 +306,10 @@
 
 	<div class="">
 		<slot />
-		<FooterContainer />
+		<FooterContainer
+			instagramLink={data.socialMedia.instagram}
+			youtubeLink={data.socialMedia.instagram}
+			whatsappLink={data.socialMedia.whatsapp}
+		/>
 	</div>
 </div>
