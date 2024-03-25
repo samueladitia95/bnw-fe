@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import FacebookIcon from '$lib/assets/svg/facebook_icon.svelte';
 	import Instagram from '$lib/assets/svg/instagram.svelte';
 	import MainIcon from '$lib/assets/svg/main_icon.svelte';
-	import TwitterIcon from '$lib/assets/svg/twitter_icon.svelte';
+	import Whatsapp from '$lib/assets/svg/whatsapp.svelte';
+	import Youtube from '$lib/assets/svg/youtube.svelte';
 	import { isContactOpen } from '$lib/store';
 	import { inview } from 'svelte-inview';
 	import { fly } from 'svelte/transition';
@@ -28,7 +28,7 @@
 		{
 			label: 'Events',
 			link: '#events-container'
-		},
+		}
 		// {
 		// 	label: 'Testimonials',
 		// 	link: '#testimonials-container'
@@ -93,13 +93,13 @@
 						<div class="font-oakes font-semibold leading-loose">Follow Us</div>
 						<div class="flex gap-5">
 							<div class="w-6 h-6">
-								<TwitterIcon width="100%" height="100%" />
-							</div>
-							<div class="w-6 h-6">
-								<FacebookIcon width="100%" height="100%" />
-							</div>
-							<div class="w-6 h-6">
 								<Instagram width="100%" height="100%" />
+							</div>
+							<div class="w-6 h-6">
+								<Youtube width="100%" height="100%" />
+							</div>
+							<div class="w-6 h-6">
+								<Whatsapp width="100%" height="100%" />
 							</div>
 						</div>
 					</div>
