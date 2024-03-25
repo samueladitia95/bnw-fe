@@ -24,7 +24,7 @@
 
 <div>
 	<BannerContainer banners={data.banners} />
-	<WhoWeAreContainer content={data.whoweare.content} />
+	<WhoWeAreContainer content={data.whoweare.content} videoLink={data.whoweare.videoLink} />
 	<VisionContainer mainVision={data.visions.mainVision} visions={data.visions.list} />
 	<BenefitsContainer mainBenefit={data.benefits.mainBenefit} benefits={data.benefits.list} />
 	<ProductsContainer products={data.products.items} />
