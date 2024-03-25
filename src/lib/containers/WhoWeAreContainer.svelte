@@ -1,9 +1,11 @@
 <script lang="ts">
 	import TopbarPad from '$lib/components/TopbarPad.svelte';
+	import { parseYoutubeLink } from '$lib/parseYoutubeLink';
 	import { inview } from 'svelte-inview';
 	import { fly } from 'svelte/transition';
 
 	export let content: string;
+	export let videoLink: string = 'https://www.youtube.com/embed/ozGC83qjkeg?si=deB_QX6RpxLAqTV5';
 
 	let isShow = false;
 	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
@@ -39,7 +41,7 @@
 		{#if isShow}
 			<div class="flex items-center min-w-full">
 				<iframe
-					src="https://www.youtube.com/embed/ozGC83qjkeg?si=deB_QX6RpxLAqTV5"
+					src={`https://www.youtube.com/embed/${parseYoutubeLink(videoLink)}`}
 					title="YouTube video player"
 					frameborder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

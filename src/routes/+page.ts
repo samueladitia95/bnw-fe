@@ -19,7 +19,8 @@ export const load: PageLoad = async () => {
 	return {
 		banners,
 		whoweare: {
-			content: basicInformation['who_we_are']
+			content: basicInformation['who_we_are'],
+			videoLink: basicInformation['videoLink']
 		},
 		visions: {
 			mainVision: basicInformation['main_vision'],
