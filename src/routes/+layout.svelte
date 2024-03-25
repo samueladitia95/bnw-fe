@@ -36,11 +36,11 @@
 		{
 			label: 'Events',
 			link: '#events-container'
-		},
-		{
-			label: 'Testimonials',
-			link: '#testimonials-container'
 		}
+		// {
+		// 	label: 'Testimonials',
+		// 	link: '#testimonials-container'
+		// }
 	];
 	let sideBarIsOpen: boolean = false;
 	let isBackground: boolean = false;
@@ -306,6 +306,10 @@
 
 	<div class="">
 		<slot />
-		<FooterContainer />
+		<FooterContainer
+			instagramLink={data.socialMedia.instagram}
+			youtubeLink={data.socialMedia.instagram}
+			whatsappLink={data.socialMedia.whatsapp}
+		/>
 	</div>
 </div>

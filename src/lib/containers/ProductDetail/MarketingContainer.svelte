@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { parseYoutubeLink } from '$lib/parseYoutubeLink';
 	import { inview } from 'svelte-inview';
 	import { fade, fly } from 'svelte/transition';
 
@@ -125,7 +126,7 @@
 				{#if isShow3}
 					<div transition:fly={{ x: -200, duration: 1000, delay: 500 }}>
 						<iframe
-							src={advertisementVideoUrl}
+							src={`https://www.youtube.com/embed/${parseYoutubeLink(advertisementVideoUrl)}`}
 							title="YouTube video player"
 							frameborder="0"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
