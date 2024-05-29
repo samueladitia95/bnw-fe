@@ -11,7 +11,9 @@ export const load: PageLoad = async () => {
 		sort: '-created'
 	});
 
-	const events = await pb.collection('Events').getList(1, 6);
+	const events = await pb.collection('Events').getList(1, 6, {
+		sort: '-status'
+	});
 
 	const benefits = await pb.collection('Benefits').getList(1, 3);
 	const visions = await pb.collection('Vision_and_Missions').getList(1, 3);
