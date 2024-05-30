@@ -11,7 +11,8 @@ export const load: PageLoad = async ({ url }) => {
 	}`;
 
 	const events = await pb.collection('Events').getList(1, +maxPage * 6, {
-		filter: totalFIlter.trim() ? totalFIlter.trim() : ''
+		filter: totalFIlter.trim() ? totalFIlter.trim() : '',
+		sort: '-status'
 	});
 
 	return {
