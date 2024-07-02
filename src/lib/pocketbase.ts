@@ -4,4 +4,8 @@ export function createInstance() {
 	return new PocketBase('https://dev2.samueladitia.com');
 }
 
-export const pb = createInstance();
+const pb = createInstance();
+
+pb.autoCancellation(false);
+
+export { pb };
