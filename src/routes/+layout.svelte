@@ -57,13 +57,16 @@
 	const scrollToView = (id: string) => {
 		if (id === '#retailers') {
 			goto('/retailers');
-		} else if ($page.url.pathname === '/') {
+		} else if ($page.url.pathname === '/retailers' && id !== '#retailers') {
+			goto('/', { replaceState: true }).then(() => {
+				const targetEl = document.querySelector(id);
+				if (!targetEl) return;
+				targetEl.scrollIntoView({ behavior: 'auto' });
+			});
+		} else {
 			const targetEl = document.querySelector(id);
 			if (!targetEl) return;
-			sideBarIsOpen = false;
-			targetEl.scrollIntoView({ behavior: 'smooth' });
-		} else {
-			goto(`/${id}`);
+			targetEl.scrollIntoView({ behavior: 'auto' });
 		}
 	};
 
