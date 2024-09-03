@@ -94,7 +94,7 @@
 							<img
 								src={image}
 								alt="Social Media"
-								class="max-h-[285px] md:max-h-[609px] lg:max-h-[531px] w-full object-cover"
+								class="max-h-[285px] md:max-h-[609px] lg:h-96 lg:max-h-[531px] w-full object-cover"
 							/>
 						{/each}
 					</div>
@@ -179,7 +179,7 @@
 							<img
 								src={image}
 								alt="Social Media"
-								class="max-h-[441px] md:max-h-[456px] lg:max-h-[531px] w-full h-full object-cover"
+								class="max-h-[441px] md:max-h-[456px] lg:max-h-[531px] w-full h-full lg:h-96 object-cover"
 							/>
 						{/each}
 					</div>
