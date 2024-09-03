@@ -113,6 +113,10 @@
 			</div>
 		</div>
 
+		<div class="hidden lg:block mt-16 lg:mb-16">
+			<hr class="h-0.5 border-solid bg-bwi-eerie-black-23%" />
+		</div>
+
 		<!-- Advertisement -->
 		<div
 			use:inview={{
@@ -124,14 +128,17 @@
 		>
 			<div>
 				{#if isShow3}
-					<div transition:fly={{ x: -200, duration: 1000, delay: 500 }}>
+					<div
+						class="flex justify-center items-center"
+						transition:fly={{ x: -200, duration: 1000, delay: 500 }}
+					>
 						<iframe
 							src={`https://www.youtube.com/embed/${parseYoutubeLink(advertisementVideoUrl)}`}
 							title="YouTube video player"
 							frameborder="0"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 							allowfullscreen={false}
-							class="w-full min-h-[183px] md:min-h-[393px] lg:min-h-[689px]"
+							class="w-full lg:w-[1014px] min-h-[183px] md:min-h-[393px] lg:min-h-[570px]"
 						></iframe>
 					</div>
 				{/if}
@@ -147,6 +154,10 @@
 					</div>
 				{/if}
 			</div>
+		</div>
+
+		<div class="hidden lg:block mt-16 lg:mb-16">
+			<hr class="h-0.5 border-solid bg-bwi-eerie-black-23%" />
 		</div>
 
 		<!-- Key Opinion Leaders -->

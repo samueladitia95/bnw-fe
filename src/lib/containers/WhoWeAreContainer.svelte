@@ -5,7 +5,7 @@
 	import { fly } from 'svelte/transition';
 
 	export let content: string;
-	export let videoLink: string = 'https://www.youtube.com/embed/ozGC83qjkeg?si=deB_QX6RpxLAqTV5';
+	export let videoLink: string = 'https://youtu.be/2VmYJLQAsGs?si=NtGBZzcpuN-wSvLi';
 
 	let isShow = false;
 	const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
