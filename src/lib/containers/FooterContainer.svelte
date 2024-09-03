@@ -1,12 +1,15 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
+	import { isContactOpen } from '$lib/store';
+	import { inview } from 'svelte-inview';
+	import { fly } from 'svelte/transition';
 	import Instagram from '$lib/assets/svg/instagram.svelte';
 	import MainIcon from '$lib/assets/svg/main_icon.svelte';
 	import Whatsapp from '$lib/assets/svg/whatsapp.svelte';
 	import Youtube from '$lib/assets/svg/youtube.svelte';
-	import { isContactOpen } from '$lib/store';
-	import { inview } from 'svelte-inview';
-	import { fly } from 'svelte/transition';
+
+	const currentYear = new Date().getFullYear();
 
 	const navbars = [
 		{
@@ -44,6 +47,12 @@
 	const scrollToView = (id: string) => {
 		if (id === '#retailers') {
 			goto('/retailers');
+		} else if ($page.url.pathname === '/retailers' && id !== '#retailers') {
+			goto('/', { replaceState: true }).then(() => {
+				const targetEl = document.querySelector(id);
+				if (!targetEl) return;
+				targetEl.scrollIntoView({ behavior: 'auto' });
+			});
 		} else {
 			const targetEl = document.querySelector(id);
 			if (!targetEl) return;
@@ -113,7 +122,7 @@
 			<hr class="border border-bwi-alabaster w-full mt-16" />
 
 			<div class="text-sm font-oakes text-bwi-alabaster tracking-tighter mt-4">
-				© 2023 B&W International. , All Rights Reserved
+				<p>&copy; {currentYear} B&W International. All Rights Reserved.</p>
 			</div>
 		</div>
 	{/if}
