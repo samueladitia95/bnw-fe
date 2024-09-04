@@ -12,7 +12,7 @@ export const load: PageLoad = async ({ url }) => {
 
 	const events = await pb.collection('Events').getList(1, +maxPage * 6, {
 		filter: totalFilter.trim() ? totalFilter.trim() : '',
-		sort: '-status'
+		sort: 'event_end_date,-event_start_date'
 	});
 
 	return {
