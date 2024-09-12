@@ -8,9 +8,14 @@ export const load: PageLoad = async ({ url }) => {
 	const filterUpcoming = `event_start_date > "${new Date().toISOString()}"`;
 	const filterPast = `event_start_date <= "${new Date().toISOString()}"`;
 
-	const totalFilter = `${filterName ? 'name~"' + filterName + '"' : ''} ${
-		filterLabel ? '&& status="' + filterLabel + '"' : ''
+	// const totalFilter = `${filterName ? 'name~"' + filterName + '"' : ''} ${
+	// 	filterLabel ? '&& status="' + filterLabel + '"' : ''
+	// }`;
+	const totalFilter = `${filterName ? 'name~"' + filterName + '"' : ''}${
+		filterLabel ? (filterName ? ' && ' : '') + 'status="' + filterLabel + '"' : ''
 	}`;
+
+	console.log(totalFilter);
 
 	const upcomingEvents = await pb.collection('Events').getList(1, +maxPage * 6, {
 		filter: totalFilter.trim() ? `${totalFilter.trim()} && ${filterUpcoming}` : filterUpcoming,
