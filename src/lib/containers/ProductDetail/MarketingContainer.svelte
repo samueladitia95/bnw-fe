@@ -25,6 +25,8 @@
 	];
 	export let opinionDesc: string =
 		'As the result for the instagram account of Easywalker Indonesia, there was an improvement of account reached from June 2023 to July 2023';
+	export let catalogDownloadUrl: string =
+		'https://drive.google.com/drive/folders/14XhB6jPttdiTIzhvht9PGxEFcfW4Ltnp?usp=sharing';
 
 	let isShow: boolean = false;
 	let isShow2: boolean = false;
@@ -206,10 +208,12 @@
 				For further information about the brand, simply just click download catalog below
 			</div>
 			<div class="w-full flex flex-col items-center mt-8">
-				<button
-					class="bg-bwi-lion text-center text-bwi-alabaster rounded-full py-3 px-6 font-oakes lg:text-xl"
-					>Download Catalog</button
-				>
+				<a href={catalogDownloadUrl} target="_blank">
+					<button
+						class="bg-bwi-lion text-center text-bwi-alabaster rounded-full py-3 px-6 font-oakes lg:text-xl"
+						>Download Catalog</button
+					>
+				</a>
 			</div>
 		</div>
 	</div>

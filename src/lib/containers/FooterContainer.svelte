@@ -32,10 +32,6 @@
 			label: 'Events',
 			link: '#events-container'
 		}
-		// {
-		// 	label: 'Testimonials',
-		// 	link: '#testimonials-container'
-		// }
 	];
 
 	export let instagramLink: string;

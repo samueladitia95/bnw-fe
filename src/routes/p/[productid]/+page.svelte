@@ -43,6 +43,7 @@
 		opinionImgs={opinionImgs.map((el) => {
 			return pb.files.getUrl(data.product, el);
 		})}
+		catalogDownloadUrl={data.product.catalog_download_url}
 	/>
 	<InstaCarausel />
 </div>

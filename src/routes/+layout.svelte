@@ -37,10 +37,6 @@
 			label: 'Events',
 			link: '#events-container'
 		}
-		// {
-		// 	label: 'Testimonials',
-		// 	link: '#testimonials-container'
-		// }
 	];
 	let sideBarIsOpen: boolean = false;
 	let isBackground: boolean = false;
@@ -58,6 +54,12 @@
 		if (id === '#retailers') {
 			goto('/retailers');
 		} else if ($page.url.pathname === '/retailers' && id !== '#retailers') {
+			goto('/', { replaceState: true }).then(() => {
+				const targetEl = document.querySelector(id);
+				if (!targetEl) return;
+				targetEl.scrollIntoView({ behavior: 'auto' });
+			});
+		} else if ($page.url.pathname.startsWith('/p/')) {
 			goto('/', { replaceState: true }).then(() => {
 				const targetEl = document.querySelector(id);
 				if (!targetEl) return;
@@ -311,7 +313,7 @@
 		<slot />
 		<FooterContainer
 			instagramLink={data.socialMedia.instagram}
-			youtubeLink={data.socialMedia.instagram}
+			youtubeLink={data.socialMedia.youtube}
 			whatsappLink={data.socialMedia.whatsapp}
 		/>
 	</div>
